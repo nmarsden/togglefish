@@ -26,6 +26,7 @@ body {
     box-shadow: 0 0 40px 54px #FDEBE6,
                 inset 0 0 0 10px #FFF;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    transition: box-shadow 300ms;
 }
 
 .tf-container:after {
@@ -38,6 +39,19 @@ body {
     cursor: pointer;
 }
 
+.tf-fish-back {
+    position: absolute;
+    z-index: -1;
+    animation: float_fish 10s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-fish-front {
+    position: absolute;
+    animation: float_fish 10s ease-out;
+    animation-iteration-count: infinite;
+}
+
 .tf-tail-fin {
     position: absolute;
     height: 110px;
@@ -47,6 +61,7 @@ body {
     border-radius: 0 50% 0 50%;
     box-shadow: inset 5px -11px 14px 3px #CE4728;
     transform: rotate(-5deg) skewX(-15deg) skewY(5deg);
+    transition: all 300ms;
 }
 
 .tf-tail-fin--top {
@@ -55,7 +70,6 @@ body {
 }
 
 .tf-tail-fin--bottom {
-    z-index: -1;
     top: 275px;
     height: 60px;
     width: 40px;
@@ -73,6 +87,7 @@ body {
     border-radius: 100px 300px 300px 300px / 50px 280px 280px 280px;
     box-shadow: inset 20px -20px 56px 20px #CE4728;
     transform: rotate(-0.125turn);
+    transition: all 300ms;
 }
 
 .tf-eye {
@@ -84,10 +99,11 @@ body {
     border: solid 3px black;
     border-radius: 50% 50% 50% 50% / 50% 50% 36% 50%;
     box-shadow: inset 5px -11px 14px 3px #CE4728;
+    transition: all 30ms;
 }
 
 .tf-eye::after {
-    display: none;
+    opacity: 0;
     content: '';
     position: absolute;
     top: 38px;
@@ -96,6 +112,7 @@ body {
     width: 10px;
     background-color: #000;
     border-radius: 50% 50%;
+    transition: all 30ms;
 }
 
 .tf-eye--right {
@@ -119,6 +136,7 @@ body {
     border-radius: 0 45% 45% 50%;
     box-shadow: inset 5px -11px 14px 3px #CE4728;
     transform: skewX(10deg) rotate(-10deg);
+    transition: all 300ms;
 }
 
 .tf-lip--top {
@@ -142,6 +160,7 @@ body {
     border-radius: 50% 0 50% 0;
     box-shadow: inset 12px 8px 14px 3px #CE4728;
     transform: rotate(-133deg) skewX(-2deg) skewY(-20deg);
+    transition: all 300ms;
 }
 
 .tf-side-fin--left {
@@ -149,7 +168,6 @@ body {
 }
 
 .tf-side-fin--right {
-    z-index: -1;
     left: 300px;
     height: 100px;
     width: 30px;
@@ -167,18 +185,6 @@ body {
     box-shadow: inset 4px -7px 14px 3px #6D6E6E;
 }
 
-.tf-toggle-ball::before {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    height: 100px;
-    width: 120px;
-    border-radius: 140px 140px 80px 80px;
-    background: #000;
-}
-
 .tf-toggle-ball {
     position: absolute;
     top: 25px;
@@ -188,7 +194,8 @@ body {
     background-color: #8A8A8A;
     border-radius: 134px 134px 74px 74px;
     box-shadow: inset 4px -7px 14px 3px #6D6E6E,
-                inset 4px -7px 14px 3px #FFF;
+                inset 4px -7px 14px 3px #FFF,
+                0 0 0 3px #000;
 }
 
 .tf-toggle-ball::after {
@@ -213,7 +220,8 @@ body {
     border-radius: 0 0 50% 50% / 0 0 10% 10%;
     box-shadow: inset 4px -7px 14px 3px #6D6E6E;
     transform-origin: 10px 110px;
-    transform: rotate(-20deg)
+    transform: rotate(-20deg);
+    transition: all 300ms;
 }
 
 .tf-toggle-tip {
@@ -228,7 +236,8 @@ body {
     box-shadow: inset 4px -7px 14px 3px #6D6E6E,
                 inset 4px -7px 14px 3px #FFF;
     transform-origin: 20px 120px;
-    transform: rotate(-20deg)
+    transform: rotate(-20deg);
+    transition: all 300ms;
 }
 
 .tf-toggler:checked ~ .tf-container {
@@ -252,7 +261,7 @@ body {
 }
 
 .tf-toggler:checked ~ .tf-container .tf-eye::after {
-    display: block;
+    opacity: 1;
 }
 
 .tf-toggler:checked ~ .tf-container .tf-lip {
@@ -266,9 +275,15 @@ body {
 }
 
 .tf-toggler:checked ~ .tf-container .tf-toggle-shaft {
-    transform: rotate(20deg)
+    transform: rotate(20deg);
 }
 
 .tf-toggler:checked ~ .tf-container .tf-toggle-tip {
-    transform: rotate(20deg)
+    transform: rotate(20deg);
+}
+
+@keyframes float_fish {
+    0% { transform: translate(0, -20px); }
+    50% { transform: translate(0, 20px); }
+    100% { transform: translate(0, -20px); }
 }
