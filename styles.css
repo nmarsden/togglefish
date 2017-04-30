@@ -14,6 +14,7 @@ body {
 
 .tf-toggler {
     opacity: 0;
+    position: fixed;
 }
 
 .tf-container {
