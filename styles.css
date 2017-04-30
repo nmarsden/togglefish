@@ -42,13 +42,13 @@ body {
 .tf-fish-back {
     position: absolute;
     z-index: -1;
-    animation: float_fish 10s ease-out;
+    animation: fish_float 10s ease-out;
     animation-iteration-count: infinite;
 }
 
 .tf-fish-front {
     position: absolute;
-    animation: float_fish 10s ease-out;
+    animation: fish_float 10s ease-out;
     animation-iteration-count: infinite;
 }
 
@@ -88,6 +88,9 @@ body {
     box-shadow: inset 20px -20px 56px 20px #CE4728;
     transform: rotate(-0.125turn);
     transition: all 300ms;
+
+    animation: fish_breathe 10s ease-out;
+    animation-iteration-count: infinite;
 }
 
 .tf-eye {
@@ -358,7 +361,14 @@ body {
     transform: rotate(20deg);
 }
 
-@keyframes float_fish {
+@keyframes fish_breathe {
+    0% { transform: rotate(-0.125turn) scale(1); }
+    96% { transform: rotate(-0.125turn) scale(1); }
+    98% { transform: rotate(-0.125turn) scale(1.01); }
+    100% { transform: rotate(-0.125turn) scale(1); }
+}
+
+@keyframes fish_float {
     0% { transform: translate(0, -20px); }
     50% { transform: translate(0, 20px); }
     100% { transform: translate(0, -20px); }
