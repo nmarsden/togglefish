@@ -52,6 +52,24 @@ body {
     animation-iteration-count: infinite;
 }
 
+.tf-tail-fin-container {
+    position: absolute;
+    height: 110px;
+    width: 40px;
+    transform-origin: right;
+    animation: tail_fin_paddle 2s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-tail-fin-container--top {
+    top: 156px;
+    left: 6px;
+}
+
+.tf-tail-fin-container--bottom {
+    top: 275px;
+}
+
 .tf-tail-fin {
     position: absolute;
     height: 110px;
@@ -65,12 +83,9 @@ body {
 }
 
 .tf-tail-fin--top {
-    top: 156px;
-    left: 6px;
 }
 
 .tf-tail-fin--bottom {
-    top: 275px;
     height: 60px;
     width: 40px;
     border-radius: 50% 0 50% 0;
@@ -395,6 +410,12 @@ body {
     0% { opacity: 1; transform: translate(0, 0); }
     50% { opacity: 1; }
     100% { opacity: 0.1; transform: translate(20px, -306px); }
+}
+
+@keyframes tail_fin_paddle {
+    0% { transform: translateZ(-100px) rotateY(50deg); }
+    50% { transform: translateZ(-100px) rotateY(0deg); }
+    100% { transform: translateZ(-100px) rotateY(50deg); }
 }
 
 @keyframes side_fin_paddle {
