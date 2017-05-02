@@ -91,10 +91,18 @@ body {
     border-radius: 50% 0 50% 0;
 }
 
-.tf-body {
+.tf-body-container {
     position: absolute;
     left: 98px;
     top: 90px;
+    transition: all 300ms;
+
+    animation: fish_breathe 10s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-body {
+    position: absolute;
     height: 360px;
     width: 360px;
     background-color: #F0592A;
@@ -103,85 +111,82 @@ body {
     box-shadow: inset 20px -20px 56px 20px #CE4728;
     transform: rotate(-0.125turn);
     transition: all 300ms;
+}
+
+.tf-scales-container {
+    position: absolute;
+    left: 160px;
+    top: 140px;
+    transition: all 300ms;
 
     animation: fish_breathe 10s ease-out;
     animation-iteration-count: infinite;
 }
 
+.tf-scales {
+    position: absolute;
+    height: 40px;
+    width: 25px;
+    border-radius: 20px 2px 2px 20px;
+    transition: all 300ms;
+}
+
 .tf-scales-1 {
-    left: 160px;
-    top: 220px;
+    left: 0;
+    top: 40px;
 }
 
 .tf-scales-2 {
-    left: 180px;
-    top: 200px;
+    left: 20px;
+    top: 20px;
 }
 
 .tf-scales-3 {
-    left: 200px;
-    top: 180px;
+    left: 40px;
+    top: 0;
 }
 
 .tf-scales-4 {
-    left: 220px;
-    top: 200px;
+    left: 60px;
+    top: 20px;
 }
 
 .tf-scales-5 {
-    left: 240px;
-    top: 180px;
+    left: 80px;
+    top: 0;
 }
 
 .tf-scales-6 {
-    left: 260px;
-    top: 200px;
+    left: 100px;
+    top: 20px;
 }
 
 .tf-scales-7 {
-    left: 280px;
-    top: 220px;
+    left: 120px;
+    top: 40px;
 }
 
 .tf-scales-small {
-    position: absolute;
-    height: 40px;
-    width: 20px;
-    background-color: #CE4728;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
     box-shadow: 0 0 0 0 red,
-                0 -6px  0 4px #CE4728, -3px  -6px 0 4px black,
-                0 40px  0 4px #CE4728, -3px  40px 0 4px black;
+                0 44px  0 4px #CE4728, -3px  44px 0 4px black,
+                0 90px  0 4px #CE4728, -3px  90px 0 4px black;
     transition: all 300ms;
 }
 
 .tf-scales-medium {
-    position: absolute;
-    height: 40px;
-    width: 20px;
-    background-color: #F0592A;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
     box-shadow: 0 0 0 0 red,
-                0 -6px  0 4px #F0592A, -3px  -6px 0 4px black,
-                0 40px  0 4px #F0592A, -3px  40px 0 4px black,
-                0 86px  0 4px #F0592A, -3px  86px 0 4px black;
+                0 44px  0 4px #F0592A, -3px  44px 0 4px black,
+                0 90px  0 4px #F0592A, -3px  90px 0 4px black,
+                0 136px 0 4px #F0592A, -3px 136px 0 4px black;
     transition: all 300ms;
 }
 
 .tf-scales-large {
-    position: absolute;
-    height: 40px;
-    width: 20px;
-    background-color: #F0592A;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
     box-shadow: 0 0 0 0 red,
-                0 -6px  0 4px #F0592A, -3px  -6px 0 4px black,
-                0 40px  0 4px #CE4728, -3px  40px 0 4px black,
-                0 86px  0 4px #CE4728, -3px  86px 0 4px black,
-                0 132px 0 4px #F0592A, -3px 132px 0 4px black;
+                0 44px  0 4px #F0592A, -3px  44px 0 4px black,
+                0 90px  0 4px #CE4728, -3px  90px 0 4px black,
+                0 136px 0 4px #CE4728, -3px 136px 0 4px black,
+                0 182px 0 4px #F0592A, -3px 182px 0 4px black;
     transition: all 300ms;
 }
 
@@ -441,27 +446,24 @@ body {
 }
 
 .tf-toggler:checked ~ .tf-container .tf-scales-small {
-    background-color: #459C4B;
     box-shadow: 0 0 0 0 red,
-                0 -6px  0 4px #459C4B, -3px  -6px 0 4px black,
-                0 40px  0 4px #459C4B, -3px  40px 0 4px black;
+                0 44px  0 4px #459C4B, -3px  44px 0 4px black,
+                0 90px  0 4px #459C4B, -3px  90px 0 4px black;
 }
 
 .tf-toggler:checked ~ .tf-container .tf-scales-medium {
-    background-color: #4FB95E;
     box-shadow: 0 0 0 0 red,
-                0 -6px  0 4px #4FB95E, -3px  -6px 0 4px black,
-                0 40px  0 4px #4FB95E, -3px  40px 0 4px black,
-                0 86px  0 4px #4FB95E, -3px  86px 0 4px black;
+                0 44px  0 4px #4FB95E, -3px  44px 0 4px black,
+                0 90px  0 4px #4FB95E, -3px  90px 0 4px black,
+                0 136px 0 4px #4FB95E, -3px 136px 0 4px black;
 }
 
 .tf-toggler:checked ~ .tf-container .tf-scales-large {
-    background-color: #4FB95E;
     box-shadow: 0 0 0 0 red,
-                0 -6px  0 4px #4FB95E, -3px  -6px 0 4px black,
-                0 40px  0 4px #459C4B, -3px  40px 0 4px black,
-                0 86px  0 4px #459C4B, -3px  86px 0 4px black,
-                0 132px 0 4px #4FB95E, -3px 132px 0 4px black;
+                0  44px  0 4px #4FB95E, -3px  44px 0 4px black,
+                0  90px  0 4px #459C4B, -3px  90px 0 4px black,
+                0 136px  0 4px #459C4B, -3px 136px 0 4px black,
+                0 182px  0 4px #4FB95E, -3px 182px 0 4px black;
 }
 
 .tf-toggler:checked ~ .tf-container .tf-eye::after {
@@ -495,10 +497,10 @@ body {
 }
 
 @keyframes fish_breathe {
-    0% { transform: rotate(-0.125turn) scale(1); }
-    96% { transform: rotate(-0.125turn) scale(1); }
-    98% { transform: rotate(-0.125turn) scale(1.01); }
-    100% { transform: rotate(-0.125turn) scale(1); }
+    0% { transform: scale(1); }
+    96% { transform: scale(1); }
+    98% { transform: scale(1.01); }
+    100% { transform: scale(1); }
 }
 
 @keyframes fish_float {
