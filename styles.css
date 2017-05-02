@@ -138,16 +138,21 @@ body {
     top: 200px;
 }
 
+.tf-scales-7 {
+    left: 280px;
+    top: 220px;
+}
+
 .tf-scales-small {
     position: absolute;
     height: 40px;
     width: 20px;
-    background-color: #F0592A;
+    background-color: #CE4728;
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
     box-shadow: 0 0 0 0 red,
-                0 -6px  0 4px #F0592A, -3px  -6px 0 4px black,
-                0 40px  0 4px #F0592A, -3px  40px 0 4px black;
+                0 -6px  0 4px #CE4728, -3px  -6px 0 4px black,
+                0 40px  0 4px #CE4728, -3px  40px 0 4px black;
     transition: all 300ms;
 }
 
@@ -174,8 +179,8 @@ body {
     border-top-left-radius: 20px;
     box-shadow: 0 0 0 0 red,
                 0 -6px  0 4px #F0592A, -3px  -6px 0 4px black,
-                0 40px  0 4px #F0592A, -3px  40px 0 4px black,
-                0 86px  0 4px #F0592A, -3px  86px 0 4px black,
+                0 40px  0 4px #CE4728, -3px  40px 0 4px black,
+                0 86px  0 4px #CE4728, -3px  86px 0 4px black,
                 0 132px 0 4px #F0592A, -3px 132px 0 4px black;
     transition: all 300ms;
 }
@@ -436,10 +441,10 @@ body {
 }
 
 .tf-toggler:checked ~ .tf-container .tf-scales-small {
-    background-color: #4FB95E;
+    background-color: #459C4B;
     box-shadow: 0 0 0 0 red,
-                0 -6px  0 4px #4FB95E, -3px  -6px 0 4px black,
-                0 40px  0 4px #4FB95E, -3px  40px 0 4px black;
+                0 -6px  0 4px #459C4B, -3px  -6px 0 4px black,
+                0 40px  0 4px #459C4B, -3px  40px 0 4px black;
 }
 
 .tf-toggler:checked ~ .tf-container .tf-scales-medium {
@@ -454,8 +459,8 @@ body {
     background-color: #4FB95E;
     box-shadow: 0 0 0 0 red,
                 0 -6px  0 4px #4FB95E, -3px  -6px 0 4px black,
-                0 40px  0 4px #4FB95E, -3px  40px 0 4px black,
-                0 86px  0 4px #4FB95E, -3px  86px 0 4px black,
+                0 40px  0 4px #459C4B, -3px  40px 0 4px black,
+                0 86px  0 4px #459C4B, -3px  86px 0 4px black,
                 0 132px 0 4px #4FB95E, -3px 132px 0 4px black;
 }
 
