@@ -313,6 +313,30 @@ body {
     transition: all 300ms;
 }
 
+.tf-glint-cross {
+    opacity: 0;
+    position: absolute;
+    top: 340px;
+    left: 445px;
+    height: 30px;
+    width: 2px;
+    background-color: #FFF;
+}
+
+.tf-glint-cross::after {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 15px;
+    height: 2px;
+    width: 30px;
+    background-color: #FFF;
+}
+
+.tf-glint-cross--rotated {
+    transform: rotate(45deg);
+}
+
 .tf-side-fin-container {
     position: absolute;
     top: 400px;
@@ -558,6 +582,10 @@ body {
     transform: skewX(10deg) rotate(0deg) translate(0, 40px);
 }
 
+.tf-toggler:checked ~ .tf-container .tf-glint-cross {
+    animation: glint 1s ease-out;
+}
+
 .tf-toggler:checked ~ .tf-container .tf-side-fin {
     background-color: #4FB95E;
     box-shadow: inset 12px 8px 14px 3px #459C4B;
@@ -623,5 +651,12 @@ body {
     97% { opacity: 1; }
     98% { opacity: 0; }
     99% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes glint {
+    0% { opacity: 0; transform: scale(0.2); }
+    30% { opacity: 1; transform: scale(1); }
+    80% { opacity: 1; }
     100% { opacity: 0; }
 }
