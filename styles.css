@@ -190,6 +190,28 @@ body {
     transition: all 300ms;
 }
 
+.tf-eyebrow {
+    position: absolute;
+    height: 16px;
+    background-color: black;
+    border-radius: 50% 50% 0 0;
+    transition: all 300ms;
+}
+
+.tf-eyebrow--left {
+    left: 348px;
+    top: 178px;
+    width: 60px;
+    transform: rotate(-7deg);
+}
+
+.tf-eyebrow--right {
+    left: 426px;
+    top: 175px;
+    width: 56px;
+    transform: rotate(5deg);
+}
+
 .tf-eye {
     position: absolute;
     top: 200px;
@@ -513,6 +535,10 @@ body {
                 0  90px  0 4px #459C4B, -3px  90px 0 4px black,
                 0 136px  0 4px #459C4B, -3px 136px 0 4px black,
                 0 182px  0 4px #4FB95E, -3px 182px 0 4px black;
+}
+
+.tf-toggler:checked ~ .tf-container .tf-eyebrow {
+    transform: translateY(-10px);
 }
 
 .tf-toggler:checked ~ .tf-container .tf-eye::after {
