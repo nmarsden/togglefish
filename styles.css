@@ -17,31 +17,22 @@ body {
     justify-content: center;
 }
 
+.outer-container {
+    height: 485px;
+    width: 485px;
+}
+
 .tf-toggler {
     opacity: 0;
     position: fixed;
 }
 
 .tf-container {
-    position: relative;
-    height: 485px;
-    width: 485px;
-    border-radius: 50% 50%;
-    background-color: transparent;
-    box-shadow: 0 0 40px 54px var(--container-color),
-                inset 0 0 0 10px #FFF;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    transition: box-shadow 300ms;
-}
-
-.tf-container:after {
-    content: '';
     position: absolute;
     height: 485px;
     width: 485px;
-    border-radius: 50% 50%;
-    background-color: transparent;
-    cursor: pointer;
+    animation: fish_spin 20s ease-out;
+    animation-iteration-count: infinite;
 }
 
 .tf-fish-back {
@@ -49,6 +40,16 @@ body {
     z-index: -1;
     animation: fish_float 10s ease-out;
     animation-iteration-count: infinite;
+}
+
+.tf-ring {
+    position: absolute;
+    height: 485px;
+    width: 485px;
+    border-radius: 50% 50%;
+    background-color: transparent;
+    box-shadow: 0 0 40px 54px var(--container-color),
+                inset 0 0 0 10px #FFF;
 }
 
 .tf-fish-front {
@@ -444,6 +445,12 @@ body {
     transition: all 300ms;
 }
 
+.tf-bubble-and-sleep-z-container {
+    position: absolute;
+    height: 485px;
+    width: 485px;
+}
+
 .tf-bubble {
     opacity: 0;
     position: absolute;
@@ -527,6 +534,14 @@ body {
     background: #000;
 }
 
+.tf-clickable {
+    position: absolute;
+    height: 485px;
+    width: 485px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    cursor: pointer;
+}
+
 .tf-toggler:checked ~ .tf-container {
     --fish-main-colour: #4FB95E;
     --fish-shade-colour: #459C4B;
@@ -549,6 +564,7 @@ body {
 
 .tf-toggler:checked ~ .tf-container .tf-glint-cross {
     animation: glint 1s ease-out;
+    animation-delay: 1s;
 }
 
 .tf-toggler:checked ~ .tf-container .tf-toggle-shaft {
@@ -562,6 +578,14 @@ body {
 .tf-toggler:checked ~ .tf-container .tf-sleep-z {
     opacity: 0;
     animation: none;
+}
+
+@keyframes fish_spin {
+    0% { transform: rotateZ(0deg); }
+    88% { transform: rotateZ(0deg); }
+    90% { transform: rotateZ(-20deg); }
+    98% { transform: rotateZ(380deg); }
+    100% { transform: rotateZ(360deg); }
 }
 
 @keyframes fish_breathe {
