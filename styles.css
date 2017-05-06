@@ -1,3 +1,8 @@
+:root {
+    --fish-main-colour: #F0592A;
+    --fish-shade-colour: #CE4728;
+    --container-color: #FDEBE6;
+}
 
 html {
     height: 100%;
@@ -23,7 +28,7 @@ body {
     width: 485px;
     border-radius: 50% 50%;
     background-color: transparent;
-    box-shadow: 0 0 40px 54px #FDEBE6,
+    box-shadow: 0 0 40px 54px var(--container-color),
                 inset 0 0 0 10px #FFF;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     transition: box-shadow 300ms;
@@ -74,10 +79,10 @@ body {
     position: absolute;
     height: 110px;
     width: 40px;
-    background-color: #F0592A;
+    background-color: var(--fish-main-colour);
     border: solid 3px black;
     border-radius: 0 50% 0 50%;
-    box-shadow: inset 5px -11px 14px 3px #CE4728;
+    box-shadow: inset 5px -11px 14px 3px var(--fish-shade-colour);
     transform: rotate(-5deg) skewX(-15deg) skewY(5deg);
     transition: all 300ms;
 }
@@ -105,10 +110,10 @@ body {
     position: absolute;
     height: 360px;
     width: 360px;
-    background-color: #F0592A;
+    background-color: var(--fish-main-colour);
     border: solid 3px black;
     border-radius: 100px 300px 300px 300px / 50px 280px 280px 280px;
-    box-shadow: inset 20px -20px 56px 20px #CE4728;
+    box-shadow: inset 20px -20px 56px 20px var(--fish-shade-colour);
     transform: rotate(-0.125turn);
     transition: all 300ms;
 }
@@ -167,23 +172,23 @@ body {
 }
 
 .tf-scales-small {
-    box-shadow: 0 44px  0 4px #CE4728, -3px  44px 0 4px black,
-                0 90px  0 4px #CE4728, -3px  90px 0 4px black;
+    box-shadow: 0 44px  0 4px var(--fish-shade-colour), -3px  44px 0 4px black,
+                0 90px  0 4px var(--fish-shade-colour), -3px  90px 0 4px black;
     transition: all 300ms;
 }
 
 .tf-scales-medium {
-    box-shadow: 0 44px  0 4px #F0592A, -3px  44px 0 4px black,
-                0 90px  0 4px #F0592A, -3px  90px 0 4px black,
-                0 136px 0 4px #F0592A, -3px 136px 0 4px black;
+    box-shadow: 0 44px  0 4px var(--fish-main-colour), -3px  44px 0 4px black,
+                0 90px  0 4px var(--fish-main-colour), -3px  90px 0 4px black,
+                0 136px 0 4px var(--fish-main-colour), -3px 136px 0 4px black;
     transition: all 300ms;
 }
 
 .tf-scales-large {
-    box-shadow: 0 44px  0 4px #F0592A, -3px  44px 0 4px black,
-                0 90px  0 4px #CE4728, -3px  90px 0 4px black,
-                0 136px 0 4px #CE4728, -3px 136px 0 4px black,
-                0 182px 0 4px #F0592A, -3px 182px 0 4px black;
+    box-shadow: 0 44px  0 4px var(--fish-main-colour), -3px  44px 0 4px black,
+                0 90px  0 4px var(--fish-shade-colour), -3px  90px 0 4px black,
+                0 136px 0 4px var(--fish-shade-colour), -3px 136px 0 4px black,
+                0 182px 0 4px var(--fish-main-colour), -3px 182px 0 4px black;
     transition: all 300ms;
 }
 
@@ -240,10 +245,10 @@ body {
     left: -3px;
     height: 80px;
     width: 60px;
-    background-color: #F0592A;
+    background-color: var(--fish-main-colour);
     border: solid 3px black;
     border-radius: 50% 50% 50% 50% / 50% 50% 36% 50%;
-    box-shadow: inset 5px -11px 14px 3px #CE4728;
+    box-shadow: inset 5px -11px 14px 3px var(--fish-shade-colour);
     transition: opacity 30ms;
 }
 
@@ -268,10 +273,10 @@ body {
     left: 350px;
     height: 50px;
     width: 135px;
-    background-color: #F0592A;
+    background-color: var(--fish-main-colour);
     border: solid 3px black;
     border-radius: 0 45% 45% 50%;
-    box-shadow: inset 5px -11px 14px 3px #CE4728;
+    box-shadow: inset 5px -11px 14px 3px var(--fish-shade-colour);
     transform: skewX(10deg) rotate(-10deg);
     transition: all 300ms;
 }
@@ -356,10 +361,10 @@ body {
     position: absolute;
     height: 110px;
     width: 40px;
-    background-color: #F0592A;
+    background-color: var(--fish-main-colour);
     border: solid 3px black;
     border-radius: 50% 0 50% 0;
-    box-shadow: inset 12px 8px 14px 3px #CE4728;
+    box-shadow: inset 12px 8px 14px 3px var(--fish-shade-colour);
     transform: rotate(-133deg) skewX(-2deg) skewY(-20deg);
     transition: all 300ms;
 }
@@ -523,36 +528,9 @@ body {
 }
 
 .tf-toggler:checked ~ .tf-container {
-    box-shadow: 0 0 40px 54px #DFF9E3,
-                inset 0 0 0 10px #FFF;
-}
-
-.tf-toggler:checked ~ .tf-container .tf-tail-fin {
-    background-color: #4FB95E;
-    box-shadow: inset 5px -11px 14px 3px #459C4B;
-}
-
-.tf-toggler:checked ~ .tf-container .tf-body {
-    background-color: #4FB95E;
-    box-shadow: inset 20px -20px 56px 20px #459C4B;
-}
-
-.tf-toggler:checked ~ .tf-container .tf-scales-small {
-    box-shadow: 0 44px  0 4px #459C4B, -3px  44px 0 4px black,
-                0 90px  0 4px #459C4B, -3px  90px 0 4px black;
-}
-
-.tf-toggler:checked ~ .tf-container .tf-scales-medium {
-    box-shadow: 0 44px  0 4px #4FB95E, -3px  44px 0 4px black,
-                0 90px  0 4px #4FB95E, -3px  90px 0 4px black,
-                0 136px 0 4px #4FB95E, -3px 136px 0 4px black;
-}
-
-.tf-toggler:checked ~ .tf-container .tf-scales-large {
-    box-shadow: 0  44px  0 4px #4FB95E, -3px  44px 0 4px black,
-                0  90px  0 4px #459C4B, -3px  90px 0 4px black,
-                0 136px  0 4px #459C4B, -3px 136px 0 4px black,
-                0 182px  0 4px #4FB95E, -3px 182px 0 4px black;
+    --fish-main-colour: #4FB95E;
+    --fish-shade-colour: #459C4B;
+    --container-color: #DFF9E3;
 }
 
 .tf-toggler:checked ~ .tf-container .tf-eyebrow {
@@ -561,15 +539,8 @@ body {
 
 .tf-toggler:checked ~ .tf-container .tf-eye::after {
     opacity: 0;
-    background-color: #4FB95E;
-    box-shadow: inset 5px -11px 14px 3px #459C4B;
     animation: eye_blink 10s ease-out;
     animation-iteration-count: infinite;
-}
-
-.tf-toggler:checked ~ .tf-container .tf-lip {
-    background-color: #4FB95E;
-    box-shadow: inset 5px -11px 14px 3px #459C4B;
 }
 
 .tf-toggler:checked ~ .tf-container .tf-lip--bottom {
@@ -578,11 +549,6 @@ body {
 
 .tf-toggler:checked ~ .tf-container .tf-glint-cross {
     animation: glint 1s ease-out;
-}
-
-.tf-toggler:checked ~ .tf-container .tf-side-fin {
-    background-color: #4FB95E;
-    box-shadow: inset 12px 8px 14px 3px #459C4B;
 }
 
 .tf-toggler:checked ~ .tf-container .tf-toggle-shaft {
