@@ -18,6 +18,14 @@ body {
 }
 
 .outer-container {
+    height: 665px;
+    width: 545px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.tf-fish {
     height: 485px;
     width: 485px;
 }
@@ -534,6 +542,249 @@ body {
     background: #000;
 }
 
+.tf-letters {
+    height: 90px;
+    width: 545px;
+    margin-top: 50px;
+}
+
+.tf-letter {
+    display: inline-block;
+    position: relative;
+    height: 90px;
+    width: 50px;
+}
+
+.tf-letter-t {
+    height: 20px;
+    width: 50px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-t::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    height: 50px;
+    width: 20px;
+    background: var(--fish-main-colour);
+}
+
+.tf-letter-o1 {
+    height: 20px;
+    width: 50px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-o1::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    height: 20px;
+    width: 50px;
+    background: var(--fish-main-colour);
+}
+
+.tf-letter-o2 {
+    top: 20px;
+    height: 50px;
+    width: 20px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-o2::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    height: 50px;
+    width: 20px;
+    background: var(--fish-main-colour);
+}
+
+.tf-letter-g1 {
+    height: 20px;
+    width: 50px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-g1::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    height: 20px;
+    width: 50px;
+    background: var(--fish-main-colour);
+}
+
+.tf-letter-g2 {
+    top: 20px;
+    height: 50px;
+    width: 20px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-g2::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 30px;
+    height: 30px;
+    width: 20px;
+    background: var(--fish-main-colour);
+}
+
+.tf-letter-l {
+    height: 70px;
+    width: 20px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-l::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    height: 20px;
+    width: 50px;
+    background: var(--fish-main-colour);
+}
+
+.tf-letter-e1 {
+    height: 20px;
+    width: 50px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-e1::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    height: 20px;
+    width: 50px;
+    background: var(--fish-main-colour);
+}
+
+.tf-letter-e2 {
+    height: 50px;
+    width: 20px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-e2::after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    height: 20px;
+    width: 30px;
+    background: var(--fish-main-colour);
+}
+
+.tf-letter-f1 {
+    height: 20px;
+    width: 50px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-f1::after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    height: 20px;
+    width: 30px;
+    background: var(--fish-main-colour);
+}
+
+.tf-letter-f2 {
+    height: 50px;
+    width: 20px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-i1 {
+    height: 20px;
+    width: 50px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-i1::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    height: 20px;
+    width: 50px;
+    background: var(--fish-main-colour);
+}
+
+.tf-letter-i2 {
+    position: relative;
+    left: 15px;
+    height: 50px;
+    width: 20px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-s1 {
+    height: 20px;
+    width: 50px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-s1::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    height: 20px;
+    width: 50px;
+    background: var(--fish-main-colour);
+}
+
+.tf-letter-s2 {
+    height: 20px;
+    width: 20px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-s2::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    height: 10px;
+    width: 50px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-s3 {
+    position: relative;
+    left: 30px;
+    height: 20px;
+    width: 20px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-h1 {
+    height: 70px;
+    width: 20px;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-h1::after {
+    content: '';
+    position: absolute;
+    left: 30px;
+    height: 70px;
+    width: 20px;
+    background: var(--fish-main-colour);
+}
+
+.tf-letter-h2 {
+    position: relative;
+    top: -45px;
+    height: 20px;
+    width: 50px;
+    background-color: var(--fish-main-colour);
+}
+
 .tf-clickable {
     position: absolute;
     height: 485px;
@@ -575,7 +826,7 @@ body {
     transform: rotate(20deg);
 }
 
-.tf-toggler:checked ~ .tf-container .tf-sleep-z {
+.tf-toggler:checked ~ .tf-bubble-and-sleep-z-container .tf-sleep-z {
     opacity: 0;
     animation: none;
 }
