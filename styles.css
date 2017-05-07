@@ -182,23 +182,23 @@ body {
 }
 
 .tf-scales-small {
-    box-shadow: 0 44px  0 4px var(--fish-shade-colour), -3px  44px 0 4px black,
-                0 90px  0 4px var(--fish-shade-colour), -3px  90px 0 4px black;
+    box-shadow: 0 44px  0 4px var(--fish-main-colour), -3px  44px 0 4px var(--fish-shade-colour),
+                0 90px  0 4px var(--fish-main-colour), -3px  90px 0 4px var(--fish-shade-colour);
     transition: all 300ms;
 }
 
 .tf-scales-medium {
-    box-shadow: 0 44px  0 4px var(--fish-main-colour), -3px  44px 0 4px black,
-                0 90px  0 4px var(--fish-main-colour), -3px  90px 0 4px black,
-                0 136px 0 4px var(--fish-main-colour), -3px 136px 0 4px black;
+    box-shadow: 0 44px  0 4px var(--fish-main-colour), -3px  44px 0 4px var(--fish-shade-colour),
+                0 90px  0 4px var(--fish-main-colour), -3px  90px 0 4px var(--fish-shade-colour),
+                0 136px 0 4px var(--fish-main-colour), -3px 136px 0 4px var(--fish-shade-colour);
     transition: all 300ms;
 }
 
 .tf-scales-large {
-    box-shadow: 0 44px  0 4px var(--fish-main-colour), -3px  44px 0 4px black,
-                0 90px  0 4px var(--fish-shade-colour), -3px  90px 0 4px black,
-                0 136px 0 4px var(--fish-shade-colour), -3px 136px 0 4px black,
-                0 182px 0 4px var(--fish-main-colour), -3px 182px 0 4px black;
+    box-shadow: 0 44px  0 4px var(--fish-main-colour), -3px  44px 0 4px var(--fish-shade-colour),
+                0 90px  0 4px var(--fish-main-colour), -3px  90px 0 4px var(--fish-shade-colour),
+                0 136px 0 4px var(--fish-main-colour), -3px 136px 0 4px var(--fish-shade-colour),
+                0 182px 0 4px var(--fish-main-colour), -3px 182px 0 4px var(--fish-shade-colour);
     transition: all 300ms;
 }
 
