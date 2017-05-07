@@ -558,6 +558,8 @@ body {
 .tf-letter-t {
     height: 20px;
     width: 50px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
     background-color: var(--fish-main-colour);
 }
 
@@ -568,203 +570,289 @@ body {
     left: 15px;
     height: 50px;
     width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--fish-main-colour);
     background: var(--fish-main-colour);
 }
 
 .tf-letter-o1 {
     height: 20px;
     width: 50px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
     background-color: var(--fish-main-colour);
 }
 
 .tf-letter-o1::after {
     content: '';
     position: absolute;
+    left: 0;
     top: 50px;
     height: 20px;
     width: 50px;
+    border: 1px solid #000;
     background: var(--fish-main-colour);
 }
 
 .tf-letter-o2 {
-    top: 20px;
-    height: 50px;
+    position: relative;
+    top: -1px;
+    left: 0;
+    height: 28px;
     width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--fish-main-colour);
+    border-bottom: 1px solid var(--fish-main-colour);
     background-color: var(--fish-main-colour);
 }
 
 .tf-letter-o2::after {
     content: '';
     position: absolute;
-    top: 20px;
-    left: 30px;
-    height: 50px;
+    top: -1px;
+    left: 29px;
+    height: 28px;
     width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--fish-main-colour);
+    border-bottom: 1px solid var(--fish-main-colour);
     background: var(--fish-main-colour);
 }
 
 .tf-letter-g1 {
     height: 20px;
     width: 50px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
     background-color: var(--fish-main-colour);
 }
 
 .tf-letter-g1::after {
     content: '';
     position: absolute;
+    left: 0;
     top: 50px;
     height: 20px;
     width: 50px;
+    border: 1px solid #000;
     background: var(--fish-main-colour);
 }
 
 .tf-letter-g2 {
-    top: 20px;
-    height: 50px;
+    position: relative;
+    top: -1px;
+    left: 0;
+    height: 28px;
     width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--fish-main-colour);
+    border-bottom: 1px solid var(--fish-main-colour);
     background-color: var(--fish-main-colour);
 }
 
 .tf-letter-g2::after {
     content: '';
     position: absolute;
-    top: 40px;
-    left: 30px;
-    height: 30px;
+    top: 20px;
+    left: 29px;
+    height: 8px;
     width: 20px;
+    border: 1px solid #000;
+    border-bottom: 1px solid var(--fish-main-colour);
     background: var(--fish-main-colour);
 }
 
 .tf-letter-l {
     height: 70px;
     width: 20px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
     background-color: var(--fish-main-colour);
 }
 
 .tf-letter-l::after {
     content: '';
     position: absolute;
+    left: 20px;
     top: 50px;
     height: 20px;
-    width: 50px;
+    width: 30px;
+    border: 1px solid #000;
+    border-left: 1px solid var(--fish-main-colour);
     background: var(--fish-main-colour);
 }
 
 .tf-letter-e1 {
     height: 20px;
     width: 50px;
+    border-radius: 5px 5px 0 0;
+    background-color: var(--fish-main-colour);
+}
+
+.tf-letter-e1 {
+    height: 20px;
+    width: 50px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
     background-color: var(--fish-main-colour);
 }
 
 .tf-letter-e1::after {
     content: '';
     position: absolute;
+    left: 0;
     top: 50px;
     height: 20px;
     width: 50px;
+    border: 1px solid #000;
     background: var(--fish-main-colour);
 }
 
 .tf-letter-e2 {
-    height: 50px;
+    position: relative;
+    top: -1px;
+    left: 0;
+    height: 28px;
     width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--fish-main-colour);
+    border-bottom: 1px solid var(--fish-main-colour);
     background-color: var(--fish-main-colour);
 }
 
 .tf-letter-e2::after {
     content: '';
     position: absolute;
-    top: 25px;
-    height: 20px;
-    width: 30px;
+    top: 4px;
+    left: 20px;
+    height: 18px;
+    width: 8px;
+    border: 1px solid #000;
+    border-left: 1px solid var(--fish-main-colour);
     background: var(--fish-main-colour);
 }
 
 .tf-letter-f1 {
     height: 20px;
     width: 50px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
     background-color: var(--fish-main-colour);
-}
-
-.tf-letter-f1::after {
-    content: '';
-    position: absolute;
-    top: 25px;
-    height: 20px;
-    width: 30px;
-    background: var(--fish-main-colour);
 }
 
 .tf-letter-f2 {
-    height: 50px;
+    position: relative;
+    top: -1px;
+    left: 0;
+    height: 49px;
     width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--fish-main-colour);
     background-color: var(--fish-main-colour);
+}
+
+.tf-letter-f2::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 20px;
+    height: 18px;
+    width: 8px;
+    border: 1px solid #000;
+    border-left: 1px solid var(--fish-main-colour);
+    background: var(--fish-main-colour);
 }
 
 .tf-letter-i1 {
     height: 20px;
     width: 50px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
     background-color: var(--fish-main-colour);
 }
 
 .tf-letter-i1::after {
     content: '';
     position: absolute;
+    left: 0;
     top: 50px;
     height: 20px;
     width: 50px;
+    border: 1px solid #000;
     background: var(--fish-main-colour);
 }
 
 .tf-letter-i2 {
     position: relative;
+    top: -1px;
     left: 15px;
-    height: 50px;
+    height: 28px;
     width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--fish-main-colour);
+    border-bottom: 1px solid var(--fish-main-colour);
     background-color: var(--fish-main-colour);
 }
 
 .tf-letter-s1 {
     height: 20px;
     width: 50px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
     background-color: var(--fish-main-colour);
 }
 
 .tf-letter-s1::after {
     content: '';
     position: absolute;
+    left: 0;
     top: 50px;
     height: 20px;
     width: 50px;
+    border: 1px solid #000;
     background: var(--fish-main-colour);
 }
 
+.tf-letter-s1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 30px;
+    height: 10px;
+    width: 50px;
+    border: 1px solid #000;
+    background-color: var(--fish-main-colour);
+}
+
 .tf-letter-s2 {
-    height: 20px;
+    position: relative;
+    top: -1px;
+    height: 8px;
     width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--fish-main-colour);
+    border-bottom: 1px solid var(--fish-main-colour);
     background-color: var(--fish-main-colour);
 }
 
 .tf-letter-s2::after {
     content: '';
     position: absolute;
-    top: 30px;
-    height: 10px;
-    width: 50px;
-    background-color: var(--fish-main-colour);
-}
-
-.tf-letter-s3 {
-    position: relative;
-    left: 30px;
-    height: 20px;
+    top: 19px;
+    left: 29px;
+    height: 8px;
     width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--fish-main-colour);
+    border-bottom: 1px solid var(--fish-main-colour);
     background-color: var(--fish-main-colour);
 }
 
 .tf-letter-h1 {
     height: 70px;
     width: 20px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
     background-color: var(--fish-main-colour);
 }
 
@@ -774,14 +862,20 @@ body {
     left: 30px;
     height: 70px;
     width: 20px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
     background: var(--fish-main-colour);
 }
 
 .tf-letter-h2 {
     position: relative;
     top: -45px;
+    left: 21px;
     height: 20px;
-    width: 50px;
+    width: 8px;
+    border: 1px solid #000;
+    border-left: 1px solid var(--fish-main-colour);
+    border-right: 1px solid var(--fish-main-colour);
     background-color: var(--fish-main-colour);
 }
 
