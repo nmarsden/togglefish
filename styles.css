@@ -1,6 +1,7 @@
 :root {
     --fish-main-colour: #F0592A;
     --fish-shade-colour: #CE4728;
+    --letters-main-colour: #5B88F0;
     --container-color: #FDEBE6;
 }
 
@@ -19,7 +20,7 @@ body {
 
 .outer-container {
     height: 665px;
-    width: 545px;
+    width: 565px;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -544,8 +545,10 @@ body {
 
 .tf-letters {
     height: 90px;
-    width: 545px;
+    width: 565px;
     margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .tf-letter {
@@ -553,6 +556,48 @@ body {
     position: relative;
     height: 90px;
     width: 50px;
+    animation: letters_float 10s linear;
+    animation-iteration-count: infinite;
+}
+
+.tf-letter--1 {
+    animation-delay: 0s;
+}
+
+.tf-letter--2 {
+    animation-delay: 1s;
+}
+
+.tf-letter--3 {
+    animation-delay: 2s;
+}
+
+.tf-letter--4 {
+    animation-delay: 3s;
+}
+
+.tf-letter--5 {
+    animation-delay: 4s;
+}
+
+.tf-letter--6 {
+    animation-delay: 5s;
+}
+
+.tf-letter--7 {
+    animation-delay: 6s;
+}
+
+.tf-letter--8 {
+    animation-delay: 7s;
+}
+
+.tf-letter--9 {
+    animation-delay: 8s;
+}
+
+.tf-letter--10 {
+    animation-delay: 9s;
 }
 
 .tf-letter-t {
@@ -560,7 +605,7 @@ body {
     width: 50px;
     border-radius: 5px 5px 0 0;
     border: 1px solid #000;
-    background-color: var(--fish-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-t::after {
@@ -571,8 +616,8 @@ body {
     height: 50px;
     width: 20px;
     border: 1px solid #000;
-    border-top: 1px solid var(--fish-main-colour);
-    background: var(--fish-main-colour);
+    border-top: 1px solid var(--letters-main-colour);
+    background: var(--letters-main-colour);
 }
 
 .tf-letter-o1 {
@@ -580,7 +625,7 @@ body {
     width: 50px;
     border-radius: 5px 5px 0 0;
     border: 1px solid #000;
-    background-color: var(--fish-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-o1::after {
@@ -591,7 +636,7 @@ body {
     height: 20px;
     width: 50px;
     border: 1px solid #000;
-    background: var(--fish-main-colour);
+    background: var(--letters-main-colour);
 }
 
 .tf-letter-o2 {
@@ -601,9 +646,9 @@ body {
     height: 28px;
     width: 20px;
     border: 1px solid #000;
-    border-top: 1px solid var(--fish-main-colour);
-    border-bottom: 1px solid var(--fish-main-colour);
-    background-color: var(--fish-main-colour);
+    border-top: 1px solid var(--letters-main-colour);
+    border-bottom: 1px solid var(--letters-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-o2::after {
@@ -614,9 +659,9 @@ body {
     height: 28px;
     width: 20px;
     border: 1px solid #000;
-    border-top: 1px solid var(--fish-main-colour);
-    border-bottom: 1px solid var(--fish-main-colour);
-    background: var(--fish-main-colour);
+    border-top: 1px solid var(--letters-main-colour);
+    border-bottom: 1px solid var(--letters-main-colour);
+    background: var(--letters-main-colour);
 }
 
 .tf-letter-g1 {
@@ -624,7 +669,7 @@ body {
     width: 50px;
     border-radius: 5px 5px 0 0;
     border: 1px solid #000;
-    background-color: var(--fish-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-g1::after {
@@ -635,7 +680,7 @@ body {
     height: 20px;
     width: 50px;
     border: 1px solid #000;
-    background: var(--fish-main-colour);
+    background: var(--letters-main-colour);
 }
 
 .tf-letter-g2 {
@@ -645,9 +690,9 @@ body {
     height: 28px;
     width: 20px;
     border: 1px solid #000;
-    border-top: 1px solid var(--fish-main-colour);
-    border-bottom: 1px solid var(--fish-main-colour);
-    background-color: var(--fish-main-colour);
+    border-top: 1px solid var(--letters-main-colour);
+    border-bottom: 1px solid var(--letters-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-g2::after {
@@ -658,8 +703,8 @@ body {
     height: 8px;
     width: 20px;
     border: 1px solid #000;
-    border-bottom: 1px solid var(--fish-main-colour);
-    background: var(--fish-main-colour);
+    border-bottom: 1px solid var(--letters-main-colour);
+    background: var(--letters-main-colour);
 }
 
 .tf-letter-l {
@@ -667,7 +712,7 @@ body {
     width: 20px;
     border-radius: 5px 5px 0 0;
     border: 1px solid #000;
-    background-color: var(--fish-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-l::after {
@@ -678,15 +723,15 @@ body {
     height: 20px;
     width: 30px;
     border: 1px solid #000;
-    border-left: 1px solid var(--fish-main-colour);
-    background: var(--fish-main-colour);
+    border-left: 1px solid var(--letters-main-colour);
+    background: var(--letters-main-colour);
 }
 
 .tf-letter-e1 {
     height: 20px;
     width: 50px;
     border-radius: 5px 5px 0 0;
-    background-color: var(--fish-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-e1 {
@@ -694,7 +739,7 @@ body {
     width: 50px;
     border-radius: 5px 5px 0 0;
     border: 1px solid #000;
-    background-color: var(--fish-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-e1::after {
@@ -705,7 +750,7 @@ body {
     height: 20px;
     width: 50px;
     border: 1px solid #000;
-    background: var(--fish-main-colour);
+    background: var(--letters-main-colour);
 }
 
 .tf-letter-e2 {
@@ -715,9 +760,9 @@ body {
     height: 28px;
     width: 20px;
     border: 1px solid #000;
-    border-top: 1px solid var(--fish-main-colour);
-    border-bottom: 1px solid var(--fish-main-colour);
-    background-color: var(--fish-main-colour);
+    border-top: 1px solid var(--letters-main-colour);
+    border-bottom: 1px solid var(--letters-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-e2::after {
@@ -728,8 +773,8 @@ body {
     height: 18px;
     width: 8px;
     border: 1px solid #000;
-    border-left: 1px solid var(--fish-main-colour);
-    background: var(--fish-main-colour);
+    border-left: 1px solid var(--letters-main-colour);
+    background: var(--letters-main-colour);
 }
 
 .tf-letter-f1 {
@@ -737,7 +782,7 @@ body {
     width: 50px;
     border-radius: 5px 5px 0 0;
     border: 1px solid #000;
-    background-color: var(--fish-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-f2 {
@@ -747,8 +792,8 @@ body {
     height: 49px;
     width: 20px;
     border: 1px solid #000;
-    border-top: 1px solid var(--fish-main-colour);
-    background-color: var(--fish-main-colour);
+    border-top: 1px solid var(--letters-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-f2::after {
@@ -759,8 +804,8 @@ body {
     height: 18px;
     width: 8px;
     border: 1px solid #000;
-    border-left: 1px solid var(--fish-main-colour);
-    background: var(--fish-main-colour);
+    border-left: 1px solid var(--letters-main-colour);
+    background: var(--letters-main-colour);
 }
 
 .tf-letter-i1 {
@@ -768,7 +813,7 @@ body {
     width: 50px;
     border-radius: 5px 5px 0 0;
     border: 1px solid #000;
-    background-color: var(--fish-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-i1::after {
@@ -779,7 +824,7 @@ body {
     height: 20px;
     width: 50px;
     border: 1px solid #000;
-    background: var(--fish-main-colour);
+    background: var(--letters-main-colour);
 }
 
 .tf-letter-i2 {
@@ -789,9 +834,9 @@ body {
     height: 28px;
     width: 20px;
     border: 1px solid #000;
-    border-top: 1px solid var(--fish-main-colour);
-    border-bottom: 1px solid var(--fish-main-colour);
-    background-color: var(--fish-main-colour);
+    border-top: 1px solid var(--letters-main-colour);
+    border-bottom: 1px solid var(--letters-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-s1 {
@@ -799,7 +844,7 @@ body {
     width: 50px;
     border-radius: 5px 5px 0 0;
     border: 1px solid #000;
-    background-color: var(--fish-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-s1::after {
@@ -810,7 +855,7 @@ body {
     height: 20px;
     width: 50px;
     border: 1px solid #000;
-    background: var(--fish-main-colour);
+    background: var(--letters-main-colour);
 }
 
 .tf-letter-s1::before {
@@ -821,7 +866,7 @@ body {
     height: 10px;
     width: 50px;
     border: 1px solid #000;
-    background-color: var(--fish-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-s2 {
@@ -830,9 +875,9 @@ body {
     height: 8px;
     width: 20px;
     border: 1px solid #000;
-    border-top: 1px solid var(--fish-main-colour);
-    border-bottom: 1px solid var(--fish-main-colour);
-    background-color: var(--fish-main-colour);
+    border-top: 1px solid var(--letters-main-colour);
+    border-bottom: 1px solid var(--letters-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-s2::after {
@@ -843,9 +888,9 @@ body {
     height: 8px;
     width: 20px;
     border: 1px solid #000;
-    border-top: 1px solid var(--fish-main-colour);
-    border-bottom: 1px solid var(--fish-main-colour);
-    background-color: var(--fish-main-colour);
+    border-top: 1px solid var(--letters-main-colour);
+    border-bottom: 1px solid var(--letters-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-h1 {
@@ -853,7 +898,7 @@ body {
     width: 20px;
     border-radius: 5px 5px 0 0;
     border: 1px solid #000;
-    background-color: var(--fish-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-letter-h1::after {
@@ -864,7 +909,7 @@ body {
     width: 20px;
     border-radius: 5px 5px 0 0;
     border: 1px solid #000;
-    background: var(--fish-main-colour);
+    background: var(--letters-main-colour);
 }
 
 .tf-letter-h2 {
@@ -874,9 +919,9 @@ body {
     height: 20px;
     width: 8px;
     border: 1px solid #000;
-    border-left: 1px solid var(--fish-main-colour);
-    border-right: 1px solid var(--fish-main-colour);
-    background-color: var(--fish-main-colour);
+    border-left: 1px solid var(--letters-main-colour);
+    border-right: 1px solid var(--letters-main-colour);
+    background-color: var(--letters-main-colour);
 }
 
 .tf-clickable {
@@ -944,6 +989,13 @@ body {
     0% { transform: translate(0, -20px); }
     50% { transform: translate(0, 20px); }
     100% { transform: translate(0, -20px); }
+}
+
+@keyframes letters_float {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(0, 15px); }
+    75% { transform: translate(0, -15px); }
+    100% { transform: translate(0, 0); }
 }
 
 @keyframes bubble_up {
