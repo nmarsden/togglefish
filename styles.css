@@ -1,8 +1,8 @@
 :root {
+    --sky-colour: #CDE5FF;
     --fish-main-colour: #F0592A;
     --fish-shade-colour: #CE4728;
-    --letters-main-colour: #5B88F0;
-    --container-color: #FDEBE6;
+    --letters-main-colour: #DDDDFF;
 }
 
 html {
@@ -12,7 +12,75 @@ html {
 body {
     margin: 0;
     height: 100%;
-    background-color: #DFEAF9;
+}
+
+.background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.tf-sky {
+    position: absolute;
+    height: 100px;
+    width: 100%;
+    background-color: var(--sky-colour);
+}
+
+.tf-waves {
+    position: absolute;
+    top: 100px;
+    height: 50px;
+    width: 100%;
+    display: flex;
+}
+
+.tf-wave {
+    min-width: 100px;
+    height: 50px;
+    border-radius: 0 0 100px 100px;
+    background-color: var(--sky-colour);
+    animation: wave_move 3s linear;
+    animation-iteration-count: infinite;
+}
+
+.tf-sea {
+    position: absolute;
+    top: 100px;
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+    background: rgba(38, 208, 206, 0.5);  /* fallback for old browsers */
+    background: linear-gradient(to bottom, rgba(38, 208, 206, 0.5), rgba(96, 116, 234, 0.5));
+}
+
+.tf-sea-current {
+    opacity: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(91, 136, 240, 0.5);
+    box-shadow: 0 0 100px 100px rgba(91, 136, 240, 0.5);
+    animation: sea_current_move 3s linear;
+    animation-iteration-count: infinite;
+}
+
+.tf-sea-current--1 {
+    animation-delay: 0s;
+}
+
+.tf-sea-current--2 {
+    animation-delay: 1s;
+}
+
+.tf-sea-current--3 {
+    animation-delay: 2s;
+}
+
+.foreground {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,16 +117,6 @@ body {
     z-index: -1;
     animation: fish_float 10s ease-out;
     animation-iteration-count: infinite;
-}
-
-.tf-ring {
-    position: absolute;
-    height: 485px;
-    width: 485px;
-    border-radius: 50% 50%;
-    background-color: transparent;
-    box-shadow: 0 0 40px 54px var(--container-color),
-                inset 0 0 0 10px #FFF;
 }
 
 .tf-fish-front {
@@ -935,7 +993,6 @@ body {
 .tf-toggler:checked ~ .tf-container {
     --fish-main-colour: #4FB95E;
     --fish-shade-colour: #459C4B;
-    --container-color: #DFF9E3;
 }
 
 .tf-toggler:checked ~ .tf-container .tf-eyebrow {
@@ -996,6 +1053,16 @@ body {
     25% { transform: translate(0, 15px); }
     75% { transform: translate(0, -15px); }
     100% { transform: translate(0, 0); }
+}
+
+@keyframes wave_move {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100px); }
+}
+
+@keyframes sea_current_move {
+    0% { transform: translateY(0); opacity: 0; }
+    100% { transform: translateY(120%); opacity: 1.0; }
 }
 
 @keyframes bubble_up {
