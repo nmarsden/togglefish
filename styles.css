@@ -1,6 +1,6 @@
 :root {
     --sky-colour: #01293F;
-    --moon-colour: #FFFFFF;
+    --orb-colour: #DEDEDE;
     --sea-top-colour: rgba(30, 131, 129, 0.5);
     --sea-bottom-colour: rgba(69, 76, 152, 0.5);
     --fish-main-colour: #F0592A;
@@ -77,14 +77,15 @@ body {
             1700px 9px #fff;
 }
 
-.tf-moon {
+.tf-orb {
     position: absolute;
     left: 30px;
-    top: -50px;
+    top: -70px;
     width: 200px;
     height: 200px;
     border-radius: 100%;
-    background: var(--moon-colour);
+    background: var(--orb-colour);
+    box-shadow: 0 0 20px 4px #FFF;
 }
 
 .tf-waves {
@@ -1056,7 +1057,7 @@ body {
 
 .tf-fish-checkbox:checked ~ .tf-background {
     --sky-colour: #0171ad;
-    --moon-colour: #fff452;
+    --orb-colour: #fff452;
     --sea-top-colour: rgba(38, 208, 206, 0.5);
     --sea-bottom-colour: rgba(96, 116, 234, 0.5);
 }
