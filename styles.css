@@ -1,5 +1,8 @@
 :root {
-    --sky-colour: #CDE5FF;
+    --sky-colour: #01293F;
+    --moon-colour: #FFFFFF;
+    --sea-top-colour: rgba(30, 131, 129, 0.5);
+    --sea-bottom-colour: rgba(69, 76, 152, 0.5);
     --fish-main-colour: #F0592A;
     --fish-shade-colour: #CE4728;
     --letters-main-colour: #DDDDFF;
@@ -14,7 +17,7 @@ body {
     height: 100%;
 }
 
-.background {
+.tf-background {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -23,14 +26,70 @@ body {
 
 .tf-sky {
     position: absolute;
-    height: 100px;
+    height: 150px;
     width: 100%;
-    background-color: var(--sky-colour);
+    background: var(--sky-colour);
+    transition: background 300ms;
+}
+
+.tf-stars {
+    height: 3px;
+    width: 3px;
+    background: transparent;
+    box-shadow:
+            985px 6px #fff,
+            375px 54px #fff,
+            845px 4px #fff,
+            624px 51px #fff,
+            267px 30px #fff,
+            7px 28px #fff,
+            1027px 88px #fff,
+            234px 88px #fff,
+            1009px 26px #fff,
+            1358px 63px #fff,
+            1447px 21px #fff,
+            1329px 1px #fff,
+            1398px 94px #fff,
+            269px 7px #fff,
+            988px 51px #fff,
+            1706px 95px #fff,
+            346px 1px #fff,
+            260px 142px #fff,
+            1595px 58px #fff,
+            1680px 43px #fff,
+            678px 72px #fff,
+            772px 9px #fff,
+            222px 22px #fff,
+            1493px 22px #fff,
+            1400px 10px #fff,
+            352px 79px #fff,
+            786px 17px #fff,
+            1945px 66px #fff,
+            888px 50px #fff,
+            1439px 29px #fff,
+            580px 79px #fff,
+            1643px 95px #fff,
+            1249px 15px #fff,
+            1703px 67px #fff,
+            1195px 44px #fff,
+            1890px 52px #fff,
+            143px 36px #fff,
+            1700px 9px #fff;
+}
+
+.tf-moon {
+    position: absolute;
+    left: 30px;
+    top: -50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    background: var(--moon-colour);
 }
 
 .tf-waves {
     position: absolute;
-    top: 100px;
+    top: 150px;
     height: 50px;
     width: 100%;
     display: flex;
@@ -40,19 +99,21 @@ body {
     min-width: 100px;
     height: 50px;
     border-radius: 0 0 100px 100px;
-    background-color: var(--sky-colour);
+    background: var(--sky-colour);
     animation: wave_move 3s linear;
     animation-iteration-count: infinite;
+    transition: background 300ms;
 }
 
 .tf-sea {
     position: absolute;
-    top: 100px;
+    top: 150px;
     height: 100%;
     width: 100%;
     overflow-y: hidden;
-    background: rgba(38, 208, 206, 0.5);  /* fallback for old browsers */
-    background: linear-gradient(to bottom, rgba(38, 208, 206, 0.5), rgba(96, 116, 234, 0.5));
+    background: var(--sea-top-colour);  /* fallback for old browsers */
+    background: linear-gradient(to bottom, var(--sea-top-colour), var(--sea-bottom-colour));
+    transition: background 300ms;
 }
 
 .tf-sea-current {
@@ -78,7 +139,8 @@ body {
     animation-delay: 2s;
 }
 
-.foreground {
+.tf-foreground {
+    position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
@@ -86,7 +148,8 @@ body {
     justify-content: center;
 }
 
-.outer-container {
+.tf-outer-container {
+    margin-top: 100px;
     height: 665px;
     width: 565px;
     display: flex;
@@ -97,11 +160,6 @@ body {
 .tf-fish {
     height: 485px;
     width: 485px;
-}
-
-.tf-toggler {
-    opacity: 0;
-    position: fixed;
 }
 
 .tf-container {
@@ -982,47 +1040,64 @@ body {
     background-color: var(--letters-main-colour);
 }
 
-.tf-clickable {
+.tf-fish-checkbox {
+    opacity: 0;
+    position: fixed;
+}
+
+.tf-fish-clickable {
     position: absolute;
     height: 485px;
     width: 485px;
+    border-radius: 50% 50%;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     cursor: pointer;
 }
 
-.tf-toggler:checked ~ .tf-container {
+.tf-fish-checkbox:checked ~ .tf-background {
+    --sky-colour: #0171ad;
+    --moon-colour: #fff452;
+    --sea-top-colour: rgba(38, 208, 206, 0.5);
+    --sea-bottom-colour: rgba(96, 116, 234, 0.5);
+}
+
+.tf-fish-checkbox:checked ~ .tf-background .tf-stars {
+    opacity: 0;
+}
+
+.tf-fish-checkbox:checked ~ .tf-foreground {
     --fish-main-colour: #4FB95E;
     --fish-shade-colour: #459C4B;
 }
 
-.tf-toggler:checked ~ .tf-container .tf-eyebrow {
+.tf-fish-checkbox:checked ~ .tf-foreground .tf-eyebrow {
     transform: translateY(-10px);
 }
 
-.tf-toggler:checked ~ .tf-container .tf-eye::after {
+.tf-fish-checkbox:checked ~ .tf-foreground .tf-eye::after {
     opacity: 0;
     animation: eye_blink 10s ease-out;
     animation-iteration-count: infinite;
 }
 
-.tf-toggler:checked ~ .tf-container .tf-lip--bottom {
+.tf-fish-checkbox:checked ~ .tf-foreground .tf-lip--bottom {
     transform: skewX(10deg) rotate(0deg) translate(0, 40px);
 }
 
-.tf-toggler:checked ~ .tf-container .tf-glint-cross {
+.tf-fish-checkbox:checked ~ .tf-foreground .tf-glint-cross {
     animation: glint 1s ease-out;
     animation-delay: 1s;
 }
 
-.tf-toggler:checked ~ .tf-container .tf-toggle-shaft {
+.tf-fish-checkbox:checked ~ .tf-foreground .tf-toggle-shaft {
     transform: rotate(20deg);
 }
 
-.tf-toggler:checked ~ .tf-container .tf-toggle-tip {
+.tf-fish-checkbox:checked ~ .tf-foreground .tf-toggle-tip {
     transform: rotate(20deg);
 }
 
-.tf-toggler:checked ~ .tf-bubble-and-sleep-z-container .tf-sleep-z {
+.tf-fish-checkbox:checked ~ .tf-foreground .tf-sleep-z {
     opacity: 0;
     animation: none;
 }
