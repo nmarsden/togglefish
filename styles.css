@@ -1,6 +1,7 @@
 :root {
     --sky-colour: #01293F;
-    --orb-colour: #DEDEDE;
+    --orb-main-colour: #DEDEDE;
+    --orb-shade-colour: #999;
     --sea-top-colour: rgba(30, 131, 129, 0.5);
     --sea-bottom-colour: rgba(69, 76, 152, 0.5);
     --fish-main-colour: #F0592A;
@@ -84,8 +85,37 @@ body {
     width: 200px;
     height: 200px;
     border-radius: 100%;
-    background: var(--orb-colour);
-    box-shadow: 0 0 20px 4px #FFF;
+    background: var(--orb-main-colour);
+    box-shadow: 0 0 20px 4px #FFF, inset -5px 10px 20px 8px var(--orb-shade-colour);
+}
+
+.tf-orb-hole {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    border-radius: 100%;
+    background: #CCC;
+    transform: rotate(30deg);
+    box-shadow: 0 2px 1px 1px #FFF, inset 0 2px 1px 1px #999;
+}
+
+.tf-orb-hole--1 {
+    width: 30px;
+    height: 40px;
+    top: 110px;
+    left: 130px;
+}
+
+.tf-orb-hole--2 {
+    top: 70px;
+    left: 30px;
+}
+
+.tf-orb-hole--3 {
+    top: 160px;
+    left: 70px;
+    height: 20px;
+    width: 30px;
 }
 
 .tf-waves {
@@ -1096,9 +1126,14 @@ body {
 
 .tf-fish-checkbox:checked ~ .tf-background {
     --sky-colour: #0171ad;
-    --orb-colour: #fff452;
+    --orb-main-colour: #fff452;
+    --orb-shade-colour: transparent;
     --sea-top-colour: rgba(38, 208, 206, 0.5);
     --sea-bottom-colour: rgba(96, 116, 234, 0.5);
+}
+
+.tf-fish-checkbox:checked ~ .tf-background .tf-orb-hole {
+    opacity: 0;
 }
 
 .tf-fish-checkbox:checked ~ .tf-background .tf-stars {
