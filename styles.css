@@ -158,9 +158,48 @@ body {
     align-items: center;
 }
 
-.tf-fish {
+.tf-fish-container {
     height: 485px;
     width: 485px;
+}
+
+.tf-fish {
+    position: absolute;
+    height: 485px;
+    width: 485px;
+}
+
+.tf-fish--1 {
+    animation: fish_swim_right 20s linear;
+    animation-iteration-count: infinite;
+}
+
+.tf-fish--1 .tf-eye {
+    opacity: 0;
+}
+
+.tf-fish--1 .tf-eyebrow {
+    opacity: 0;
+}
+
+.tf-fish--1 .tf-mouth {
+    top: 127px;
+    left: 343px;
+    height: 240px;
+    width: 113px;
+}
+
+.tf-fish--1 .tf-teeth {
+    top: 127px;
+}
+
+.tf-fish--1 .tf-lip--top {
+    top: 100px;
+}
+
+.tf-fish--2 {
+    animation: fish_shrink 20s linear;
+    animation-iteration-count: infinite;
 }
 
 .tf-container {
@@ -1103,11 +1142,26 @@ body {
     animation: none;
 }
 
+@keyframes fish_swim_right {
+    0%    { transform: translateX(-1500px); }
+    80%   { transform: translateX(-1500px); }
+    100%  { transform: translateX(0); }
+}
+
+@keyframes fish_shrink {
+    0%    { transform: scale(1); }
+    50%   { transform: scale(1); }
+    97%   { transform: scale(0.2); opacity: 1; }
+    98%   { transform: scale(0.2); opacity: 0; }
+    100%  { transform: scale(0.2); opacity: 0; }
+}
+
 @keyframes fish_spin {
     0% { transform: rotateZ(0deg); }
-    88% { transform: rotateZ(0deg); }
-    90% { transform: rotateZ(-20deg); }
-    98% { transform: rotateZ(380deg); }
+    8% { transform: rotateZ(0deg); }
+    10% { transform: rotateZ(-20deg); }
+    18% { transform: rotateZ(380deg); }
+    20% { transform: rotateZ(360deg); }
     100% { transform: rotateZ(360deg); }
 }
 
