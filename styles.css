@@ -7,7 +7,7 @@
     --fish-main-colour: #F0592A;
     --fish-shade-colour: #CE4728;
     --letters-main-colour: #DDDDFF;
-    --starfish-colour: #FF3902;
+    --starfish-colour: #D06A3A;
 }
 
 html {
@@ -132,6 +132,7 @@ body {
     height: 50px;
     border-radius: 0 0 100px 100px;
     background: var(--sky-colour);
+    box-shadow: 0 10px 10px 0 var(--sea-bottom-colour);
     animation: wave_move 3s linear;
     animation-iteration-count: infinite;
     transition: background 300ms;
@@ -287,10 +288,11 @@ body {
 }
 
 .tf-rock {
+    position: relative;
     width: 100px;
     min-height: 80px;
-    background: #ff9e6a;
-    box-shadow: inset 20px -20px 56px 20px #b46e4f;
+    background: #FFDA77;
+    box-shadow: inset 14px -20px 40px 0 #B46E4F;
     border-radius: 40px 20px 30px 10px;
 }
 
@@ -311,11 +313,63 @@ body {
     min-height: 100px;
 }
 
+.tf-rock-holes-container {
+    position: absolute;
+}
+
+.tf-rock-holes-container--1 {
+}
+
+.tf-rock-holes-container--2 {
+    top: 5px;
+    left: 85px;
+}
+
+.tf-rock-holes {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    border-radius: 100%;
+    background: rgba(180, 110, 79, 0.3);
+    transform: rotate(30deg);
+    box-shadow: 0 1px 1px 1px rgba(90, 45, 45, 0.2),
+                inset 0 1px 1px 1px rgba(180, 110, 79, 0.5);
+}
+
+.tf-rock-holes--1 {
+    left: 15px;
+    top: 15px;
+}
+
+.tf-rock-holes--2 {
+    left: 35px;
+    top: 10px;
+}
+
+.tf-rock-holes--3 {
+    left: 55px;
+    top: 20px;
+}
+
+.tf-rock-holes--4 {
+    left: 75px;
+    top: 15px;
+}
+
+.tf-rock-holes--5 {
+    left: 65px;
+    top: 40px;
+}
+
+.tf-rock-holes--6 {
+    left: 35px;
+    top: 35px;
+}
+
 .tf-starfish {
     position: absolute;
     bottom: 0;
     right: 0;
-    opacity: 0.9;
 }
 
 .tf-starfish--1 {
@@ -333,8 +387,6 @@ body {
     bottom: 200px;
     right: 0;
     transform: scale(0.4) rotateZ(45deg);
-    --starfish-colour: #BD2B02;
-    opacity: 0.8;
 }
 
 .tf-starfish-5-points {
@@ -394,7 +446,7 @@ body {
     width: 35px;
     height: 30px;
     border-radius: 100%;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.08);
 }
 
 .tf-starfish-dots {
