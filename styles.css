@@ -8,6 +8,7 @@
     --fish-shade-colour: #CE4728;
     --letters-main-colour: #DDDDFF;
     --starfish-colour: #D06A3A;
+    --tiny-fish-colour: #FFF;
 }
 
 html {
@@ -32,6 +33,48 @@ body {
     width: 100%;
     background: var(--sky-colour);
     transition: background 300ms;
+}
+
+.tf-cloud {
+    opacity: 0.2;
+    position: absolute;
+    top: 50px;
+    width: 70px;
+    height: 24px;
+    background: linear-gradient(to bottom, #f2f9fe 5%, #d6f0fd 100%);
+    border-radius: 20px;
+    transform: scale(1.5);
+    animation: cloud_large 25s linear infinite;
+}
+
+.tf-cloud--small {
+    top: 80px;
+    transform: scale(1);
+    animation: cloud_small 25s linear infinite;
+    animation-delay: -1.5s;
+}
+
+.tf-cloud:before,
+.tf-cloud:after {
+    position: absolute;
+    content: "";
+    background: inherit;
+}
+
+.tf-cloud:before {
+    width: 36px;
+    height: 36px;
+    top: -18px;
+    right: 10px;
+    border-radius: 40px;
+}
+
+.tf-cloud:after {
+    width: 20px;
+    height: 20px;
+    top: -10px;
+    left: 10px;
+    border-radius: 20px;
 }
 
 .tf-stars {
@@ -172,6 +215,64 @@ body {
     animation-delay: 2s;
 }
 
+.tf-tiny-fish-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+    animation: tiny_fish_container_move 30s linear;
+    animation-iteration-count: infinite;
+}
+
+.tf-tiny-fish {
+    position: relative;
+    width: 100px;
+    height: 20px;
+    background: var(--tiny-fish-colour);
+    box-shadow: inset 0 3px 3px 3px #69a0dd;
+    border-radius: 100%;
+    animation: tiny_fish_swim 30s ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-tiny-fish:after {
+    content: '';
+    position: absolute;
+    left: 98px;
+    top: 0;
+    width: 10px;
+    height: 20px;
+    background: var(--tiny-fish-colour);
+    box-shadow: inset 0 1px 1px 1px #69a0dd;
+    border-radius: 50% 0 0 50%;
+    transform-origin: left;
+    animation: tail_fin_paddle 2s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-tiny-fish:before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    width: 4px;
+    height: 4px;
+    background: #000;
+    border: 2px solid yellow;
+    border-radius: 100%;
+}
+
+.tf-tiny-fish--1 {
+    left: -100px;
+    top: 180px;
+    animation-delay: 1s;
+}
+
+.tf-tiny-fish--2 {
+    left: 0;
+    top: 200px;
+}
+
 .tf-foreground {
     position: absolute;
     width: 100%;
@@ -298,19 +399,23 @@ body {
 
 .tf-rock--top {
     align-self: center;
+    transform: rotateZ(-5deg);
 }
 
 .tf-rock--middle-1 {
     width: 180px;
+    transform: rotateZ(-10deg);
 }
 
 .tf-rock--middle-2 {
     width: 200px;
+    transform: rotateZ(-5deg);
 }
 
 .tf-rock--base {
     min-width: 260px;
     min-height: 100px;
+    transform: rotateZ(-10deg);
 }
 
 .tf-rock-holes-container {
@@ -1503,6 +1608,10 @@ body {
     --sea-bottom-colour: rgba(96, 116, 234, 0.5);
 }
 
+.tf-fish-checkbox:checked ~ .tf-background .tf-cloud {
+    opacity: 1;
+}
+
 .tf-fish-checkbox:checked ~ .tf-background .tf-orb-hole {
     opacity: 0;
 }
@@ -1546,6 +1655,32 @@ body {
 .tf-fish-checkbox:checked ~ .tf-foreground .tf-sleep-z {
     opacity: 0;
     animation: none;
+}
+
+@keyframes cloud_large {
+    0%   { transform: scale(1.5) translateX(-150px); }
+    100% { transform: scale(1.5) translateX(2000px); }
+}
+
+@keyframes cloud_small {
+    0%   { transform: scale(1) translateX(-150px); }
+    100% { transform: scale(1) translateX(2000px); }
+}
+
+@keyframes tiny_fish_container_move {
+    0%    { transform: translateX(0%); }
+    49.9% { transform: translateX(100%); }
+    50%   { transform: translateX(100%); }
+    100%  { transform: translateX(0%); }
+}
+
+@keyframes tiny_fish_swim {
+    0%    { transform: scale(1.2) translateY(0)    rotateY(180deg); }
+    20%   { transform: scale(1.2) translateY(40px) rotateY(180deg); }
+    49.9% { transform: scale(1.2) translateY(0   ) rotateY(180deg); }
+    50%   { transform: scale(1.2) translateY(40px) rotateY(0); }
+    80%   { transform: scale(1.2) translateY(0)    rotateY(0); }
+    100%  { transform: scale(1.2) translateY(40px) rotateY(0); }
 }
 
 @keyframes seaweed_sway {
