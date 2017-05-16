@@ -53,7 +53,6 @@ body {
 }
 
 .tf-options-container {
-    opacity: 0;
     margin-right: 8px;
     margin-left: 8px;
     padding: 10px;
@@ -61,6 +60,7 @@ body {
     background: rgba(1, 1, 1, 0.3);
     border: 1px solid #FFF;
     flex-direction: column;
+    transition: all 500ms ease-in-out;
 }
 
 .tf-option {
@@ -69,6 +69,8 @@ body {
 }
 
 .tf-option-text {
+    position: relative;
+    top: 6px;
     color: #FFF;
     font-family: sans-serif;
     font-size: 1.6em;
@@ -76,7 +78,11 @@ body {
 }
 
 #options-checkbox:checked ~ .tf-options-outer-container > .tf-options-container {
-    opacity: 1;
+    transform: translateX(0);
+}
+
+#options-checkbox:not(:checked) ~ .tf-options-outer-container > .tf-options-container {
+    transform: translateX(500px);
 }
 
 .tf-button {
