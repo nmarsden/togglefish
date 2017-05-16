@@ -10,6 +10,13 @@
 </head>
 <body ontouchstart="">
     <input class="tf-fish-checkbox" type="checkbox" id="fish-checkbox">
+    <input class="tf-checkbox" type="checkbox" id="options-checkbox">
+    <input class="tf-checkbox" type="checkbox" id="outline-checkbox">
+    <input class="tf-checkbox" type="checkbox" checked id="box-shadow-checkbox">
+    <input class="tf-checkbox" type="checkbox" checked id="border-radius-checkbox">
+    <input class="tf-checkbox" type="checkbox" checked id="border-checkbox">
+    <input class="tf-checkbox" type="checkbox" checked id="transform-checkbox">
+    <input class="tf-checkbox" type="checkbox" checked id="pseudo-elements-checkbox">
 
     <div class="tf-background">
         <div class="tf-sky">
@@ -290,5 +297,34 @@
             </div>
         </div>
     </div>
+    <span class="tf-options-outer-container">
+        <label class="tf-options-button" for="options-checkbox">Options</label>
+        <div class="tf-options-container">
+            <div class="tf-option">
+                <div class="tf-option-text">Outline</div>
+                <label class="tf-button" for="outline-checkbox"></label>
+            </div>
+            <div class="tf-option">
+                <div class="tf-option-text">Box Shadow</div>
+                <label class="tf-button" for="box-shadow-checkbox"></label>
+            </div>
+            <div class="tf-option">
+                <div class="tf-option-text">Border Radius</div>
+                <label class="tf-button" for="border-radius-checkbox"></label>
+            </div>
+            <div class="tf-option">
+                <div class="tf-option-text">Border</div>
+                <label class="tf-button" for="border-checkbox"></label>
+            </div>
+            <div class="tf-option">
+                <div class="tf-option-text">Transform</div>
+                <label class="tf-button" for="transform-checkbox"></label>
+            </div>
+            <div class="tf-option">
+                <div class="tf-option-text">Pseudo Elements</div>
+                <label class="tf-button" for="pseudo-elements-checkbox"></label>
+            </div>
+        </div>
+    </span>
 </body>
 </html>
