@@ -2,8 +2,8 @@
     --sky-colour: #01293F;
     --orb-main-colour: #DEDEDE;
     --orb-shade-colour: #999;
-    --sea-top-colour: rgb(30, 131, 129);
-    --sea-bottom-colour: rgb(69, 76, 152);
+    --sea-top-colour: #1E8381;
+    --sea-bottom-colour: #454C98;
     --fish-main-colour: #F0592A;
     --fish-shade-colour: #CE4728;
     --letters-main-colour: #DDDDFF;
@@ -1754,11 +1754,11 @@ body {
 }
 
 .tf-fish-checkbox:checked ~ .tf-background {
-    --sky-colour: #0171ad;
+    --sky-colour: #17A9D0;
     --orb-main-colour: #fff452;
     --orb-shade-colour: transparent;
-    --sea-top-colour: rgb(38, 208, 206);
-    --sea-bottom-colour: rgb(96, 116, 234);
+    --sea-top-colour: #0171AD;
+    --sea-bottom-colour: #6074EA;
 }
 
 .tf-fish-checkbox:checked ~ .tf-background .tf-cloud {
