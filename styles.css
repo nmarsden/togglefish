@@ -2,8 +2,8 @@
     --sky-colour: #01293F;
     --orb-main-colour: #DEDEDE;
     --orb-shade-colour: #999;
-    --sea-top-colour: rgba(30, 131, 129, 0.5);
-    --sea-bottom-colour: rgba(69, 76, 152, 0.5);
+    --sea-top-colour: rgb(30, 131, 129);
+    --sea-bottom-colour: rgb(69, 76, 152);
     --fish-main-colour: #F0592A;
     --fish-shade-colour: #CE4728;
     --letters-main-colour: #DDDDFF;
@@ -161,7 +161,6 @@ body {
     height: 150px;
     width: 100%;
     background: var(--sky-colour);
-    transition: background 300ms;
 }
 
 .tf-cloud {
@@ -293,7 +292,6 @@ body {
 
 .tf-waves {
     position: absolute;
-    top: 150px;
     height: 50px;
     width: 100%;
     display: flex;
@@ -302,12 +300,38 @@ body {
 .tf-wave {
     min-width: 100px;
     height: 50px;
+    background: var(--sea-top-colour);
+    animation: wave_move 10s ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-wave:before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 50px;
     border-radius: 0 0 100px 100px;
     background: var(--sky-colour);
-    box-shadow: 0 10px 10px 0 var(--sea-bottom-colour);
-    animation: wave_move 3s linear;
-    animation-iteration-count: infinite;
-    transition: background 300ms;
+    box-shadow: inset 3px -5px 5px 0 #FFF;
+}
+
+.tf-waves--1 {
+    top: 150px;
+    left: 0;
+}
+
+.tf-waves--2 {
+    top: 200px;
+    left: -50px;
+}
+
+.tf-waves--2 .tf-wave {
+    animation-delay: 5s;
+}
+
+.tf-waves--2 .tf-wave:before {
+    background: var(--sea-top-colour);
+    box-shadow: 0 10px 10px 0 #FFF;
 }
 
 .tf-sea {
@@ -317,7 +341,7 @@ body {
     width: 100%;
     overflow-y: hidden;
     background: var(--sea-top-colour);  /* fallback for old browsers */
-    background: linear-gradient(to bottom, var(--sea-top-colour), var(--sea-bottom-colour));
+    background: linear-gradient(to bottom, var(--sea-top-colour), var(--sea-top-colour) 20%, var(--sea-bottom-colour));
     transition: background 300ms;
 }
 
@@ -1733,8 +1757,8 @@ body {
     --sky-colour: #0171ad;
     --orb-main-colour: #fff452;
     --orb-shade-colour: transparent;
-    --sea-top-colour: rgba(38, 208, 206, 0.5);
-    --sea-bottom-colour: rgba(96, 116, 234, 0.5);
+    --sea-top-colour: rgb(38, 208, 206);
+    --sea-bottom-colour: rgb(96, 116, 234);
 }
 
 .tf-fish-checkbox:checked ~ .tf-background .tf-cloud {
@@ -1863,7 +1887,8 @@ body {
 
 @keyframes wave_move {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-100px); }
+    50% { transform: translateX(-100px); }
+    100% { transform: translateX(0); }
 }
 
 @keyframes sea_current_move {
