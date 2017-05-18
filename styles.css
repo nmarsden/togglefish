@@ -158,7 +158,7 @@ body {
 
 .tf-sky {
     position: absolute;
-    height: 150px;
+    height: 170px;
     width: 100%;
     background: var(--sky-colour);
 }
@@ -253,7 +253,7 @@ body {
 .tf-orb {
     position: absolute;
     left: 30px;
-    top: -70px;
+    top: -80px;
     width: 200px;
     height: 200px;
     border-radius: 100%;
@@ -295,6 +295,8 @@ body {
     height: 50px;
     width: 100%;
     display: flex;
+    animation: waves_and_sea_move 5s ease-in-out;
+    animation-iteration-count: infinite;
 }
 
 .tf-wave {
@@ -336,13 +338,15 @@ body {
 
 .tf-sea {
     position: absolute;
-    top: 150px;
+    top: 151px;
     height: 100%;
     width: 100%;
     overflow-y: hidden;
     background: var(--sea-top-colour);  /* fallback for old browsers */
     background: linear-gradient(to bottom, var(--sea-top-colour), var(--sea-top-colour) 20%, var(--sea-bottom-colour));
     transition: background 300ms;
+    animation: waves_and_sea_move 5s ease-in-out;
+    animation-iteration-count: infinite;
 }
 
 .tf-sea-current {
@@ -1883,6 +1887,12 @@ body {
     25% { transform: translate(0, 15px); }
     75% { transform: translate(0, -15px); }
     100% { transform: translate(0, 0); }
+}
+
+@keyframes waves_and_sea_move {
+    0%   { transform: translateY(-5px); }
+    50%  { transform: translateY(5px);  }
+    100% { transform: translateY(-5px); }
 }
 
 @keyframes wave_move {
