@@ -173,7 +173,7 @@ body {
 
 .tf-sky {
     position: absolute;
-    height: 170px;
+    height: 220px;
     width: 100%;
     background: var(--sky-colour);
 }
@@ -316,20 +316,13 @@ body {
 
 .tf-wave {
     min-width: 100px;
-    height: 50px;
-    background: var(--sea-top-colour);
+    height: 40px;
+    background: transparent;
+    border-radius: 0 0 100px 100px;
+    border-bottom: 2px solid rgba(123, 255, 224, 0.55);
+    box-shadow: 0 20px 20px 0 var(--sea-top-colour);
     animation: wave_move 10s ease-in-out;
     animation-iteration-count: infinite;
-}
-
-.tf-wave:before {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 50px;
-    border-radius: 0 0 100px 100px;
-    background: var(--sky-colour);
-    box-shadow: inset 3px -5px 5px 0 #FFF;
 }
 
 .tf-waves--1 {
@@ -338,30 +331,32 @@ body {
 }
 
 .tf-waves--2 {
-    top: 200px;
+    top: 163px;
     left: -50px;
+}
+
+.tf-waves--3 {
+    top: 176px;
+    left: 0;
 }
 
 .tf-waves--2 .tf-wave {
     animation-delay: 5s;
 }
 
-.tf-waves--2 .tf-wave:before {
-    background: var(--sea-top-colour);
-    box-shadow: 0 10px 10px 0 #FFF;
+.tf-waves--3 .tf-wave {
+    animation: none;
 }
 
 .tf-sea {
     position: absolute;
-    top: 151px;
+    top: 180px;
     height: 100%;
     width: 100%;
     overflow-y: hidden;
     background: var(--sea-top-colour);  /* fallback for old browsers */
     background: linear-gradient(to bottom, var(--sea-top-colour), var(--sea-top-colour) 20%, var(--sea-bottom-colour));
     transition: background 300ms;
-    animation: waves_and_sea_move 5s ease-in-out;
-    animation-iteration-count: infinite;
 }
 
 .tf-sea-current {
