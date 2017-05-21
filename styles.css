@@ -49,7 +49,7 @@ body {
     font-size: 2em;
     text-align: center;
     background: rgba(1, 1, 1, 0.1);
-    border: 2px solid #FFF;
+    border: 2px solid #EEE;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     cursor: pointer;
 }
@@ -114,6 +114,7 @@ body {
 }
 
 #outline-checkbox:checked ~ .tf-options-outer-container label[for="outline-checkbox"],
+#background-checkbox:checked ~ .tf-options-outer-container label[for="background-checkbox"],
 #box-shadow-checkbox:checked ~ .tf-options-outer-container label[for="box-shadow-checkbox"],
 #border-radius-checkbox:checked ~ .tf-options-outer-container label[for="border-radius-checkbox"],
 #border-checkbox:checked ~ .tf-options-outer-container label[for="border-checkbox"],
@@ -127,6 +128,12 @@ body {
 #outline-checkbox:checked ~ div div:before,
 #outline-checkbox:checked ~ div div:after {
     outline: 3px solid white;
+}
+
+#background-checkbox:not(:checked) ~ div div,
+#background-checkbox:not(:checked) ~ div div:before,
+#background-checkbox:not(:checked) ~ div div:after {
+    background: transparent !important;
 }
 
 #box-shadow-checkbox:not(:checked) ~ div div,
@@ -408,7 +415,6 @@ body {
     height: 100%;
     width: 100%;
     overflow-y: hidden;
-    background: var(--sea-top-colour);  /* fallback for old browsers */
     background: linear-gradient(to bottom, var(--sea-top-colour), var(--sea-top-colour) 20%, var(--sea-bottom-colour));
     transition: background 300ms;
 }
