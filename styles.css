@@ -2,6 +2,7 @@
     --sky-colour: #01293F;
     --orb-main-colour: #DEDEDE;
     --orb-shade-colour: #999;
+    --mountain-colour: #11381C;
     --sea-top-colour: #1E8381;
     --sea-bottom-colour: #454C98;
     --fish-main-colour: #F0592A;
@@ -305,6 +306,40 @@ body {
     width: 30px;
 }
 
+.tf-mountains-container {
+    position: absolute;
+    top: 20px;
+    left: 150px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.tf-mountain {
+    position: relative;
+    top: -50px;
+    background: var(--mountain-colour);
+    border-radius: 20%;
+    box-shadow: inset 20px 5px 40px 0px white;
+    transform: rotate(-45deg);
+}
+
+.tf-mountain--1 {
+    min-width: 300px;
+    min-height: 200px;
+    left: 100px;
+}
+
+.tf-mountain--2 {
+    min-width: 400px;
+    min-height: 400px;
+}
+
+.tf-mountain--3 {
+    min-width: 600px;
+    min-height: 600px;
+}
+
 .tf-waves {
     position: absolute;
     height: 50px;
@@ -348,7 +383,17 @@ body {
     animation: none;
 }
 
+.tf-sea-background {
+    position: absolute;
+    top: 180px;
+    height: 100%;
+    width: 100%;
+    background: #FFF;
+}
+
 .tf-sea {
+    opacity: 0.85;
+
     position: absolute;
     top: 180px;
     height: 100%;
@@ -1827,6 +1872,7 @@ body {
     --sky-colour: #17A9D0;
     --orb-main-colour: #fff452;
     --orb-shade-colour: transparent;
+    --mountain-colour: #206a2e;
     --sea-top-colour: #0171AD;
     --sea-bottom-colour: #6074EA;
 }
