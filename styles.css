@@ -158,6 +158,15 @@ body {
     display: none !important;
 }
 
+#parallax-checkbox:checked ~ div .tf-sandbank-layer--1 {
+    animation: parallax_sandbank_layer_1_move 10s infinite ease-in-out;
+}
+#parallax-checkbox:checked ~ div .tf-sandbank-layer--2 {
+    animation: parallax_sandbank_layer_2_move 10s infinite ease-in-out;
+}
+#parallax-checkbox:checked ~ div .tf-sandbank-layer--3 {
+    animation: parallax_sandbank_layer_3_move 10s infinite ease-in-out;
+}
 #parallax-checkbox:checked ~ div .tf-outer-container {
     animation: parallax_fish_container_move 10s infinite ease-in-out;
 }
@@ -502,36 +511,64 @@ body {
     background: linear-gradient(to bottom, rgba(194, 161, 97, 0.20), #FFDA77);
 }
 
-.tf-sand-mound-outer-container {
+.tf-sandbank-outer-container {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 320px;
+    height: 700px;
     display: flex;
     justify-content: center;
 }
 
-.tf-sand-mound-container {
-    width: 500px;
-    height: 320px;
+.tf-sandbank-container {
+    width: 100%;
+    height: 700px;
 }
 
-.tf-sand-mound {
+.tf-sandbank-layer {
     position: absolute;
-    width: 300px;
-    height: 40px;
-    background: #928e86;
-    border-radius: 100px 100px 0 0;
-    box-shadow: inset 20px -8px 20px 11px #7d7b76;
+    bottom: 0;
+    width: 100%;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.tf-sand-mound--1 {
+.tf-sandbank-layer--1 {
+    transform: scale(0.6);
 }
 
-.tf-sand-mound--2 {
-    height: 80px;
-    width: 200px;
-    transform: translateX(30px) translateY(-20px);
+.tf-sandbank-layer--2 {
+    transform: scale(0.8);
+}
+
+.tf-sandbank-layer--3 {
+    transform: scale(1);
+}
+
+.tf-sandbank-left {
+    min-width: 1000px;
+    height: 420px;
+    background: #FFDA77;
+    border-radius: 0 50% 0 50%;
+    box-shadow: inset 17px 20px 40px 23px rgb(194, 161, 97);
+    transform: rotate(-5deg) skewX(15deg) skewY(-5deg);
+}
+
+.tf-sandbank-right {
+    min-width: 1000px;
+    height: 420px;
+    background: #FFDA77;
+    border-radius: 50% 0 50% 0;
+    box-shadow: inset 17px 20px 40px 23px rgb(194, 161, 97);
+    transform: rotate(5deg) skewX(-15deg) skewY(5deg);
+}
+
+.tf-sandbank-gap {
+    min-width: 400px;
+    height: 420px;
+    background: transparent;
 }
 
 .tf-shell-and-rocks-container {
@@ -880,14 +917,6 @@ body {
     transform-origin: 45px 200px;
     animation: seaweed_sway 10s ease-in-out;
     animation-iteration-count: infinite;
-}
-
-.tf-seaweed-small-container {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    opacity: 0.5;
-    transform: translateX(70px) translateY(-80px) scale(0.5);
 }
 
 .tf-seaweed--1 {
@@ -1934,6 +1963,24 @@ body {
 @keyframes cloud_small {
     0%   { transform: scale(1) translateX(-150px); }
     100% { transform: scale(1) translateX(2000px); }
+}
+
+@keyframes parallax_sandbank_layer_1_move {
+    0%    { transform: scale(0.6) translateX(-1%); }
+    50%   { transform: scale(0.6) translateX(1%); }
+    100%  { transform: scale(0.6) translateX(-1%); }
+}
+
+@keyframes parallax_sandbank_layer_2_move {
+    0%    { transform: scale(0.8) translateX(-2%); }
+    50%   { transform: scale(0.8) translateX(2%); }
+    100%  { transform: scale(0.8) translateX(-2%); }
+}
+
+@keyframes parallax_sandbank_layer_3_move {
+    0%    { transform: scale(1) translateX(-3%); }
+    50%   { transform: scale(1) translateX(3%); }
+    100%  { transform: scale(1) translateX(-3%); }
 }
 
 @keyframes parallax_fish_container_move {
