@@ -10,8 +10,22 @@
 </head>
 <body ontouchstart="">
     <div class="tf-main">
+        <!-- Fish Toggle -->
         <input class="tf-fish-checkbox" type="checkbox" id="fish-checkbox">
+        <!-- Toggles button -->
         <input class="tf-checkbox" type="checkbox" id="options-checkbox">
+        <!-- Scenery -->
+        <input class="tf-checkbox" type="checkbox" checked id="orb-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="clouds-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="mountains-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="waves-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="sandbanks-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="shell-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="rocks-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="tiny-fish-checkbox">
+        <!-- Effects -->
+        <input class="tf-checkbox" type="checkbox" id="parallax-checkbox">
+        <!-- CSS Styles -->
         <input class="tf-checkbox" type="checkbox" id="outline-checkbox">
         <input class="tf-checkbox" type="checkbox" checked id="background-checkbox">
         <input class="tf-checkbox" type="checkbox" checked id="box-shadow-checkbox">
@@ -19,7 +33,6 @@
         <input class="tf-checkbox" type="checkbox" checked id="border-checkbox">
         <input class="tf-checkbox" type="checkbox" checked id="transform-checkbox">
         <input class="tf-checkbox" type="checkbox" checked id="pseudo-elements-checkbox">
-        <input class="tf-checkbox" type="checkbox" id="parallax-checkbox">
 
         <div class="tf-background">
             <div class="tf-sky">
@@ -382,40 +395,77 @@
         </div>
         <span class="tf-options-outer-container">
             <label class="tf-options-button" for="options-checkbox">Toggles</label>
-            <div class="tf-options-container">
-                <div class="tf-option-heading">Effects</div>
-                <div class="tf-option">
-                    <div class="tf-option-text">Parallax</div>
-                    <label class="tf-button" for="parallax-checkbox"></label>
+            <div class="tf-menu">
+                <div class="tf-options-container">
+                    <div class="tf-option-heading">Scenery</div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Sun/Moon</div>
+                        <label class="tf-button" for="orb-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Clouds</div>
+                        <label class="tf-button" for="clouds-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Mountains</div>
+                        <label class="tf-button" for="mountains-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Waves</div>
+                        <label class="tf-button" for="waves-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Sandbanks</div>
+                        <label class="tf-button" for="sandbanks-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Shell</div>
+                        <label class="tf-button" for="shell-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Rocks</div>
+                        <label class="tf-button" for="rocks-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Tiny Fish</div>
+                        <label class="tf-button" for="tiny-fish-checkbox"></label>
+                    </div>
                 </div>
-                <div class="tf-option-heading">CSS Styles</div>
-                <div class="tf-option">
-                    <div class="tf-option-text">Outline</div>
-                    <label class="tf-button" for="outline-checkbox"></label>
-                </div>
-                <div class="tf-option">
-                    <div class="tf-option-text">Background</div>
-                    <label class="tf-button" for="background-checkbox"></label>
-                </div>
-                <div class="tf-option">
-                    <div class="tf-option-text">Box Shadow</div>
-                    <label class="tf-button" for="box-shadow-checkbox"></label>
-                </div>
-                <div class="tf-option">
-                    <div class="tf-option-text">Border Radius</div>
-                    <label class="tf-button" for="border-radius-checkbox"></label>
-                </div>
-                <div class="tf-option">
-                    <div class="tf-option-text">Border</div>
-                    <label class="tf-button" for="border-checkbox"></label>
-                </div>
-                <div class="tf-option">
-                    <div class="tf-option-text">Transform</div>
-                    <label class="tf-button" for="transform-checkbox"></label>
-                </div>
-                <div class="tf-option">
-                    <div class="tf-option-text">Pseudo Elements</div>
-                    <label class="tf-button" for="pseudo-elements-checkbox"></label>
+                <div class="tf-options-container">
+                    <div class="tf-option-heading">Effects</div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Parallax</div>
+                        <label class="tf-button" for="parallax-checkbox"></label>
+                    </div>
+                    <div class="tf-option-heading">CSS Styles</div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Outline</div>
+                        <label class="tf-button" for="outline-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Background</div>
+                        <label class="tf-button" for="background-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Box Shadow</div>
+                        <label class="tf-button" for="box-shadow-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Border Radius</div>
+                        <label class="tf-button" for="border-radius-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Border</div>
+                        <label class="tf-button" for="border-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Transform</div>
+                        <label class="tf-button" for="transform-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Pseudo Elements</div>
+                        <label class="tf-button" for="pseudo-elements-checkbox"></label>
+                    </div>
                 </div>
             </div>
         </span>

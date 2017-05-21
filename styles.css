@@ -21,6 +21,14 @@ body {
     font-family: sans-serif;
 }
 
+div {
+    pointer-events: none;
+}
+
+label {
+    pointer-events: auto;
+}
+
 .tf-main {
     position: fixed;
     width: 100%;
@@ -39,6 +47,7 @@ body {
     right: 0;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
 }
 
 .tf-options-button {
@@ -57,6 +66,10 @@ body {
 #options-checkbox:checked ~ .tf-options-outer-container > .tf-options-button {
     color: #000;
     background: #FFF;
+}
+
+.tf-menu {
+    display: flex;
 }
 
 .tf-options-container {
@@ -92,12 +105,12 @@ body {
     line-height: 2em;
 }
 
-#options-checkbox:checked ~ .tf-options-outer-container > .tf-options-container {
+#options-checkbox:checked ~ .tf-options-outer-container > .tf-menu {
     transform: translateX(0);
 }
 
-#options-checkbox:not(:checked) ~ .tf-options-outer-container > .tf-options-container {
-    transform: translateX(500px);
+#options-checkbox:not(:checked) ~ .tf-options-outer-container > .tf-menu {
+    transform: translateX(1000px);
 }
 
 .tf-button {
@@ -113,6 +126,14 @@ body {
     cursor: pointer;
 }
 
+#orb-checkbox:checked ~ .tf-options-outer-container label[for="orb-checkbox"],
+#clouds-checkbox:checked ~ .tf-options-outer-container label[for="clouds-checkbox"],
+#mountains-checkbox:checked ~ .tf-options-outer-container label[for="mountains-checkbox"],
+#waves-checkbox:checked ~ .tf-options-outer-container label[for="waves-checkbox"],
+#sandbanks-checkbox:checked ~ .tf-options-outer-container label[for="sandbanks-checkbox"],
+#shell-checkbox:checked ~ .tf-options-outer-container label[for="shell-checkbox"],
+#rocks-checkbox:checked ~ .tf-options-outer-container label[for="rocks-checkbox"],
+#tiny-fish-checkbox:checked ~ .tf-options-outer-container label[for="tiny-fish-checkbox"],
 #outline-checkbox:checked ~ .tf-options-outer-container label[for="outline-checkbox"],
 #background-checkbox:checked ~ .tf-options-outer-container label[for="background-checkbox"],
 #box-shadow-checkbox:checked ~ .tf-options-outer-container label[for="box-shadow-checkbox"],
@@ -122,6 +143,41 @@ body {
 #pseudo-elements-checkbox:checked ~ .tf-options-outer-container label[for="pseudo-elements-checkbox"],
 #parallax-checkbox:checked ~ .tf-options-outer-container label[for="parallax-checkbox"] {
     background: #4FB95E;
+}
+
+#orb-checkbox:not(:checked) ~ div .tf-orb {
+    display: none;
+}
+
+#clouds-checkbox:not(:checked) ~ div .tf-cloud {
+    display: none;
+}
+
+#mountains-checkbox:not(:checked) ~ div .tf-mountains-container {
+    display: none;
+}
+
+#waves-checkbox:not(:checked) ~ div .tf-waves {
+    display: none;
+}
+
+#sandbanks-checkbox:not(:checked) ~ div .tf-sandbank-outer-container {
+    display: none;
+}
+
+#shell-checkbox:not(:checked) ~ div .tf-shell-container,
+#shell-checkbox:not(:checked) ~ div .tf-sand-hill {
+    display: none;
+}
+
+#rocks-checkbox:not(:checked) ~ div .tf-seaweed-container,
+#rocks-checkbox:not(:checked) ~ div .tf-rock-container,
+#rocks-checkbox:not(:checked) ~ div .tf-starfish {
+    display: none;
+}
+
+#tiny-fish-checkbox:not(:checked) ~ div .tf-tiny-fish-container {
+    display: none;
 }
 
 #outline-checkbox:checked ~ div div,
