@@ -238,7 +238,9 @@ label {
 #parallax-checkbox:checked ~ div .tf-sandbank-layer--3 {
     animation: parallax_sandbank_layer_3_move 10s infinite ease-in-out;
 }
-#parallax-checkbox:checked ~ div .tf-outer-container {
+#parallax-checkbox:checked ~ div .tf-outer-container,
+#parallax-checkbox:checked ~ div .tf-ufo-outer-container,
+#parallax-checkbox:checked ~ .tf-ufo-beam-container {
     animation: parallax_fish_container_move 10s infinite ease-in-out;
 }
 #parallax-checkbox:checked ~ .tf-shell-and-rocks-container {
@@ -512,6 +514,14 @@ label {
     left: 0;
     height: 220px;
     width: 100%;
+}
+
+.tf-ufo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 220px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -519,7 +529,7 @@ label {
     animation: ufo_outer_container_hover 1s infinite ease-in-out;
 }
 
-.tf-ufo-container {
+.tf-ufo {
     width: 200px;
     height: 10px;
     display: flex;
