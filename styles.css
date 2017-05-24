@@ -10,6 +10,7 @@
     --letters-main-colour: #DDDDFF;
     --starfish-colour: #D06A3A;
     --tiny-fish-colour: #FFF;
+    --ufo-glow-colour: #1CFFAC;
 }
 
 html {
@@ -134,6 +135,7 @@ label {
 #shell-checkbox:checked ~ .tf-options-outer-container label[for="shell-checkbox"],
 #rocks-checkbox:checked ~ .tf-options-outer-container label[for="rocks-checkbox"],
 #tiny-fish-checkbox:checked ~ .tf-options-outer-container label[for="tiny-fish-checkbox"],
+#ufo-checkbox:checked ~ .tf-options-outer-container label[for="ufo-checkbox"],
 #outline-checkbox:checked ~ .tf-options-outer-container label[for="outline-checkbox"],
 #background-checkbox:checked ~ .tf-options-outer-container label[for="background-checkbox"],
 #box-shadow-checkbox:checked ~ .tf-options-outer-container label[for="box-shadow-checkbox"],
@@ -178,6 +180,10 @@ label {
 
 #tiny-fish-checkbox:not(:checked) ~ div .tf-tiny-fish-container {
     display: none;
+}
+
+#ufo-checkbox:not(:checked) ~ div .tf-ufo-container {
+    opacity: 0 !important;
 }
 
 #outline-checkbox:checked ~ div div,
@@ -496,6 +502,176 @@ label {
 
 .tf-sea-current--3 {
     animation-delay: 2s;
+}
+
+.tf-ufo-outer-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 220px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: ufo_outer_container_hover 1s infinite ease-in-out;
+}
+
+.tf-ufo-container {
+    width: 200px;
+    height: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    animation: ufo_container_move 40s infinite ease-in-out;
+}
+
+.tf-ufo-base {
+    position: relative;
+    top: 25px;
+    width: 100px;
+    min-height: 20px;
+    border-radius: 0 0 20px 20px / 0 0 20px 20px;
+    border-left: 3px solid #FFF;
+    background: #BDBDBD;
+    box-shadow: inset -3px -3px 10px 0 #818181,
+                0 0 40px 0 var(--ufo-glow-colour);
+}
+
+.tf-ufo-disk {
+    position: relative;
+    top: -40px;
+    width: 200px;
+    min-height: 50px;
+    border-radius: 50%;
+    border-left: 3px solid #FFF;
+    background: #BDBDBD;
+    box-shadow: 0 1px 0 0 #000,
+                0 0 40px 0 var(--ufo-glow-colour);
+}
+
+.tf-ufo-cockpit {
+    position: relative;
+    top: -80px;
+    width: 100px;
+    min-height: 20px;
+    border-radius: 50%;
+    background: #000;
+    box-shadow: 0 0 40px 0 var(--ufo-glow-colour);
+}
+
+.tf-ufo-alien {
+    position: relative;
+    top: -130px;
+    width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    background: #008000;
+    box-shadow: inset -4px -4px 10px 0 #005400;
+}
+
+.tf-ufo-alien-stalk {
+    position: absolute;
+    top: 5px;
+    width: 20px;
+    height: 10px;
+    background: #008000;
+    transform-origin: 25px 6px;
+}
+
+.tf-ufo-alien-stalk:after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -15px;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background: #008000;
+}
+
+.tf-ufo-alien-stalk--left {
+    left: -14px;
+    transform: rotateZ(65deg);
+}
+
+.tf-ufo-alien-stalk--right {
+    left: 12px;
+    transform: rotateZ(108deg);
+}
+
+.tf-ufo-alien-eye {
+    position: absolute;
+    top: -23px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+}
+
+.tf-ufo-alien-eye:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: black;
+}
+
+.tf-ufo-alien-eye--left {
+    left: -7px;
+}
+
+.tf-ufo-alien-eye--right {
+    left: 34px;
+}
+
+.tf-ufo-alien-mouth {
+    position: absolute;
+    left: 16px;
+    top: 13px;
+    width: 17px;
+    height: 20px;
+    border-radius: 50%;
+    border-bottom: 5px solid black;
+}
+
+.tf-ufo-top {
+    position: relative;
+    top: -227px;
+    width: 100px;
+    min-height: 90px;
+    border-radius: 50% 50% 0 0;
+    background: rgba(63, 184, 255, 0.27);
+    box-shadow: 0 0 40px 0 var(--ufo-glow-colour);
+}
+
+.tf-ufo-top:after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 15px;
+    height: 5px;
+    border-radius: 100%;
+    background: #bedcff;
+    transform: rotateZ(-35deg);
+}
+
+.tf-ufo-beam {
+    position: relative;
+    top: -180px;
+    border-bottom: 100px solid rgba(28, 255, 172, 0.5);
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    height: 0;
+    width: 100px;
+
+    animation: ufo_beam_activation 40s infinite ease-in-out;
 }
 
 .tf-tiny-fish-container {
@@ -2137,6 +2313,38 @@ label {
 @keyframes sea_current_move {
     0% { transform: translateY(0); opacity: 0; }
     100% { transform: translateY(120%); opacity: 1.0; }
+}
+
+@keyframes ufo_outer_container_hover {
+    0%   { transform: translateY(-10px); }
+    50%  { transform: translateY(10px); }
+    100% { transform: translateY(-10px); }
+}
+
+@keyframes ufo_container_move {
+    0%    { transform: translateX(1500px) rotateZ(0); }
+    42%   { transform: translateX(1500px) rotateZ(0); }
+    44%   { transform: translateX(-50px)  rotateZ(20deg); }
+    45%   { transform: translateX(0)      rotateZ(0); }
+    97%   { transform: translateX(0)      rotateZ(0); }
+    98%   { transform: translateX(-30px)  rotateZ(20deg); }
+    100%  { transform: translateX(1500px) rotateZ(0); }
+}
+
+@keyframes ufo_beam_activation {
+    0%    { transform: rotateY(0);      opacity: 0; }
+    50%   { transform: rotateY(0);      opacity: 0; }
+    51%   { transform: rotateY(0);      opacity: 1; }
+    56%   { transform: rotateY(30deg);  opacity: 0.5; }
+    61%   { transform: rotateY(0);      opacity: 1; }
+    66%   { transform: rotateY(-30deg); opacity: 0.5; }
+    71%   { transform: rotateY(0);      opacity: 1; }
+    76%   { transform: rotateY(30deg);  opacity: 0.5; }
+    81%   { transform: rotateY(0);      opacity: 1; }
+    86%   { transform: rotateY(-30deg); opacity: 0.5; }
+    91%   { transform: rotateY(0);      opacity: 1; }
+    92%   { transform: rotateY(30deg);  opacity: 0; }
+    100%  { transform: rotateY(30deg);  opacity: 0; }
 }
 
 @keyframes bubble_up {
