@@ -9,6 +9,8 @@
     --fish-shade-colour: #CE4728;
     --letters-main-colour: #DDDDFF;
     --starfish-colour: #D06A3A;
+    --crab-colour-main: #ff282f;
+    --crab-shade-colour: #D6242B;
     --tiny-fish-colour: #FFF;
     --ufo-glow-colour: #1CFFAC;
     --ufo-beam-gap: -25px;
@@ -136,6 +138,7 @@ label {
 #shell-checkbox:checked ~ .tf-options-outer-container label[for="shell-checkbox"],
 #rocks-checkbox:checked ~ .tf-options-outer-container label[for="rocks-checkbox"],
 #tiny-fish-checkbox:checked ~ .tf-options-outer-container label[for="tiny-fish-checkbox"],
+#crab-checkbox:checked ~ .tf-options-outer-container label[for="crab-checkbox"],
 #ufo-checkbox:checked ~ .tf-options-outer-container label[for="ufo-checkbox"],
 #outline-checkbox:checked ~ .tf-options-outer-container label[for="outline-checkbox"],
 #background-checkbox:checked ~ .tf-options-outer-container label[for="background-checkbox"],
@@ -149,38 +152,42 @@ label {
 }
 
 #orb-checkbox:not(:checked) ~ div .tf-orb {
-    display: none;
+    opacity: 0 !important;
 }
 
 #clouds-checkbox:not(:checked) ~ div .tf-cloud {
-    display: none;
+    opacity: 0 !important;
 }
 
 #mountains-checkbox:not(:checked) ~ div .tf-mountains-container {
-    display: none;
+    opacity: 0 !important;
 }
 
 #waves-checkbox:not(:checked) ~ div .tf-waves {
-    display: none;
+    opacity: 0 !important;
 }
 
 #sandbanks-checkbox:not(:checked) ~ div .tf-sandbank-outer-container {
-    display: none;
+    opacity: 0 !important;
 }
 
 #shell-checkbox:not(:checked) ~ div .tf-shell-container,
 #shell-checkbox:not(:checked) ~ div .tf-sand-hill {
-    display: none;
+    opacity: 0 !important;
 }
 
 #rocks-checkbox:not(:checked) ~ div .tf-seaweed-container,
 #rocks-checkbox:not(:checked) ~ div .tf-rock-container,
 #rocks-checkbox:not(:checked) ~ div .tf-starfish {
-    display: none;
+    opacity: 0 !important;
 }
 
 #tiny-fish-checkbox:not(:checked) ~ div .tf-tiny-fish-container {
-    display: none;
+    opacity: 0 !important;
+}
+
+#crab-checkbox:not(:checked) ~ div .tf-crab-container {
+    opacity: 0 !important;
 }
 
 #ufo-checkbox:not(:checked) ~ div .tf-ufo-container,
@@ -243,7 +250,8 @@ label {
 #parallax-checkbox:checked ~ .tf-ufo-beam-container {
     animation: parallax_fish_container_move 10s infinite ease-in-out;
 }
-#parallax-checkbox:checked ~ .tf-shell-and-rocks-container {
+#parallax-checkbox:checked ~ .tf-shell-and-rocks-container,
+#parallax-checkbox:checked ~ .tf-crab-outer-container {
     animation: parallax_shell_and_rocks_container_move 10s infinite ease-in-out;
 }
 
@@ -797,6 +805,201 @@ label {
 .tf-ufo-beam--20 {
     top: calc(19 * var(--ufo-beam-gap));
     animation-delay: 9.5s;
+}
+
+.tf-crab-outer-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 330px;
+}
+
+.tf-crab-container {
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    width: 120px;
+    height: 120px;
+    transform: translateX(30px) rotateZ(-70deg);
+
+    animation: crab_peek 40s infinite ease-in-out;
+    animation-delay: 20s;
+}
+
+.tf-crab-body {
+    position: relative;
+    left: -23px;
+    width: 100px;
+    height: 80px;
+    background: var(--crab-colour-main);
+    box-shadow: inset 12px -12px 20px 7px var(--crab-shade-colour);
+    border-radius: 50%;
+}
+
+.tf-crab-stalk {
+    position: absolute;
+    top: 5px;
+    width: 20px;
+    height: 10px;
+    background: var(--crab-colour-main);
+    border-radius: 0 10px 10px 0;
+    border-right: 3px solid var(--crab-shade-colour);
+    box-shadow: inset 0 5px 10px 0 var(--crab-shade-colour);
+    transform-origin: 25px 6px;
+}
+
+.tf-crab-stalk:after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -15px;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background: var(--crab-colour-main);
+}
+
+.tf-crab-stalk--left {
+    left: -14px;
+    transform: rotateZ(65deg);
+}
+
+.tf-crab-stalk--right {
+    left: 12px;
+    transform: rotateZ(108deg);
+}
+
+.tf-crab-eye {
+    position: absolute;
+    top: -23px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+}
+
+.tf-crab-eye:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: black;
+}
+
+.tf-crab-eye--left {
+    left: -7px;
+}
+
+.tf-crab-eye--right {
+    left: 34px;
+}
+
+.tf-crab-mouth {
+    position: absolute;
+    left: 16px;
+    top: 13px;
+    width: 17px;
+    height: 20px;
+    border-radius: 50%;
+    border-bottom: 5px solid black;
+}
+
+.tf-crab-leg {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-right: 6px solid var(--crab-colour-main);
+    box-shadow: 3px 0 0 0 var(--crab-shade-colour);
+    border-radius: 50%;
+}
+
+.tf-crab-leg--1 {
+    top: 50px;
+    left: 50px;
+}
+
+.tf-crab-leg--2 {
+    top: 60px;
+    left: 40px;
+}
+
+.tf-crab-leg--3 {
+    top: 70px;
+    left: 30px;
+}
+
+.tf-crab-leg--4 {
+    top: 50px;
+    left: -30px;
+    transform: rotate(180deg);
+}
+
+.tf-crab-leg--5 {
+    top: 60px;
+    left: -20px;
+    transform: rotate(180deg);
+}
+
+.tf-crab-leg--6 {
+    top: 70px;
+    left: -10px;
+    transform: rotate(180deg);
+}
+
+.tf-crab-claw-container {
+    top: 0;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+.tf-crab-claw-container--left {
+    left: -10px;
+    transform: rotateZ(190deg);
+    transform-origin: left;
+
+    animation: crab_wave 40s infinite ease-in-out;
+    animation-delay: 20s;
+}
+
+.tf-crab-claw-container--right {
+    left: 60px;
+    transform: rotateZ(-10deg);
+}
+
+.tf-crab-claw-arm {
+    position: absolute;
+    top: 12px;
+    width: 30px;
+    height: 10px;
+    border-left: 3px solid var(--crab-shade-colour);
+    background: var(--crab-colour-main);
+    box-shadow: inset 0 5px 10px 0 var(--crab-shade-colour);
+    border-radius: 10px 0 0 10px;
+}
+
+.tf-crab-claw {
+    position: absolute;
+    left: 25px;
+    width: 30px;
+    height: 15px;
+    background: var(--crab-colour-main);
+    box-shadow: inset 0 5px 10px 0 var(--crab-shade-colour);
+    border-radius: 15px 15px 0 0;
+}
+
+.tf-crab-claw--top {
+    top: 0;
+    transform: rotateZ(-20deg);
+}
+
+.tf-crab-claw--bottom {
+    top: 15px;
+    transform: rotateZ(200deg);
 }
 
 .tf-tiny-fish-container {
@@ -2356,6 +2559,49 @@ label {
     0%    { transform: translateX(-15%); }
     50%   { transform: translateX(15%); }
     100%  { transform: translateX(-15%); }
+}
+
+@keyframes crab_peek {
+    0%    { transform: translateX(30px) rotateZ(-70deg); }
+    4%    { transform: translateX(30px) rotateZ(-70deg); }
+    6%    { transform: translateX(0)    rotateZ(-70deg); }
+    10%   { transform: translateX(0)    rotateZ(-70deg); }
+    10.5% { transform: translateX(30px) rotateZ(-70deg); }
+    20%   { transform: translateX(30px) rotateZ(-70deg); }
+    21%   { transform: translateX(0)    rotateZ(-70deg); }
+    30%   { transform: translateX(0)    rotateZ(-70deg); }
+    31%   { transform: translateX(30px) rotateZ(-70deg); }
+    49%   { transform: translateX(30px) rotateZ(-70deg); }
+    52%   { transform: translateX(-40px) rotateZ(0); }
+    72%   { transform: translateX(-40px) rotateZ(0); }
+    75%   { transform: translateX(30px) rotateZ(-70deg); }
+    100%  { transform: translateX(30px) rotateZ(-70deg); }
+}
+
+@keyframes crab_wave {
+    0%   { transform: rotateZ(190deg); }
+    51%  { transform: rotateZ(190deg); }
+    52%  { transform: rotateZ(220deg); }
+    54%  { transform: rotateZ(170deg); }
+    55%  { transform: rotateZ(210deg); }
+    56%  { transform: rotateZ(170deg); }
+    57%  { transform: rotateZ(210deg); }
+    58%  { transform: rotateZ(170deg); }
+    59%  { transform: rotateZ(210deg); }
+    60%  { transform: rotateZ(170deg); }
+    61%  { transform: rotateZ(210deg); }
+    62%  { transform: rotateZ(170deg); }
+    63%  { transform: rotateZ(210deg); }
+    64%  { transform: rotateZ(170deg); }
+    65%  { transform: rotateZ(210deg); }
+    66%  { transform: rotateZ(170deg); }
+    67%  { transform: rotateZ(210deg); }
+    68%  { transform: rotateZ(170deg); }
+    69%  { transform: rotateZ(210deg); }
+    70%  { transform: rotateZ(170deg); }
+    71%  { transform: rotateZ(210deg); }
+    72%  { transform: rotateZ(190deg); }
+    100% { transform: rotateZ(190deg); }
 }
 
 @keyframes tiny_fish_container_move {
