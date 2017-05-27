@@ -13,8 +13,8 @@
     --crab-shade-colour: #D6242B;
     --tiny-fish-colour: #FFF;
     --ufo-glow-colour: #1CFFAC;
-    --jellyfish-main-colour: rgba(255, 255, 255, 0.2);
-    --jellyfish-shade-colour: rgba(138, 138, 138, 0.2);
+    --jellyfish-main-colour: rgba(45, 213, 255, 0.8);
+    --jellyfish-shade-colour: rgba(36, 157, 190, 0.8);
     --ufo-beam-gap: -25px;
 }
 
@@ -69,7 +69,7 @@ label {
     top: 0;
     right: 0;
     bottom: 0;
-    background: rgba(24, 57, 89, 0.9);
+    background: rgba(24, 57, 89, 0.95);
     pointer-events: auto;
     z-index: 10;
     transition: opacity 500ms;
@@ -102,8 +102,9 @@ label {
     padding: 50px;
     width: 400px;
     height: 258px;
+    box-shadow: inset 0 0 20px 5px #FFF;
 
-    animation: info_description_container_float 10s infinite ease-in-out;
+    animation: info_description_container_float 40s infinite ease-in-out;
 }
 
 .tf-info-description {
@@ -112,6 +113,16 @@ label {
     color: #FFF;
     margin: 20px;
     text-align: center;
+}
+
+.tf-text-emphasis {
+    color: #2dd5ff;
+}
+
+.tf-jellyfish-outer-container {
+    position: absolute;
+
+    animation: jellyfish_swim 20s infinite ease-in-out;
 }
 
 .tf-jellyfish-container--1 {
@@ -269,6 +280,8 @@ label {
     height: 20px;
     border-radius: 50%;
     border-bottom: 5px solid black;
+
+    animation: jellyfish_smile 20s infinite ease-in-out;
 }
 
 
@@ -277,7 +290,7 @@ label {
     width: 120px;
     height: 120px;
 
-    animation: crab_slide 5s infinite ease-in-out;
+    animation: crab_slide 40s infinite ease-in-out;
 }
 
 .tf-options-outer-container {
@@ -2803,11 +2816,33 @@ label {
 }
 
 @keyframes info_description_container_float {
-    0%   { transform: translateY(0)     rotateZ(-5deg); }
-    25%  { transform: translateY(30px)  rotateZ(5deg); }
-    50%  { transform: translateY(0)     rotateZ(-5deg); }
-    75%  { transform: translateY(-30px) rotateZ(5deg); }
-    100% { transform: translateY(0)     rotateZ(-5deg); }
+    0%     { transform: translateY(60px)  rotateZ(0); }
+    12.5%  { transform: translateY(-60px) rotateZ(0); }
+    18.75% { transform: translateY(-30px) rotateZ(5deg); }
+    31.25% { transform: translateY(0)     rotateZ(-5deg); }
+    43.75% { transform: translateY(30px)  rotateZ(5deg); }
+    50%    { transform: translateY(60px)  rotateZ(0); }
+    62.5%  { transform: translateY(-60px) rotateZ(0); }
+    68.75% { transform: translateY(-30px) rotateZ(-5deg); }
+    81.25% { transform: translateY(0)     rotateZ(5deg); }
+    93.75% { transform: translateY(30px)  rotateZ(-5deg); }
+    100%   { transform: translateY(60px)  rotateZ(0); }
+}
+
+@keyframes jellyfish_swim {
+    0%    { transform: translateY(0); }
+    25%   { transform: translateY(0); }
+    30%   { transform: translateY(20px); }
+    95%   { transform: translateY(20px); }
+    100%  { transform: translateY(0); }
+}
+
+@keyframes jellyfish_smile {
+    0%    { transform: scaleY(0.4); }
+    25%   { transform: scaleY(0.4); }
+    30%   { transform: scaleY(1.4); }
+    95%   { transform: scaleY(1.4); }
+    100%  { transform: scaleY(0.4); }
 }
 
 @keyframes jellyfish_head_pulse {
@@ -2822,9 +2857,15 @@ label {
 }
 
 @keyframes crab_slide {
-    0%    { transform: translateX(400px) translateY(-400px); }
-    50%   { transform: translateX(-60px) translateY(-400px); }
-    100%  { transform: translateX(400px) translateY(-400px); }
+    0%    { transform: translateX(-60px) translateY(-395px); }
+    12.5% { transform: translateX(-60px) translateY(-395px); }
+    25%   { transform: translateX(400px) translateY(-395px); }
+    37.5% { transform: translateX(-60px) translateY(-395px); }
+    50%   { transform: translateX(400px) translateY(-395px); }
+    62.5% { transform: translateX(400px) translateY(-395px); }
+    75%   { transform: translateX(-60px) translateY(-395px); }
+    87.5% { transform: translateX(400px) translateY(-395px); }
+    100%  { transform: translateX(-60px) translateY(-395px); }
 }
 
 @keyframes crab_peek {
