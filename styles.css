@@ -120,25 +120,25 @@ label {
 }
 
 .tf-jellyfish-outer-container {
-    position: absolute;
+    width: 400px;
 
     animation: jellyfish_swim 20s infinite ease-in-out;
 }
 
 .tf-jellyfish-container--1 {
-    transform: translateX(0) translateY(50px);
+    transform: translateX(0) translateY(40px);
 }
 
 .tf-jellyfish-container--2 {
-    transform: translateX(100px) translateY(50px);
+    transform: translateX(100px) translateY(40px);
 }
 
 .tf-jellyfish-container--3 {
-    transform: translateX(200px) translateY(50px);
+    transform: translateX(200px) translateY(40px);
 }
 
 .tf-jellyfish-container--4 {
-    transform: translateX(300px) translateY(50px);
+    transform: translateX(300px) translateY(40px);
 }
 
 .tf-jellyfish-container {
@@ -2830,11 +2830,11 @@ label {
 }
 
 @keyframes jellyfish_swim {
-    0%    { transform: translateY(0); }
-    25%   { transform: translateY(0); }
-    30%   { transform: translateY(20px); }
-    95%   { transform: translateY(20px); }
-    100%  { transform: translateY(0); }
+    0%    { transform: translateY(20px); }
+    25%   { transform: translateY(-100px); }
+    40%   { transform: translateY(0); }
+    90%   { transform: translateY(0); }
+    100%  { transform: translateY(20px); }
 }
 
 @keyframes jellyfish_smile {
