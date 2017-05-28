@@ -4,7 +4,9 @@
     --orb-shade-colour: #999;
     --mountain-colour: #11381C;
     --surf-wave-main-colour: #1E8381;
-    --surf-wave-shade-colour: rgba(55, 255, 253, 0.2);
+    --surf-wave-shade-colour: #b0fffa;
+    --cat-main-colour: #000000;
+    --cat-shade-colour: #ffffff;
     --sea-top-colour: #1E8381;
     --sea-bottom-colour: #454C98;
     --fish-main-colour: #F0592A;
@@ -395,6 +397,7 @@ label {
 #tiny-fish-checkbox:checked ~ .tf-options-outer-container label[for="tiny-fish-checkbox"],
 #crab-checkbox:checked ~ .tf-options-outer-container label[for="crab-checkbox"],
 #ufo-checkbox:checked ~ .tf-options-outer-container label[for="ufo-checkbox"],
+#surfer-checkbox:checked ~ .tf-options-outer-container label[for="surfer-checkbox"],
 #outline-checkbox:checked ~ .tf-options-outer-container label[for="outline-checkbox"],
 #background-checkbox:checked ~ .tf-options-outer-container label[for="background-checkbox"],
 #box-shadow-checkbox:checked ~ .tf-options-outer-container label[for="box-shadow-checkbox"],
@@ -448,6 +451,11 @@ label {
 
 #ufo-checkbox:not(:checked) ~ div .tf-ufo-container,
 #ufo-checkbox:not(:checked) ~ .tf-ufo-beam-container {
+    opacity: 0 !important;
+}
+
+#surfer-checkbox:not(:checked) ~ div .tf-surfer-container,
+#surfer-checkbox:not(:checked) ~ div .tf-surf-wave-container {
     opacity: 0 !important;
 }
 
@@ -730,36 +738,52 @@ label {
 }
 
 .tf-surf-wave-container {
-    display: none; /* TODO WIP: surf wave */
-
     position: absolute;
-    top: 70px;
+    top: 49px;
     left: 0;
     width: 100%;
     height: 100px;
+    transform: translateX(-300px);
 
-    animation: surf_wave_container_move 10s infinite linear;
+    animation: surf_wave_container_move 40s infinite linear;
+    animation-delay: 60s;
 }
 
 .tf-surf-wave {
     position: absolute;
+    transform: rotateZ(20deg);
 
-    animation: surf_wave_move 2s infinite ease-in-out;
+    animation: surf_wave_move 7s infinite ease-in-out;
 }
 
 .tf-surf-wave--1 {
-    left: 20px;
-    animation-delay: 1s;
+    left: 50px;
+    animation-delay: 0s;
 }
 
 .tf-surf-wave--2 {
-    left: 10px;
-    animation-delay: 0.6s;
+    left: 40px;
+    animation-delay: 1s;
 }
 
 .tf-surf-wave--3 {
+    left: 30px;
+    animation-delay: 2s;
+}
+
+.tf-surf-wave--4 {
+    left: 20px;
+    animation-delay: 3s;
+}
+
+.tf-surf-wave--5 {
+    left: 10px;
+    animation-delay: 4s;
+}
+
+.tf-surf-wave--6 {
     left: 0;
-    animation-delay: 0.3s;
+    animation-delay: 5s;
 }
 
 .tf-surf-wave-top {
@@ -800,7 +824,6 @@ label {
     height: 100px;
     background: transparent;
     border-radius: 50px 0 0 50px;
-    border-left: 4px solid var(--surf-wave-shade-colour);
 }
 
 .tf-surf-wave-top-inner:before {
@@ -829,33 +852,267 @@ label {
     top: 50px;
     left: -50px;
     width: 50px;
-    height: 90px;
+    height: 140px;
     background: transparent;
     border-radius: 0 0 50px 0;
-    box-shadow: 10px 10px 0 6px var(--surf-wave-main-colour);
+    box-shadow: 10px 10px 0 0 var(--surf-wave-main-colour);
 }
 
 .tf-surf-wave-bottom:before {
     content: '';
     position: absolute;
-    top: 10px;
-    left: 23px;
+    top: 22px;
+    left: 26px;
     width: 0;
     height: 0;
     border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
+    border-right: 46px solid transparent;
     border-bottom: 100px solid var(--surf-wave-main-colour);
+    transform: rotateZ(-20deg);
 }
 
 .tf-surf-wave-bottom:after {
     content: '';
     position: absolute;
-    top: 86px;
-    left: -20px;
-    width: 160px;
-    height: 30px;
+    top: 111px;
+    left: 1px;
+    width: 147px;
+    height: 22px;
     background: var(--surf-wave-main-colour);
     border-radius: 50%;
+    transform: rotateZ(-20deg);
+}
+
+.tf-surfer-container {
+    position: absolute;
+    top: 139px;
+    width: 100%;
+    height: 100px;
+    transform: translateX(-300px);
+
+    animation: surfer_container_move 40s infinite linear;
+    animation-delay: 60s;
+}
+
+.tf-surfer {
+    position: absolute;
+
+    animation: surfer_move 2s infinite ease-in-out;
+}
+
+.tf-surfboard {
+    position: absolute;
+    width: 50px;
+    height: 150px;
+    background: yellow;
+    border-radius: 50%;
+    box-shadow: inset 1px -1px 8px 7px #c9c900;
+    overflow: hidden;
+
+    animation: surfboard_move 4s infinite ease-in-out;
+}
+
+.tf-surfboard:before {
+    position: absolute;
+    content: '';
+    left: -2px;
+    width: 25px;
+    height: 150px;
+    border-right: 8px solid rgba(255, 0, 0, 0.5);
+}
+
+.tf-cat {
+    position: absolute;
+}
+
+.tf-cat-tail {
+    position: absolute;
+    left: -50px;
+    top: 30px;
+    width: 100px;
+    height: 10px;
+    background: var(--cat-main-colour);
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 4px 0 var(--cat-shade-colour);
+    transform: rotateZ(20deg);
+}
+
+.tf-cat-body {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: var(--cat-main-colour);
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 10px 0 var(--cat-shade-colour);
+}
+
+.tf-cat-head {
+    position: absolute;
+    top: -50px;
+    width: 70px;
+    height: 70px;
+    background: var(--cat-main-colour);
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 10px 0 var(--cat-shade-colour);
+}
+
+.tf-cat-eye {
+    position: absolute;
+    top: 13px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #8A8A8A;
+    background: white;
+    overflow: hidden;
+}
+
+.tf-cat-eye:after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 4px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: black;
+}
+
+.tf-cat-eye--left {
+    left: 14px;
+}
+
+.tf-cat-eye--right {
+    left: 40px;
+}
+
+.tf-cat-ear {
+    position: absolute;
+    top: -58px;
+    width: 30px;
+    height: 30px;
+    border-radius: 20%;
+    background: var(--cat-main-colour);
+    box-shadow: inset 2px 2px 10px 0 var(--cat-shade-colour);
+}
+
+.tf-cat-ear--left {
+    transform: translateZ(-100px) rotateZ(15deg) rotateY(-40deg);
+}
+
+.tf-cat-ear--right {
+    transform: translateZ(-100px) translateX(40px) rotateZ(-15deg) rotateY(40deg);
+}
+
+.tf-cat-nose {
+    position: absolute;
+    left: 30px;
+    top: 27px;
+    width: 12px;
+    height: 12px;
+    background: pink;
+    border-radius: 4px 4px 8px 8px / 8px 8px 8px 8px;
+    border: 1px solid black;
+}
+
+.tf-cat-mouth {
+    position: absolute;
+    left: 18px;
+    top: 43px;
+    width: 40px;
+    height: 20px;
+    border-radius: 0 0 20px 20px;
+    background: white;
+    overflow: hidden;
+}
+
+.tf-cat-mouth:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 9px;
+    border: 1px solid black;
+    width: 10px;
+    height: 22px;
+}
+
+.tf-cat-mouth:after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 30px;
+    border: 1px solid black;
+    width: 10px;
+    height: 22px;
+}
+
+.tf-cat-whiskers {
+    position: absolute;
+    left: -20px;
+    top: 27px;
+    width: 110px;
+    height: 30px;
+    background: transparent;
+    overflow: hidden;
+}
+
+.tf-cat-whisker {
+    position: absolute;
+    left: -50px;
+    top: 5px;
+    width: 200px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.tf-cat-whisker:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    width: 200px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.tf-cat-whisker:after {
+    content: '';
+    position: absolute;
+    top: -35px;
+    width: 200px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.tf-cat-paw {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    background: var(--cat-main-colour);
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 4px 0 var(--cat-shade-colour);
+}
+
+.tf-cat-paw--top-left {
+    left: 0;
+    top: 37px;
+}
+
+.tf-cat-paw--top-right {
+    left: 30px;
+    top: 33px;
+}
+
+.tf-cat-paw--bottom-left {
+    left: 0;
+    top: 57px;
+}
+
+.tf-cat-paw--bottom-right {
+    left: 30px;
+    top: 63px;
 }
 
 .tf-sea-background {
@@ -2853,6 +3110,7 @@ label {
     --orb-main-colour: #fff452;
     --orb-shade-colour: transparent;
     --mountain-colour: #206a2e;
+    --surf-wave-main-colour: #0171AD;
     --sea-top-colour: #0171AD;
     --sea-bottom-colour: #6074EA;
 }
@@ -3121,13 +3379,32 @@ label {
 
 @keyframes surf_wave_container_move {
     0%   { transform: translateX(-300px); }
+    50%  { transform: translateX(-300px); }
     100% { transform: translateX(2000px); }
 }
 
 @keyframes surf_wave_move {
+    0%   { transform: rotateZ(20deg) translateY(0); }
+    50%  { transform: rotateZ(20deg) translateY(-10px); }
+    100% { transform: rotateZ(20deg) translateY(0); }
+}
+
+@keyframes surfer_container_move {
+    0%   { transform: translateX(-300px); }
+    50%  { transform: translateX(-300px); }
+    100% { transform: translateX(2000px); }
+}
+
+@keyframes surfer_move {
     0%   { transform: translateY(0); }
     50%  { transform: translateY(-10px); }
     100% { transform: translateY(0); }
+}
+
+@keyframes surfboard_move {
+    0%   { transform: translateZ(-100px) rotateZ(-60deg) rotateX(40deg); }
+    50%  { transform: translateZ(-100px) rotateZ(-40deg) rotateX(40deg); }
+    100% { transform: translateZ(-100px) rotateZ(-60deg) rotateX(40deg); }
 }
 
 @keyframes sea_current_move {
