@@ -405,6 +405,7 @@ label {
 #border-checkbox:checked ~ .tf-options-outer-container label[for="border-checkbox"],
 #transform-checkbox:checked ~ .tf-options-outer-container label[for="transform-checkbox"],
 #pseudo-elements-checkbox:checked ~ .tf-options-outer-container label[for="pseudo-elements-checkbox"],
+#animation-checkbox:checked ~ .tf-options-outer-container label[for="animation-checkbox"],
 #parallax-checkbox:checked ~ .tf-options-outer-container label[for="parallax-checkbox"] {
     background: #4FB95E;
 }
@@ -498,6 +499,12 @@ label {
 #pseudo-elements-checkbox:not(:checked) ~ div div:before,
 #pseudo-elements-checkbox:not(:checked) ~ div div:after {
     display: none !important;
+}
+
+#animation-checkbox:not(:checked) ~ div div,
+#animation-checkbox:not(:checked) ~ div div:before,
+#animation-checkbox:not(:checked) ~ div div:after {
+    animation-play-state: paused !important;
 }
 
 #parallax-checkbox:checked ~ div .tf-sandbank-layer--1 {
@@ -740,7 +747,7 @@ label {
 .tf-surf-wave-container {
     position: absolute;
     top: 49px;
-    left: 0;
+    left: -300px;
     width: 100%;
     height: 100px;
     transform: translateX(-300px);
@@ -885,6 +892,7 @@ label {
 
 .tf-surfer-container {
     position: absolute;
+    left: -300px;
     top: 139px;
     width: 100%;
     height: 100px;
@@ -3390,9 +3398,9 @@ label {
 }
 
 @keyframes surf_wave_container_move {
-    0%   { transform: translateX(-300px); }
-    50%  { transform: translateX(-300px); }
-    100% { transform: translateX(2000px); }
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(0); }
+    100% { transform: translateX(2300px); }
 }
 
 @keyframes surf_wave_move {
@@ -3402,9 +3410,9 @@ label {
 }
 
 @keyframes surfer_container_move {
-    0%   { transform: translateX(-300px); }
-    50%  { transform: translateX(-300px); }
-    100% { transform: translateX(2000px); }
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(0); }
+    100% { transform: translateX(2300px); }
 }
 
 @keyframes surfer_move {
