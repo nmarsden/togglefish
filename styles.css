@@ -51,6 +51,11 @@ label {
     position: fixed;
 }
 
+.tf-radio {
+    opacity: 0;
+    position: fixed;
+}
+
 #info-checkbox:checked ~ .tf-info-noclick-overlay {
     display: block;
     opacity: 1;
@@ -60,10 +65,10 @@ label {
     opacity: 0;
 }
 
-#info-checkbox:checked ~ .tf-info-outer-container > .tf-info-container {
+#info-checkbox:checked ~ .tf-info-outer-container > div {
     opacity: 1;
 }
-#info-checkbox:not(:checked) ~ .tf-info-outer-container > .tf-info-container {
+#info-checkbox:not(:checked) ~ .tf-info-outer-container > div {
     opacity: 0;
 }
 
@@ -101,8 +106,33 @@ label {
     transition: opacity 500ms;
 }
 
+.tf-info-buttons-container {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .tf-info-cube-container {
-     animation: info_cube_container_float 40s infinite ease-in-out;
+    transition: opacity 500ms;
+}
+
+#info-page-1:checked ~ .tf-info-outer-container .tf-info-cube-container {
+    animation: info_cube_container_sink 1s ease-in-out,
+               info_cube_container_float 40s infinite ease-in-out;
+    animation-delay: 0s, 1s;
+}
+
+#info-page-2:checked ~ .tf-info-outer-container .tf-cube {
+    transform: rotateY(-90deg);
+}
+
+#info-page-3:checked ~ .tf-info-outer-container .tf-cube {
+    transform: rotateY(-180deg);
 }
 
 .tf-cube-container {
@@ -114,6 +144,7 @@ label {
 
 .tf-cube {
     transform-style: preserve-3d;
+    transition: transform 1s;
     /*animation: cube_rotate 20s infinite linear;*/
 }
 
@@ -226,11 +257,18 @@ label {
 }
 
 .tf-jellyfish-outer-container {
-    position: relative;
-    top: -28px;
     width: 400px;
+}
 
-    animation: jellyfish_swim 20s infinite ease-in-out;
+#info-page-1:checked ~ .tf-info-outer-container .tf-jellyfish-outer-container {
+    animation: jellyfish_enter 1s ease-in-out,
+               jellyfish_swim 20s infinite ease-in-out;
+    animation-delay: 0s, 1s;
+}
+
+#info-page-1:not(:checked) ~ .tf-info-outer-container .tf-jellyfish-outer-container {
+    animation: jellyfish_leave 1s linear;
+    animation-fill-mode: forwards;
 }
 
 .tf-jellyfish-container--1 {
@@ -392,14 +430,25 @@ label {
     animation: jellyfish_smile 20s infinite ease-in-out;
 }
 
-
-.tf-crab-container-info {
+.tf-crab-outer-container-info {
     position: relative;
     top: -50px;
     width: 120px;
     height: 120px;
+}
 
+#info-page-1:checked ~ .tf-info-outer-container .tf-crab-outer-container-info {
+    animation: crab_enter 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+#info-page-1:not(:checked) ~ .tf-info-outer-container .tf-crab-outer-container-info {
+    opacity: 0;
+}
+
+#info-page-1:checked ~ .tf-info-outer-container .tf-crab-container-info {
     animation: crab_slide 40s infinite ease-in-out;
+    animation-delay: 1s;
 }
 
 .tf-options-outer-container {
@@ -511,7 +560,10 @@ label {
 #transform-checkbox:checked ~ .tf-options-outer-container label[for="transform-checkbox"],
 #pseudo-elements-checkbox:checked ~ .tf-options-outer-container label[for="pseudo-elements-checkbox"],
 #animation-checkbox:checked ~ .tf-options-outer-container label[for="animation-checkbox"],
-#parallax-checkbox:checked ~ .tf-options-outer-container label[for="parallax-checkbox"] {
+#parallax-checkbox:checked ~ .tf-options-outer-container label[for="parallax-checkbox"],
+#info-page-1:checked ~ .tf-info-outer-container label[for="info-page-1"],
+#info-page-2:checked ~ .tf-info-outer-container label[for="info-page-2"],
+#info-page-3:checked ~ .tf-info-outer-container label[for="info-page-3"] {
     background: #4FB95E;
 }
 
@@ -3394,6 +3446,11 @@ label {
     100%  { transform: translateX(-15%); }
 }
 
+@keyframes info_cube_container_sink {
+    0%     { transform: translateY(0); }
+    100%   { transform: translateY(60px); }
+}
+
 @keyframes info_cube_container_float {
     0%     { transform: translateY(60px)  rotateZ(0); }
     12.5%  { transform: translateY(-60px) rotateZ(0); }
@@ -3408,12 +3465,22 @@ label {
     100%   { transform: translateY(60px)  rotateZ(0); }
 }
 
+@keyframes jellyfish_enter {
+    0%   { transform: translateY(300px); }
+    100% { transform: translateY(-8px); }
+}
+
+@keyframes jellyfish_leave {
+    0%   { transform: translateY(-8px); }
+    100% { transform: translateY(300px); }
+}
+
 @keyframes jellyfish_swim {
-    0%    { transform: translateY(20px); }
-    25%   { transform: translateY(-100px); }
-    40%   { transform: translateY(0); }
-    90%   { transform: translateY(0); }
-    100%  { transform: translateY(20px); }
+    0%    { transform: translateY(-8px); }
+    25%   { transform: translateY(-128px); }
+    40%   { transform: translateY(-28px); }
+    90%   { transform: translateY(-28px); }
+    100%  { transform: translateY(-8px); }
 }
 
 @keyframes jellyfish_smile {
@@ -3435,16 +3502,21 @@ label {
     100%  { transform: translateY(40px); }
 }
 
+@keyframes crab_enter {
+    0%   { transform: translateY(-800px); }
+    100% { transform: translateY(-395px); }
+}
+
 @keyframes crab_slide {
-    0%    { transform: translateX(-60px) translateY(-395px); }
-    12.5% { transform: translateX(-60px) translateY(-395px); }
-    25%   { transform: translateX(400px) translateY(-395px); }
-    37.5% { transform: translateX(-60px) translateY(-395px); }
-    50%   { transform: translateX(400px) translateY(-395px); }
-    62.5% { transform: translateX(400px) translateY(-395px); }
-    75%   { transform: translateX(-60px) translateY(-395px); }
-    87.5% { transform: translateX(400px) translateY(-395px); }
-    100%  { transform: translateX(-60px) translateY(-395px); }
+    0%    { transform: translateX(0); }
+    12.5% { transform: translateX(0); }
+    25%   { transform: translateX(350px); }
+    37.5% { transform: translateX(0); }
+    50%   { transform: translateX(350px); }
+    62.5% { transform: translateX(350px); }
+    75%   { transform: translateX(0); }
+    87.5% { transform: translateX(350px); }
+    100%  { transform: translateX(0); }
 }
 
 @keyframes crab_peek {

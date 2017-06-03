@@ -14,6 +14,10 @@
         <input class="tf-fish-checkbox" type="checkbox" id="fish-checkbox">
         <!-- Info button -->
         <input class="tf-checkbox" type="checkbox" id="info-checkbox">
+        <!-- Info paging buttons -->
+        <input class="tf-radio" type="radio" id="info-page-1" name="info-page" checked />
+        <input class="tf-radio" type="radio" id="info-page-2" name="info-page" />
+        <input class="tf-radio" type="radio" id="info-page-3" name="info-page" />
         <!-- Toggles button -->
         <input class="tf-checkbox" type="checkbox" id="options-checkbox">
         <!-- Scenery -->
@@ -523,15 +527,27 @@
         <span class="tf-info-noclick-overlay"></span>
         <span class="tf-info-outer-container">
             <label class="tf-outline-button" for="info-checkbox">?</label>
-            <span class="tf-info-container">
+            <div class="tf-info-container">
                 <div class="tf-info-cube-container">
                     <div class="tf-cube-container">
                       <div class="tf-cube">
-                        <div class="tf-cube-side tf-cube-side--back"></div>
+                        <div class="tf-cube-side tf-cube-side--back">
+                            <div class="tf-info-description-container">
+                                <div class="tf-info-description">
+                                    Back
+                                </div>
+                            </div>
+                        </div>
                         <div class="tf-cube-side tf-cube-side--top"></div>
                         <div class="tf-cube-side tf-cube-side--bottom"></div>
                         <div class="tf-cube-side tf-cube-side--left"></div>
-                        <div class="tf-cube-side tf-cube-side--right"></div>
+                        <div class="tf-cube-side tf-cube-side--right">
+                            <div class="tf-info-description-container">
+                                <div class="tf-info-description">
+                                    Right Side
+                                </div>
+                            </div>
+                        </div>
                         <div class="tf-cube-side tf-cube-side--front">
                             <div class="tf-info-description-container">
                                 <div class="tf-info-description">
@@ -544,28 +560,30 @@
                         </div>
                       </div>
                     </div>
-                    <div class="tf-crab-container-info">
-                        <div class="tf-crab-body"></div>
-                        <div class="tf-crab-stalk tf-crab-stalk--left"></div>
-                        <div class="tf-crab-stalk tf-crab-stalk--right"></div>
-                        <div class="tf-crab-eye tf-crab-eye--left"></div>
-                        <div class="tf-crab-eye tf-crab-eye--right"></div>
-                        <div class="tf-crab-mouth"></div>
-                        <div class="tf-crab-leg tf-crab-leg--1"></div>
-                        <div class="tf-crab-leg tf-crab-leg--2"></div>
-                        <div class="tf-crab-leg tf-crab-leg--3"></div>
-                        <div class="tf-crab-leg tf-crab-leg--4"></div>
-                        <div class="tf-crab-leg tf-crab-leg--5"></div>
-                        <div class="tf-crab-leg tf-crab-leg--6"></div>
-                        <div class="tf-crab-claw-container tf-crab-claw-container--left">
-                            <div class="tf-crab-claw-arm"></div>
-                            <div class="tf-crab-claw tf-crab-claw--top"></div>
-                            <div class="tf-crab-claw tf-crab-claw--bottom"></div>
-                        </div>
-                        <div class="tf-crab-claw-container tf-crab-claw-container--right">
-                            <div class="tf-crab-claw-arm"></div>
-                            <div class="tf-crab-claw tf-crab-claw--top"></div>
-                            <div class="tf-crab-claw tf-crab-claw--bottom"></div>
+                    <div class="tf-crab-outer-container-info">
+                        <div class="tf-crab-container-info">
+                            <div class="tf-crab-body"></div>
+                            <div class="tf-crab-stalk tf-crab-stalk--left"></div>
+                            <div class="tf-crab-stalk tf-crab-stalk--right"></div>
+                            <div class="tf-crab-eye tf-crab-eye--left"></div>
+                            <div class="tf-crab-eye tf-crab-eye--right"></div>
+                            <div class="tf-crab-mouth"></div>
+                            <div class="tf-crab-leg tf-crab-leg--1"></div>
+                            <div class="tf-crab-leg tf-crab-leg--2"></div>
+                            <div class="tf-crab-leg tf-crab-leg--3"></div>
+                            <div class="tf-crab-leg tf-crab-leg--4"></div>
+                            <div class="tf-crab-leg tf-crab-leg--5"></div>
+                            <div class="tf-crab-leg tf-crab-leg--6"></div>
+                            <div class="tf-crab-claw-container tf-crab-claw-container--left">
+                                <div class="tf-crab-claw-arm"></div>
+                                <div class="tf-crab-claw tf-crab-claw--top"></div>
+                                <div class="tf-crab-claw tf-crab-claw--bottom"></div>
+                            </div>
+                            <div class="tf-crab-claw-container tf-crab-claw-container--right">
+                                <div class="tf-crab-claw-arm"></div>
+                                <div class="tf-crab-claw tf-crab-claw--top"></div>
+                                <div class="tf-crab-claw tf-crab-claw--bottom"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -643,7 +661,12 @@
                             </div>
                         </div>
                     </div>
-            </span>
+            </div>
+            <div class="tf-info-buttons-container">
+                <label class="tf-button" for="info-page-1"></label>
+                <label class="tf-button" for="info-page-2"></label>
+                <label class="tf-button" for="info-page-3"></label>
+            </div>
         </span>
         <span class="tf-options-outer-container">
             <label class="tf-outline-button" for="options-checkbox">Toggles</label>
