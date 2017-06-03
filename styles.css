@@ -147,8 +147,8 @@ a {
     font-size: 30px;
     text-align: center;
     color: white;
-    background: rgba(62, 140, 70, 0.81);
-    border: 1px solid #005380;
+    background: rgba(1, 1, 1, 0.1);
+    border: 2px solid #EEE;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     cursor: pointer;
 }
@@ -599,8 +599,14 @@ a {
 #info-page-1:checked ~ .tf-info-outer-container label[for="info-page-1"],
 #info-page-2:checked ~ .tf-info-outer-container label[for="info-page-2"],
 #info-page-3:checked ~ .tf-info-outer-container label[for="info-page-3"] {
-    color: #000;
     background: #4FB95E;
+}
+
+#info-page-1:checked ~ .tf-info-outer-container label[for="info-page-1"],
+#info-page-2:checked ~ .tf-info-outer-container label[for="info-page-2"],
+#info-page-3:checked ~ .tf-info-outer-container label[for="info-page-3"] {
+    color: #000;
+    background: #FFF;
 }
 
 #orb-checkbox:not(:checked) ~ div .tf-orb {
