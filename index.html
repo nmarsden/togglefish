@@ -42,7 +42,8 @@
         <input class="tf-checkbox" type="checkbox" checked id="border-checkbox">
         <input class="tf-checkbox" type="checkbox" checked id="transform-checkbox">
         <input class="tf-checkbox" type="checkbox" checked id="pseudo-elements-checkbox">
-        <input class="tf-checkbox" type="checkbox" checked id="animation-checkbox">
+        <!-- Note: Removed the animation toggle, as mobile Safari does not support 'animation-play-state: paused' -->
+        <!--<input class="tf-checkbox" type="checkbox" checked id="animation-checkbox">-->
 
         <div class="tf-background">
             <div class="tf-sky">
@@ -768,10 +769,11 @@
                         <div class="tf-option-text">Pseudo Elements</div>
                         <label class="tf-button" for="pseudo-elements-checkbox"></label>
                     </div>
-                    <div class="tf-option">
-                        <div class="tf-option-text">Animation</div>
-                        <label class="tf-button" for="animation-checkbox"></label>
-                    </div>
+                    <!-- Note: Removed the animation toggle, as mobile Safari does not support 'animation-play-state: paused' -->
+                    <!--<div class="tf-option">-->
+                        <!--<div class="tf-option-text">Animation</div>-->
+                        <!--<label class="tf-button" for="animation-checkbox"></label>-->
+                    <!--</div>-->
                 </div>
             </div>
         </span>
