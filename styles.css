@@ -39,6 +39,11 @@ label {
     pointer-events: auto;
 }
 
+a {
+    color: #2dd5ff;
+    pointer-events: auto;
+}
+
 .tf-main {
     position: fixed;
     width: 100%;
@@ -70,6 +75,12 @@ label {
 }
 #info-checkbox:not(:checked) ~ .tf-info-outer-container > div {
     opacity: 0;
+}
+#info-checkbox:checked ~ .tf-info-outer-container > .tf-info-menu-container {
+    display: block;
+}
+#info-checkbox:not(:checked) ~ .tf-info-outer-container > .tf-info-menu-container {
+    display: none;
 }
 
 .tf-info-noclick-overlay {
@@ -106,15 +117,40 @@ label {
     transition: opacity 500ms;
 }
 
-.tf-info-buttons-container {
+.tf-info-menu-container {
     position: absolute;
-    bottom: 50px;
-    width: 100%;
-    height: 50px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.tf-info-menu-items {
+    position: relative;
+    height: 100px;
+    width: 600px;
+    margin: 0 auto 0 auto;
 
     display: flex;
     justify-content: center;
-    align-items: center;
+}
+
+.tf-info-button {
+    padding: 15px 10px 10px 10px;
+    width: 200px;
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    background: rgba(62, 140, 70, 0.81);
+    border: 1px solid #005380;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    cursor: pointer;
 }
 
 .tf-info-cube-container {
@@ -136,8 +172,8 @@ label {
 }
 
 .tf-cube-container {
-    width: 400px;
-    height: 400px;
+    width: 450px;
+    height: 450px;
     perspective: 1600px;
     perspective-origin: 50% -240px;
 }
@@ -150,8 +186,8 @@ label {
 
 .tf-cube-side {
     display: block;
-    width: 400px;
-    height: 400px;
+    width: 450px;
+    height: 450px;
     background-color: #0287CE;
     position: absolute;
     backface-visibility: hidden;
@@ -178,7 +214,7 @@ label {
 }
 
 .tf-cube-side--back {
-    transform: rotateY(180deg) translateZ(200px);
+    transform: rotateY(180deg) translateZ(225px);
 }
 .tf-cube-side--back:before {
     /*animation: cube_back_shading_1 20s infinite linear;*/
@@ -188,7 +224,7 @@ label {
 }
 
 .tf-cube-side--top {
-    transform: rotateX(90deg) translateZ(200px);
+    transform: rotateX(90deg) translateZ(225px);
 }
 .tf-cube-side--top:after {
     content: " ";
@@ -202,13 +238,13 @@ label {
 }
 
 .tf-cube-side--bottom {
-    transform: rotateX(-90deg) translateZ(200px);
+    transform: rotateX(-90deg) translateZ(225px);
     backface-visibility: visible;
     background-color: rgba(0, 0, 0, 0);
 }
 
 .tf-cube-side--left {
-    transform: rotateY(-90deg) translateZ(200px);
+    transform: rotateY(-90deg) translateZ(225px);
 }
 .tf-cube-side--left:before {
     /*animation: cube_left_shading_1 20s infinite linear;*/
@@ -218,7 +254,7 @@ label {
 }
 
 .tf-cube-side--right {
-    transform: rotateY(90deg) translateZ(200px);
+    transform: rotateY(90deg) translateZ(225px);
 }
 .tf-cube-side--right:before {
     /*animation: cube_right_shading_1 20s infinite linear;*/
@@ -228,7 +264,7 @@ label {
 }
 
 .tf-cube-side--front {
-    transform: translateZ(200px);
+    transform: translateZ(225px);
 }
 .tf-cube-side--front:before {
     /*animation: cube_front_shading_1 20s infinite linear;*/
@@ -238,22 +274,22 @@ label {
 }
 
 .tf-info-description-container {
-    padding: 50px;
-    width: calc(100% - 100px);
-    height: calc(100% - 100px);
+    padding: 20px;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
     box-shadow: inset 0 0 10px 0 #15538A;
 }
 
 .tf-info-description {
-    max-width: 400px;
+    max-width: 450px;
     font-size: 1.8em;
     color: #FFF;
-    margin: 20px;
+    margin: 15px;
     text-align: center;
 }
 
-.tf-text-emphasis {
-    color: #2dd5ff;
+.tf-info-description--heading {
+    color: #15538A;
 }
 
 .tf-jellyfish-outer-container {
@@ -432,7 +468,7 @@ label {
 
 .tf-crab-outer-container-info {
     position: relative;
-    top: -50px;
+    top: -100px;
     width: 120px;
     height: 120px;
 }
@@ -474,8 +510,7 @@ label {
 }
 
 #info-checkbox:checked ~ .tf-info-outer-container > .tf-outline-button {
-    color: #000;
-    background: #FFF;
+    opacity: 0;
 }
 
 #options-checkbox:checked ~ .tf-options-outer-container > .tf-outline-button {
@@ -564,6 +599,7 @@ label {
 #info-page-1:checked ~ .tf-info-outer-container label[for="info-page-1"],
 #info-page-2:checked ~ .tf-info-outer-container label[for="info-page-2"],
 #info-page-3:checked ~ .tf-info-outer-container label[for="info-page-3"] {
+    color: #000;
     background: #4FB95E;
 }
 
@@ -3467,20 +3503,20 @@ label {
 
 @keyframes jellyfish_enter {
     0%   { transform: translateY(300px); }
-    100% { transform: translateY(-8px); }
+    100% { transform: translateY(13px); }
 }
 
 @keyframes jellyfish_leave {
-    0%   { transform: translateY(-8px); }
+    0%   { transform: translateY(13px); }
     100% { transform: translateY(300px); }
 }
 
 @keyframes jellyfish_swim {
-    0%    { transform: translateY(-8px); }
-    25%   { transform: translateY(-128px); }
-    40%   { transform: translateY(-28px); }
-    90%   { transform: translateY(-28px); }
-    100%  { transform: translateY(-8px); }
+    0%    { transform: translateY(13px); }
+    25%   { transform: translateY(-103px); }
+    40%   { transform: translateY(-3px); }
+    90%   { transform: translateY(-3px); }
+    100%  { transform: translateY(13px); }
 }
 
 @keyframes jellyfish_smile {
