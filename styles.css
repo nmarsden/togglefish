@@ -51,6 +51,12 @@ a {
     overflow: hidden;
 }
 
+.tf-scene {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
 .tf-checkbox {
     opacity: 0;
     position: fixed;
@@ -76,11 +82,13 @@ a {
 #info-checkbox:not(:checked) ~ .tf-info-outer-container > div {
     opacity: 0;
 }
+#info-checkbox:checked ~ .tf-info-outer-container > .tf-info-container,
 #info-checkbox:checked ~ .tf-info-outer-container > .tf-info-menu-container {
-    display: block;
+    visibility: visible;
 }
+#info-checkbox:not(:checked) ~ .tf-info-outer-container > .tf-info-container,
 #info-checkbox:not(:checked) ~ .tf-info-outer-container > .tf-info-menu-container {
-    display: none;
+    visibility: hidden;
 }
 
 .tf-info-noclick-overlay {
@@ -596,6 +604,7 @@ a {
 #pseudo-elements-checkbox:checked ~ .tf-options-outer-container label[for="pseudo-elements-checkbox"],
 #animation-checkbox:checked ~ .tf-options-outer-container label[for="animation-checkbox"],
 #parallax-checkbox:checked ~ .tf-options-outer-container label[for="parallax-checkbox"],
+#shake-it-checkbox:checked ~ .tf-options-outer-container label[for="shake-it-checkbox"],
 #info-page-1:checked ~ .tf-info-outer-container label[for="info-page-1"],
 #info-page-2:checked ~ .tf-info-outer-container label[for="info-page-2"],
 #info-page-3:checked ~ .tf-info-outer-container label[for="info-page-3"] {
@@ -650,7 +659,7 @@ a {
 }
 
 #ufo-checkbox:not(:checked) ~ div .tf-ufo-container,
-#ufo-checkbox:not(:checked) ~ .tf-ufo-beam-container {
+#ufo-checkbox:not(:checked) ~ div .tf-ufo-beam-container {
     opacity: 0 !important;
 }
 
@@ -717,12 +726,16 @@ a {
 }
 #parallax-checkbox:checked ~ div .tf-outer-container,
 #parallax-checkbox:checked ~ div .tf-ufo-outer-container,
-#parallax-checkbox:checked ~ .tf-ufo-beam-container {
+#parallax-checkbox:checked ~ div .tf-ufo-beam-container {
     animation: parallax_fish_container_move 10s infinite ease-in-out;
 }
-#parallax-checkbox:checked ~ .tf-shell-and-rocks-container,
-#parallax-checkbox:checked ~ .tf-crab-outer-container {
+#parallax-checkbox:checked ~ div .tf-shell-and-rocks-container,
+#parallax-checkbox:checked ~ div .tf-crab-outer-container {
     animation: parallax_shell_and_rocks_container_move 10s infinite ease-in-out;
+}
+
+#shake-it-checkbox:checked ~ .tf-scene {
+    animation: shake_scene 1s infinite ease-in-out;
 }
 
 .tf-background {
@@ -3324,7 +3337,7 @@ a {
     cursor: pointer;
 }
 
-.tf-fish-checkbox:checked ~ .tf-background {
+.tf-fish-checkbox:checked ~ div .tf-background {
     --sky-colour: #17A9D0;
     --orb-main-colour: #fff452;
     --orb-shade-colour: transparent;
@@ -3334,51 +3347,51 @@ a {
     --sea-bottom-colour: #6074EA;
 }
 
-.tf-fish-checkbox:checked ~ .tf-background .tf-cloud {
+.tf-fish-checkbox:checked ~ div .tf-background .tf-cloud {
     opacity: 1;
 }
 
-.tf-fish-checkbox:checked ~ .tf-background .tf-orb-hole {
+.tf-fish-checkbox:checked ~ div .tf-background .tf-orb-hole {
     opacity: 0;
 }
 
-.tf-fish-checkbox:checked ~ .tf-background .tf-stars {
+.tf-fish-checkbox:checked ~ div .tf-background .tf-stars {
     opacity: 0;
 }
 
-.tf-fish-checkbox:checked ~ .tf-foreground {
+.tf-fish-checkbox:checked ~ div .tf-foreground {
     --fish-main-colour: #4FB95E;
     --fish-shade-colour: #459C4B;
 }
 
-.tf-fish-checkbox:checked ~ .tf-foreground .tf-eyebrow {
+.tf-fish-checkbox:checked ~ div .tf-foreground .tf-eyebrow {
     transform: translateY(-10px);
 }
 
-.tf-fish-checkbox:checked ~ .tf-foreground .tf-eye::after {
+.tf-fish-checkbox:checked ~ div .tf-foreground .tf-eye::after {
     opacity: 0;
     animation: eye_blink 10s ease-out;
     animation-iteration-count: infinite;
 }
 
-.tf-fish-checkbox:checked ~ .tf-foreground .tf-lip--bottom {
+.tf-fish-checkbox:checked ~ div .tf-foreground .tf-lip--bottom {
     transform: skewX(10deg) rotate(0deg) translate(0, 40px);
 }
 
-.tf-fish-checkbox:checked ~ .tf-foreground .tf-glint-cross {
+.tf-fish-checkbox:checked ~ div .tf-foreground .tf-glint-cross {
     animation: glint 1s ease-out;
     animation-delay: 1s;
 }
 
-.tf-fish-checkbox:checked ~ .tf-foreground .tf-toggle-shaft {
+.tf-fish-checkbox:checked ~ div .tf-foreground .tf-toggle-shaft {
     transform: rotate(20deg);
 }
 
-.tf-fish-checkbox:checked ~ .tf-foreground .tf-toggle-tip {
+.tf-fish-checkbox:checked ~ div .tf-foreground .tf-toggle-tip {
     transform: rotate(20deg);
 }
 
-.tf-fish-checkbox:checked ~ .tf-foreground .tf-sleep-z {
+.tf-fish-checkbox:checked ~ div .tf-foreground .tf-sleep-z {
     opacity: 0;
     animation: none;
 }
@@ -3486,6 +3499,14 @@ a {
     0%    { transform: translateX(-15%); }
     50%   { transform: translateX(15%); }
     100%  { transform: translateX(-15%); }
+}
+
+@keyframes shake_scene {
+    0%   { transform: scale(1) rotateZ(0) }
+    25%  { transform: scale(2) rotateZ(5deg) }
+    50%  { transform: scale(1) rotateZ(0) }
+    75%  { transform: scale(2) rotateZ(-5deg) }
+    100% { transform: scale(1) rotateZ(0) }
 }
 
 @keyframes info_cube_container_sink {
