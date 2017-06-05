@@ -1,5 +1,6 @@
 :root {
-    --sky-colour: #01293F;
+    --sky-top-colour: #01293F;
+    --sky-bottom-colour: #01476a;
     --orb-main-colour: #DEDEDE;
     --orb-shade-colour: #999;
     --mountain-colour: #11381C;
@@ -97,7 +98,7 @@ a {
     top: 0;
     right: 0;
     bottom: 0;
-    background-color: #0171AD;
+    background: linear-gradient(to bottom, #298eff, #298eff 50%, #001d2d);
     pointer-events: auto;
     z-index: 10;
     transition: opacity 500ms;
@@ -174,9 +175,15 @@ a {
 #info-page-2:checked ~ .tf-info-outer-container .tf-cube {
     transform: rotateY(-90deg);
 }
+#info-page-2:checked ~ .tf-info-outer-container .tf-cube-side--top:after {
+    transform: rotateZ(-90deg);
+}
 
 #info-page-3:checked ~ .tf-info-outer-container .tf-cube {
     transform: rotateY(-180deg);
+}
+#info-page-3:checked ~ .tf-info-outer-container .tf-cube-side--top:after {
+    transform: rotateZ(-180deg);
 }
 
 .tf-cube-container {
@@ -189,7 +196,6 @@ a {
 .tf-cube {
     transform-style: preserve-3d;
     transition: transform 1s;
-    /*animation: cube_rotate 20s infinite linear;*/
 }
 
 .tf-cube-side {
@@ -198,51 +204,28 @@ a {
     height: 450px;
     background-color: #0287CE;
     position: absolute;
+    top: 0;
     backface-visibility: hidden;
     overflow: hidden;
 }
 
-.tf-cube-side:before,
-.tf-cube-side:after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-}
-
-.tf-cube-side:before {
-    background-image: radial-gradient(at top left, rgba(0, 0, 0, 0.5), #000000);
-    z-index: 10;
-}
-.tf-cube-side:after {
-    background-image: radial-gradient(at top right, rgba(0, 0, 0, 0.5), #000000);
-    z-index: 10;
-}
-
 .tf-cube-side--back {
     transform: rotateY(180deg) translateZ(225px);
-}
-.tf-cube-side--back:before {
-    /*animation: cube_back_shading_1 20s infinite linear;*/
-}
-.tf-cube-side--back:after {
-    /*animation: cube_back_shading_2 20s infinite linear;*/
 }
 
 .tf-cube-side--top {
     transform: rotateX(90deg) translateZ(225px);
 }
 .tf-cube-side--top:after {
+    display: block;
     content: " ";
     opacity: 0.5;
     width: 200%;
     height: 200%;
     margin-left: -50%;
     margin-top: -50%;
-    background-image: radial-gradient(at bottom, rgba(0, 0, 0, 0), #000000);
-    /*animation: cube_top_rotate 20s infinite linear;*/
+    background-image: radial-gradient(at bottom, rgba(0, 0, 0, 0) 33%, #000000);
+    transition: transform 1s;
 }
 
 .tf-cube-side--bottom {
@@ -254,31 +237,13 @@ a {
 .tf-cube-side--left {
     transform: rotateY(-90deg) translateZ(225px);
 }
-.tf-cube-side--left:before {
-    /*animation: cube_left_shading_1 20s infinite linear;*/
-}
-.tf-cube-side--left:after {
-    /*animation: cube_left_shading_2 20s infinite linear;*/
-}
 
 .tf-cube-side--right {
     transform: rotateY(90deg) translateZ(225px);
 }
-.tf-cube-side--right:before {
-    /*animation: cube_right_shading_1 20s infinite linear;*/
-}
-.tf-cube-side--right:after {
-    /*animation: cube_right_shading_2 20s infinite linear;*/
-}
 
 .tf-cube-side--front {
     transform: translateZ(225px);
-}
-.tf-cube-side--front:before {
-    /*animation: cube_front_shading_1 20s infinite linear;*/
-}
-.tf-cube-side--front:after {
-    /*animation: cube_front_shading_2 20s infinite linear;*/
 }
 
 .tf-info-description-container {
@@ -749,7 +714,7 @@ a {
     position: absolute;
     height: 220px;
     width: 100%;
-    background: var(--sky-colour);
+    background: linear-gradient(to bottom, var(--sky-top-colour), var(--sky-top-colour) 50%, var(--sky-bottom-colour));
 }
 
 .tf-cloud {
@@ -846,8 +811,9 @@ a {
     width: 200px;
     height: 200px;
     border-radius: 100%;
-    background: var(--orb-main-colour);
-    box-shadow: 0 0 20px 4px #FFF, inset -5px 10px 20px 8px var(--orb-shade-colour);
+    background: radial-gradient(at center, var(--orb-main-colour), var(--orb-main-colour) 20%, var(--orb-shade-colour));
+    box-shadow: 0 0 40px 8px #FFF,
+                inset -5px 10px 20px 8px var(--orb-shade-colour);
 }
 
 .tf-orb-hole {
@@ -3338,10 +3304,11 @@ a {
 }
 
 .tf-fish-checkbox:checked ~ div .tf-background {
-    --sky-colour: #17A9D0;
-    --orb-main-colour: #fff452;
-    --orb-shade-colour: transparent;
-    --mountain-colour: #206a2e;
+    --sky-top-colour: #17A9D0;
+    --sky-bottom-colour: #19CAF5;
+    --orb-main-colour: #FFF452;
+    --orb-shade-colour: #FFA500;
+    --mountain-colour: #206A2E;
     --surf-wave-main-colour: #0171AD;
     --sea-top-colour: #0171AD;
     --sea-bottom-colour: #6074EA;
@@ -3394,71 +3361,6 @@ a {
 .tf-fish-checkbox:checked ~ div .tf-foreground .tf-sleep-z {
     opacity: 0;
     animation: none;
-}
-
-@keyframes cube_rotate {
-    0%   { transform: rotateY(0); }
-    100% { transform: rotateY(360deg); }
-}
-
-@keyframes cube_front_shading_1 {
-    2%  { opacity: 0;   }
-    25% { opacity: 0.9; }
-    35% { opacity: 0.9; }
-    50% { opacity: 0;   }
-}
-
-@keyframes cube_front_shading_2 {
-    50%  { opacity: 0;   }
-    60%  { opacity: 0.9; }
-    75%  { opacity: 0.9; }
-    100% { opacity: 0;   }
-}
-
-@keyframes cube_back_shading_1 {
-    25% { opacity: 0.9; }
-    50% { opacity: 0;   }
-    75% { opacity: 0;   }
-    80% { opacity: 0.9; }
-}
-
-@keyframes cube_back_shading_2 {
-    25% { opacity: 0;   }
-    50% { opacity: 0;   }
-    75% { opacity: 0.9; }
-    80% { opacity: 0.9; }
-}
-
-@keyframes cube_left_shading_1 {
-    0%  { opacity: 0;   }
-    25% { opacity: 0;   }
-    50% { opacity: 0.9; }
-    60% { opacity: 0.9; }
-}
-
-@keyframes cube_left_shading_2 {
-    0%   { opacity: 0.9; }
-    25%  { opacity: 0;   }
-    50%  { opacity: 0;   }
-    100% { opacity: 0.9; }
-}
-
-@keyframes cube_right_shading_1 {
-    10%  { opacity: 0.9; }
-    50%  { opacity: 0;   }
-    75%  { opacity: 0;   }
-    100% { opacity: 0.9; }
-}
-
-@keyframes cube_right_shading_2 {
-    50%  { opacity: 0.9; }
-    75%  { opacity: 0;   }
-    100% { opacity: 0;   }
-}
-
-@keyframes cube_top_rotate {
-    0%   { transform: rotateZ(0);      }
-    100% { transform: rotateZ(360deg); }
 }
 
 @keyframes cloud_large {
