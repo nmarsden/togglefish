@@ -250,7 +250,7 @@ a {
     padding: 20px;
     width: calc(100% - 40px);
     height: calc(100% - 40px);
-    box-shadow: inset 0 0 10px 0 #15538A;
+    box-shadow: inset 0 0 0 1px rgba(21, 83, 138, 0.5);
 }
 
 .tf-info-description {
@@ -262,7 +262,7 @@ a {
 }
 
 .tf-info-description--heading {
-    color: #15538A;
+    color: #133260;
 }
 
 .tf-jellyfish-outer-container {
@@ -2582,45 +2582,34 @@ a {
 
 .tf-eye {
     position: absolute;
+    z-index: 1;
     top: 200px;
     height: 80px;
     width: 60px;
-    background-color: #FFF;
+
+    background: radial-gradient(ellipse at 22px 38px, #000 0%, #000 15%, #FFF 5%, #FFF 100%);
+
     border: solid 3px black;
     border-radius: 50% 50% 50% 50% / 50% 50% 36% 50%;
     box-shadow: inset 0 6px 14px 3px #A8DCE2;
-    transition: all 30ms;
+    overflow: hidden;
 }
 
-.tf-eye::before {
-    content: '';
+.tf-eyelid {
     position: absolute;
-    top: 38px;
-    left: 17px;
-    height: 10px;
-    width: 10px;
-    background-color: #000;
-    border-radius: 50% 50%;
-    transition: all 30ms;
+    top: 0;
+    left: -110px;
+    height: 330px;
+    width: 330px;
+    transition: opacity 300ms;
 }
 
-.tf-eye::after {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    height: 80px;
-    width: 60px;
-    background-color: var(--fish-main-colour);
-    border: solid 3px black;
-    border-radius: 50% 50% 50% 50% / 50% 50% 36% 50%;
-    box-shadow: inset 5px -11px 14px 3px var(--fish-shade-colour);
-    transition: opacity 30ms;
+.tf-eyelid--asleep {
+    background: radial-gradient(ellipse at center, transparent 0%, transparent 35%, #000 36%, #F0592A 37%, #CE4728 100%);
 }
-
-.tf-eye.tf-eye--right::after {
-    height: 75px;
-    width: 55px;
+.tf-eyelid--awake {
+    opacity: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, transparent 35%, #000 36%, #4FB95E 37%, #459C4B 100%);
 }
 
 .tf-eye--right {
@@ -3335,10 +3324,19 @@ a {
     transform: translateY(-10px);
 }
 
-.tf-fish-checkbox:checked ~ div .tf-foreground .tf-eye::after {
-    opacity: 0;
-    animation: eye_blink 10s ease-out;
-    animation-iteration-count: infinite;
+.tf-fish-checkbox:checked ~ div .tf-foreground .tf-eyelid {
+    opacity: 1;
+    transform: translateY(0);
+    animation: eye_open 1s ease-in-out,
+               eye_blink 10s ease-out infinite;
+    animation-delay: 300ms, 1.3s;
+    animation-fill-mode: forwards;
+}
+.tf-fish-checkbox:not(:checked) ~ div .tf-foreground .tf-eyelid {
+    transform: translateY(-90px);
+    animation: eye_close 1s ease-in-out;
+    animation-delay: 300ms;
+    animation-fill-mode: forwards;
 }
 
 .tf-fish-checkbox:checked ~ div .tf-foreground .tf-lip--bottom {
@@ -3692,13 +3690,23 @@ a {
     100% { transform: rotate(0deg); }
 }
 
+@keyframes eye_close {
+    0%   { transform: translateY(-90px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes eye_open {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-90px); }
+}
+
 @keyframes eye_blink {
-    0% { opacity: 0; }
-    96% { opacity: 0; }
-    97% { opacity: 1; }
-    98% { opacity: 0; }
-    99% { opacity: 1; }
-    100% { opacity: 0; }
+    0%   { transform: translateY(-90px); }
+    96%  { transform: translateY(-90px); }
+    97%  { transform: translateY(0); }
+    98%  { transform: translateY(-90px); }
+    99%  { transform: translateY(0); }
+    100% { transform: translateY(-90px); }
 }
 
 @keyframes glint {
