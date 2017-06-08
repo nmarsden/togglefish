@@ -644,6 +644,7 @@ a {
 #tf-mouth-checkbox:not(:checked) ~ div .tf-lip,
 #tf-mouth-checkbox:not(:checked) ~ div .tf-glint-cross {
     opacity: 0 !important;
+    animation: none;
 }
 
 #tf-fins-checkbox:not(:checked) ~ div .tf-side-fin-container,
@@ -2900,9 +2901,9 @@ a {
     height: 15px;
     width: 15px;
     background-color: transparent;
-    box-shadow: inset -3px 3px 6px 0 #3387E2;
+    box-shadow: inset -3px 3px 6px 0 #A3CBF7;
     border-radius: 50% 50%;
-    border: 1px solid #3387E2;
+    border: 1px solid #A3CBF7;
 }
 
 .tf-bubble--1 {
