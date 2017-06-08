@@ -24,7 +24,19 @@
         <input class="tf-radio" type="radio" id="options-page-1" name="options-page" checked />
         <input class="tf-radio" type="radio" id="options-page-2" name="options-page" />
         <input class="tf-radio" type="radio" id="options-page-3" name="options-page" />
-        <!-- Scenery -->
+        <input class="tf-radio" type="radio" id="options-page-4" name="options-page" />
+        <!-- Togglefish options -->
+        <input class="tf-checkbox" type="checkbox" checked id="tf-toggle-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="tf-eyebrows-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="tf-eyes-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="tf-mouth-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="tf-fins-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="tf-scales-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="tf-body-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="tf-bubbles-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="tf-zzz-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="tf-name-checkbox">
+        <!-- Scenery options -->
         <input class="tf-checkbox" type="checkbox" checked id="sky-checkbox">
         <input class="tf-checkbox" type="checkbox" checked id="mountains-checkbox">
         <input class="tf-checkbox" type="checkbox" checked id="sea-checkbox">
@@ -35,10 +47,7 @@
         <input class="tf-checkbox" type="checkbox" checked id="crab-checkbox">
         <input class="tf-checkbox" type="checkbox" checked id="ufo-checkbox">
         <input class="tf-checkbox" type="checkbox" checked id="surfer-checkbox">
-        <!-- Effects -->
-        <input class="tf-checkbox" type="checkbox" id="parallax-checkbox">
-        <input class="tf-checkbox" type="checkbox" id="shake-it-checkbox">
-        <!-- CSS Styles -->
+        <!-- CSS Styles options -->
         <input class="tf-checkbox" type="checkbox" id="outline-checkbox">
         <input class="tf-checkbox" type="checkbox" checked id="background-checkbox">
         <input class="tf-checkbox" type="checkbox" checked id="box-shadow-checkbox">
@@ -48,6 +57,9 @@
         <input class="tf-checkbox" type="checkbox" checked id="pseudo-elements-checkbox">
         <!-- Note: Removed the animation toggle, as mobile Safari does not support 'animation-play-state: paused' -->
         <!--<input class="tf-checkbox" type="checkbox" checked id="animation-checkbox">-->
+        <!-- Effects options -->
+        <input class="tf-checkbox" type="checkbox" id="parallax-checkbox">
+        <input class="tf-checkbox" type="checkbox" id="shake-it-checkbox">
 
         <div class="tf-scene">
             <div class="tf-background">
@@ -710,13 +722,56 @@
             <div class="tf-menu">
                 <div class="tf-options-container tf-options-container--menu">
                     <div class="tf-options-menu-items">
-                        <label class="tf-options-button" for="options-page-1">Scenery</label>
-                        <label class="tf-options-button" for="options-page-2">CSS Styles</label>
-                        <label class="tf-options-button" for="options-page-3">Effects</label>
+                        <label class="tf-options-button" for="options-page-1">Togglefish</label>
+                        <label class="tf-options-button" for="options-page-2">Scenery</label>
+                        <label class="tf-options-button" for="options-page-3">CSS Styles</label>
+                        <label class="tf-options-button" for="options-page-4">Effects</label>
                     </div>
                 </div>
 
                 <div class="tf-options-container tf-options-container--page-1">
+                    <div class="tf-option">
+                        <div class="tf-option-text">Toggle</div>
+                        <label class="tf-button" for="tf-toggle-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Eyebrows</div>
+                        <label class="tf-button" for="tf-eyebrows-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Eyes</div>
+                        <label class="tf-button" for="tf-eyes-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Mouth</div>
+                        <label class="tf-button" for="tf-mouth-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Fins</div>
+                        <label class="tf-button" for="tf-fins-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Scales</div>
+                        <label class="tf-button" for="tf-scales-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Body</div>
+                        <label class="tf-button" for="tf-body-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Bubbles</div>
+                        <label class="tf-button" for="tf-bubbles-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Zzz</div>
+                        <label class="tf-button" for="tf-zzz-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Name</div>
+                        <label class="tf-button" for="tf-name-checkbox"></label>
+                    </div>
+                </div>
+                <div class="tf-options-container tf-options-container--page-2">
                     <div class="tf-option">
                         <div class="tf-option-text">Sky</div>
                         <label class="tf-button" for="sky-checkbox"></label>
@@ -758,7 +813,7 @@
                         <label class="tf-button" for="surfer-checkbox"></label>
                     </div>
                 </div>
-                <div class="tf-options-container tf-options-container--page-2">
+                <div class="tf-options-container tf-options-container--page-3">
                     <div class="tf-option">
                         <div class="tf-option-text">Outline</div>
                         <label class="tf-button" for="outline-checkbox"></label>
@@ -793,7 +848,7 @@
                     <!--<label class="tf-button" for="animation-checkbox"></label>-->
                     <!--</div>-->
                 </div>
-                <div class="tf-options-container tf-options-container--page-3">
+                <div class="tf-options-container tf-options-container--page-4">
                     <div class="tf-option">
                         <div class="tf-option-text">Parallax</div>
                         <label class="tf-button" for="parallax-checkbox"></label>

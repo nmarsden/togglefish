@@ -573,6 +573,16 @@ a {
     cursor: pointer;
 }
 
+#tf-toggle-checkbox:checked ~ .tf-options-outer-container label[for="tf-toggle-checkbox"],
+#tf-eyebrows-checkbox:checked ~ .tf-options-outer-container label[for="tf-eyebrows-checkbox"],
+#tf-eyes-checkbox:checked ~ .tf-options-outer-container label[for="tf-eyes-checkbox"],
+#tf-mouth-checkbox:checked ~ .tf-options-outer-container label[for="tf-mouth-checkbox"],
+#tf-fins-checkbox:checked ~ .tf-options-outer-container label[for="tf-fins-checkbox"],
+#tf-scales-checkbox:checked ~ .tf-options-outer-container label[for="tf-scales-checkbox"],
+#tf-body-checkbox:checked ~ .tf-options-outer-container label[for="tf-body-checkbox"],
+#tf-bubbles-checkbox:checked ~ .tf-options-outer-container label[for="tf-bubbles-checkbox"],
+#tf-zzz-checkbox:checked ~ .tf-options-outer-container label[for="tf-zzz-checkbox"],
+#tf-name-checkbox:checked ~ .tf-options-outer-container label[for="tf-name-checkbox"],
 #sky-checkbox:checked ~ .tf-options-outer-container label[for="sky-checkbox"],
 #mountains-checkbox:checked ~ .tf-options-outer-container label[for="mountains-checkbox"],
 #sea-checkbox:checked ~ .tf-options-outer-container label[for="sea-checkbox"],
@@ -601,15 +611,66 @@ a {
 #info-page-3:checked ~ .tf-info-outer-container label[for="info-page-3"],
 #options-page-1:checked ~ .tf-options-outer-container label[for="options-page-1"],
 #options-page-2:checked ~ .tf-options-outer-container label[for="options-page-2"],
-#options-page-3:checked ~ .tf-options-outer-container label[for="options-page-3"] {
+#options-page-3:checked ~ .tf-options-outer-container label[for="options-page-3"],
+#options-page-4:checked ~ .tf-options-outer-container label[for="options-page-4"] {
     color: #000;
     background: #FFF;
 }
 
 #options-page-1:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-1,
 #options-page-2:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-2,
-#options-page-3:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-3 {
+#options-page-3:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-3,
+#options-page-4:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-4 {
     display: none;
+}
+
+#tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-base,
+#tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-ball,
+#tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-shaft,
+#tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-tip {
+    opacity: 0 !important;
+}
+
+#tf-eyebrows-checkbox:not(:checked) ~ div .tf-eyebrow {
+    opacity: 0 !important;
+}
+
+#tf-eyes-checkbox:not(:checked) ~ div .tf-eye {
+    opacity: 0 !important;
+}
+
+#tf-mouth-checkbox:not(:checked) ~ div .tf-mouth,
+#tf-mouth-checkbox:not(:checked) ~ div .tf-teeth,
+#tf-mouth-checkbox:not(:checked) ~ div .tf-lip,
+#tf-mouth-checkbox:not(:checked) ~ div .tf-glint-cross {
+    opacity: 0 !important;
+}
+
+#tf-fins-checkbox:not(:checked) ~ div .tf-side-fin-container,
+#tf-fins-checkbox:not(:checked) ~ div .tf-tail-fin-container {
+    opacity: 0 !important;
+}
+
+#tf-scales-checkbox:not(:checked) ~ div .tf-scales-container {
+    opacity: 0 !important;
+}
+
+#tf-body-checkbox:not(:checked) ~ div .tf-body-container {
+    opacity: 0 !important;
+}
+
+#tf-bubbles-checkbox:not(:checked) ~ div .tf-bubble {
+    opacity: 0 !important;
+    animation: none !important;
+}
+
+#tf-zzz-checkbox:not(:checked) ~ div .tf-sleep-z {
+    opacity: 0 !important;
+    animation: none !important;
+}
+
+#tf-name-checkbox:not(:checked) ~ div .tf-letters-container {
+    opacity: 0 !important;
 }
 
 #sky-checkbox:not(:checked) ~ div .tf-sky {
