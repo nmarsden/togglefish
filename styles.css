@@ -513,7 +513,7 @@ a {
     text-align: center;
     color: white;
     background: rgba(1, 1, 1, 0.1);
-    border: 2px solid #EEE;
+    border-bottom: 1px solid #EEE;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     cursor: pointer;
 }
@@ -537,6 +537,7 @@ a {
     width: auto;
     margin-right: 0;
     border-right: none;
+    padding: 0;
 }
 
 .tf-option {
