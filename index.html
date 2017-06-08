@@ -20,6 +20,10 @@
         <input class="tf-radio" type="radio" id="info-page-3" name="info-page" />
         <!-- Toggles button -->
         <input class="tf-checkbox" type="checkbox" id="options-checkbox">
+        <!-- Toggle options pages -->
+        <input class="tf-radio" type="radio" id="options-page-1" name="options-page" checked />
+        <input class="tf-radio" type="radio" id="options-page-2" name="options-page" />
+        <input class="tf-radio" type="radio" id="options-page-3" name="options-page" />
         <!-- Scenery -->
         <input class="tf-checkbox" type="checkbox" checked id="orb-checkbox">
         <input class="tf-checkbox" type="checkbox" checked id="clouds-checkbox">
@@ -705,8 +709,15 @@
         <span class="tf-options-outer-container">
             <label class="tf-outline-button" for="options-checkbox">Toggles</label>
             <div class="tf-menu">
-                <div class="tf-options-container">
-                    <div class="tf-option-heading">Scenery</div>
+                <div class="tf-options-container tf-options-container--menu">
+                    <div class="tf-options-menu-items">
+                        <label class="tf-options-button" for="options-page-1">Scenery</label>
+                        <label class="tf-options-button" for="options-page-2">CSS Styles</label>
+                        <label class="tf-options-button" for="options-page-3">Effects</label>
+                    </div>
+                </div>
+
+                <div class="tf-options-container tf-options-container--page-1">
                     <div class="tf-option">
                         <div class="tf-option-text">Sun/Moon</div>
                         <label class="tf-button" for="orb-checkbox"></label>
@@ -752,17 +763,7 @@
                         <label class="tf-button" for="surfer-checkbox"></label>
                     </div>
                 </div>
-                <div class="tf-options-container">
-                    <div class="tf-option-heading">Effects</div>
-                    <div class="tf-option">
-                        <div class="tf-option-text">Parallax</div>
-                        <label class="tf-button" for="parallax-checkbox"></label>
-                    </div>
-                    <div class="tf-option">
-                        <div class="tf-option-text">Shake It &#x26A0</div>
-                        <label class="tf-button" for="shake-it-checkbox"></label>
-                    </div>
-                    <div class="tf-option-heading">CSS Styles</div>
+                <div class="tf-options-container tf-options-container--page-2">
                     <div class="tf-option">
                         <div class="tf-option-text">Outline</div>
                         <label class="tf-button" for="outline-checkbox"></label>
@@ -793,9 +794,19 @@
                     </div>
                     <!-- Note: Removed the animation toggle, as mobile Safari does not support 'animation-play-state: paused' -->
                     <!--<div class="tf-option">-->
-                        <!--<div class="tf-option-text">Animation</div>-->
-                        <!--<label class="tf-button" for="animation-checkbox"></label>-->
+                    <!--<div class="tf-option-text">Animation</div>-->
+                    <!--<label class="tf-button" for="animation-checkbox"></label>-->
                     <!--</div>-->
+                </div>
+                <div class="tf-options-container tf-options-container--page-3">
+                    <div class="tf-option">
+                        <div class="tf-option-text">Parallax</div>
+                        <label class="tf-button" for="parallax-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Shake It &#x26A0</div>
+                        <label class="tf-button" for="shake-it-checkbox"></label>
+                    </div>
                 </div>
             </div>
         </span>

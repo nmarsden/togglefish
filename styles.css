@@ -150,7 +150,7 @@ a {
 }
 
 .tf-info-button {
-    padding: 15px 10px 10px 10px;
+    padding: 15px 10px 5px 10px;
     width: 200px;
     height: 50px;
     font-size: 30px;
@@ -160,6 +160,10 @@ a {
     border: 2px solid #EEE;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     cursor: pointer;
+}
+
+.tf-info-button + .tf-info-button {
+    border-left: none;
 }
 
 .tf-info-cube-container {
@@ -471,10 +475,11 @@ a {
 
 .tf-outline-button {
     display: inline-block;
+    padding: 15px 25px 5px 25px;
+    height: 50px;
+    font-size: 30px;
     margin: 12px 8px;
-    padding: 8px 14px;
     color: #FFF;
-    font-size: 2em;
     text-align: center;
     background: rgba(1, 1, 1, 0.1);
     border: 2px solid #EEE;
@@ -495,9 +500,31 @@ a {
     display: flex;
 }
 
+.tf-options-menu-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.tf-options-button {
+    padding: 15px 10px 5px 10px;
+    width: 200px;
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    background: rgba(1, 1, 1, 0.1);
+    border: 2px solid #EEE;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    cursor: pointer;
+}
+
+.tf-options-button + .tf-options-button {
+    border-top: none;
+}
+
 .tf-options-container {
     margin-right: 8px;
-    margin-left: 8px;
+    width: 320px;
     padding: 10px;
     display: flex;
     background: rgba(1, 1, 1, 0.3);
@@ -506,13 +533,10 @@ a {
     transition: all 500ms ease-in-out;
 }
 
-.tf-option-heading {
-    color: #FFF;
-    font-size: 1.6em;
-    line-height: 2em;
-    text-align: center;
-    border-bottom: 1px dashed white;
-    margin-bottom: 10px;
+.tf-options-container--menu {
+    width: auto;
+    margin-right: 0;
+    border-right: none;
 }
 
 .tf-option {
@@ -524,8 +548,8 @@ a {
     position: relative;
     top: 6px;
     color: #FFF;
-    font-size: 1.6em;
-    line-height: 2em;
+    font-size: 30px;
+    line-height: 60px;
 }
 
 #options-checkbox:checked ~ .tf-options-outer-container > .tf-menu {
@@ -537,9 +561,9 @@ a {
 }
 
 .tf-button {
-    min-width: 3em;
-    height: 3em;
-    margin: 4px 4px 4px 10px;
+    min-width: 60px;
+    height: 60px;
+    margin: 4px 4px 6px 10px;
     background: #F0592A;
     border-radius: 100%;
     border: 3px solid #DDD;
@@ -569,18 +593,24 @@ a {
 #pseudo-elements-checkbox:checked ~ .tf-options-outer-container label[for="pseudo-elements-checkbox"],
 #animation-checkbox:checked ~ .tf-options-outer-container label[for="animation-checkbox"],
 #parallax-checkbox:checked ~ .tf-options-outer-container label[for="parallax-checkbox"],
-#shake-it-checkbox:checked ~ .tf-options-outer-container label[for="shake-it-checkbox"],
-#info-page-1:checked ~ .tf-info-outer-container label[for="info-page-1"],
-#info-page-2:checked ~ .tf-info-outer-container label[for="info-page-2"],
-#info-page-3:checked ~ .tf-info-outer-container label[for="info-page-3"] {
+#shake-it-checkbox:checked ~ .tf-options-outer-container label[for="shake-it-checkbox"] {
     background: #4FB95E;
 }
 
 #info-page-1:checked ~ .tf-info-outer-container label[for="info-page-1"],
 #info-page-2:checked ~ .tf-info-outer-container label[for="info-page-2"],
-#info-page-3:checked ~ .tf-info-outer-container label[for="info-page-3"] {
+#info-page-3:checked ~ .tf-info-outer-container label[for="info-page-3"],
+#options-page-1:checked ~ .tf-options-outer-container label[for="options-page-1"],
+#options-page-2:checked ~ .tf-options-outer-container label[for="options-page-2"],
+#options-page-3:checked ~ .tf-options-outer-container label[for="options-page-3"] {
     color: #000;
     background: #FFF;
+}
+
+#options-page-1:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-1,
+#options-page-2:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-2,
+#options-page-3:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-3 {
+    display: none;
 }
 
 #orb-checkbox:not(:checked) ~ div .tf-orb {
