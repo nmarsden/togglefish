@@ -573,10 +573,9 @@ a {
     cursor: pointer;
 }
 
-#orb-checkbox:checked ~ .tf-options-outer-container label[for="orb-checkbox"],
-#clouds-checkbox:checked ~ .tf-options-outer-container label[for="clouds-checkbox"],
+#sky-checkbox:checked ~ .tf-options-outer-container label[for="sky-checkbox"],
 #mountains-checkbox:checked ~ .tf-options-outer-container label[for="mountains-checkbox"],
-#waves-checkbox:checked ~ .tf-options-outer-container label[for="waves-checkbox"],
+#sea-checkbox:checked ~ .tf-options-outer-container label[for="sea-checkbox"],
 #sandbanks-checkbox:checked ~ .tf-options-outer-container label[for="sandbanks-checkbox"],
 #shell-checkbox:checked ~ .tf-options-outer-container label[for="shell-checkbox"],
 #rocks-checkbox:checked ~ .tf-options-outer-container label[for="rocks-checkbox"],
@@ -613,11 +612,7 @@ a {
     display: none;
 }
 
-#orb-checkbox:not(:checked) ~ div .tf-orb {
-    opacity: 0 !important;
-}
-
-#clouds-checkbox:not(:checked) ~ div .tf-cloud {
+#sky-checkbox:not(:checked) ~ div .tf-sky {
     opacity: 0 !important;
 }
 
@@ -625,10 +620,12 @@ a {
     opacity: 0 !important;
 }
 
-#waves-checkbox:not(:checked) ~ div .tf-waves {
+#sea-checkbox:not(:checked) ~ div .tf-sea,
+#sea-checkbox:not(:checked) ~ div .tf-waves {
     opacity: 0 !important;
 }
 
+#sandbanks-checkbox:not(:checked) ~ div .tf-sand,
 #sandbanks-checkbox:not(:checked) ~ div .tf-sandbank-outer-container {
     opacity: 0 !important;
 }
