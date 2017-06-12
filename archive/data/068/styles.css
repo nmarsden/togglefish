@@ -488,153 +488,7 @@ a {
 }
 
 #info-checkbox:checked ~ .tf-info-outer-container > .tf-outline-button {
-    display: none;
     opacity: 0;
-}
-#info-checkbox:not(:checked) ~ .tf-info-outer-container > .tf-outline-button {
-    display: inline-block;
-    opacity: 1;
-}
-
-#info-checkbox:checked ~ .tf-time-machine-outer-container {
-    display: none;
-    opacity: 0;
-}
-#info-checkbox:not(:checked) ~ .tf-time-machine-outer-container {
-    display: inline-block;
-    opacity: 1;
-}
-
-#time-machine-checkbox:checked ~ .tf-time-machine-noclick-overlay {
-    display: block;
-    opacity: 1;
-}
-#time-machine-checkbox:not(:checked) ~ .tf-time-machine-noclick-overlay {
-    display: none;
-    opacity: 0;
-}
-
-#time-machine-checkbox:checked ~ .tf-time-machine-outer-container > div {
-    opacity: 1;
-}
-#time-machine-checkbox:not(:checked) ~ .tf-time-machine-outer-container > div {
-    opacity: 0;
-}
-
-.tf-time-machine-noclick-overlay {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, #298eff, #298eff 50%, #001d2d);
-    pointer-events: auto;
-    z-index: 20;
-    transition: opacity 500ms;
-}
-
-.tf-time-machine-outer-container {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 21;
-}
-
-#time-machine-checkbox:not(:checked) ~ .tf-time-machine-outer-container > .tf-outline-button--time-machine-unchecked {
-    position: relative;
-    left: 80px;
-}
-#time-machine-checkbox:checked ~ .tf-time-machine-outer-container > .tf-outline-button--time-machine-unchecked {
-    opacity: 0;
-}
-
-#time-machine-checkbox:checked ~ .tf-time-machine-outer-container > .tf-outline-button--time-machine-checked {
-    position: absolute;
-    right: 0;
-}
-#time-machine-checkbox:not(:checked) ~ .tf-time-machine-outer-container > .tf-outline-button--time-machine-checked {
-    opacity: 0;
-}
-
-.tf-outline-button--time-machine-unchecked:before {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 30px;
-    border: 3px solid #FFF;
-    border-radius: 100%
-}
-
-.tf-outline-button--time-machine-unchecked:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 32px;
-    left: 42px;
-    width: 3px;
-    height: 14px;
-    background: #FFF;
-    transform-origin: top;
-    transform: rotateZ(-45deg);
-}
-
-.tf-time-machine-nav-container {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.tf-time-machine-heading-container {
-    height: 230px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.2);
-}
-
-.tf-time-machine-heading {
-    font-size: 70px;
-    line-height: 90px;
-    color: white;
-}
-
-.tf-time-machine-nav-items-container {
-    height: 220px;
-    width: 100%;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    pointer-events: auto;
-}
-
-.tf-time-machine-nav-items {
-    display: flex;
-    flex-shrink: 0;
-}
-
-.tf-time-machine-nav-item {
-    padding-left: 2px;
-    padding-right: 2px;
-}
-
-.tf-time-machine-screenshot {
-    width: 200px;
-    height: 128px;
-    padding-top: 40px;
-}
-
-.tf-time-machine-screenshot-label {
-    text-align: center;
-    pointer-events: auto;
 }
 
 #options-checkbox:checked ~ .tf-options-outer-container > .tf-outline-button {
@@ -659,7 +513,7 @@ a {
     text-align: center;
     color: white;
     background: rgba(1, 1, 1, 0.1);
-    border-bottom: 1px solid #EEE;
+    border: 2px solid #EEE;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     cursor: pointer;
 }
@@ -683,7 +537,6 @@ a {
     width: auto;
     margin-right: 0;
     border-right: none;
-    padding: 0;
 }
 
 .tf-option {
@@ -720,16 +573,6 @@ a {
     cursor: pointer;
 }
 
-#tf-toggle-checkbox:checked ~ .tf-options-outer-container label[for="tf-toggle-checkbox"],
-#tf-eyebrows-checkbox:checked ~ .tf-options-outer-container label[for="tf-eyebrows-checkbox"],
-#tf-eyes-checkbox:checked ~ .tf-options-outer-container label[for="tf-eyes-checkbox"],
-#tf-mouth-checkbox:checked ~ .tf-options-outer-container label[for="tf-mouth-checkbox"],
-#tf-fins-checkbox:checked ~ .tf-options-outer-container label[for="tf-fins-checkbox"],
-#tf-scales-checkbox:checked ~ .tf-options-outer-container label[for="tf-scales-checkbox"],
-#tf-body-checkbox:checked ~ .tf-options-outer-container label[for="tf-body-checkbox"],
-#tf-bubbles-checkbox:checked ~ .tf-options-outer-container label[for="tf-bubbles-checkbox"],
-#tf-zzz-checkbox:checked ~ .tf-options-outer-container label[for="tf-zzz-checkbox"],
-#tf-name-checkbox:checked ~ .tf-options-outer-container label[for="tf-name-checkbox"],
 #sky-checkbox:checked ~ .tf-options-outer-container label[for="sky-checkbox"],
 #mountains-checkbox:checked ~ .tf-options-outer-container label[for="mountains-checkbox"],
 #sea-checkbox:checked ~ .tf-options-outer-container label[for="sea-checkbox"],
@@ -758,67 +601,15 @@ a {
 #info-page-3:checked ~ .tf-info-outer-container label[for="info-page-3"],
 #options-page-1:checked ~ .tf-options-outer-container label[for="options-page-1"],
 #options-page-2:checked ~ .tf-options-outer-container label[for="options-page-2"],
-#options-page-3:checked ~ .tf-options-outer-container label[for="options-page-3"],
-#options-page-4:checked ~ .tf-options-outer-container label[for="options-page-4"] {
+#options-page-3:checked ~ .tf-options-outer-container label[for="options-page-3"] {
     color: #000;
     background: #FFF;
 }
 
 #options-page-1:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-1,
 #options-page-2:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-2,
-#options-page-3:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-3,
-#options-page-4:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-4 {
+#options-page-3:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-3 {
     display: none;
-}
-
-#tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-base,
-#tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-ball,
-#tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-shaft,
-#tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-tip {
-    opacity: 0 !important;
-}
-
-#tf-eyebrows-checkbox:not(:checked) ~ div .tf-eyebrow {
-    opacity: 0 !important;
-}
-
-#tf-eyes-checkbox:not(:checked) ~ div .tf-eye {
-    opacity: 0 !important;
-}
-
-#tf-mouth-checkbox:not(:checked) ~ div .tf-mouth,
-#tf-mouth-checkbox:not(:checked) ~ div .tf-teeth,
-#tf-mouth-checkbox:not(:checked) ~ div .tf-lip,
-#tf-mouth-checkbox:not(:checked) ~ div .tf-glint-cross {
-    opacity: 0 !important;
-    animation: none;
-}
-
-#tf-fins-checkbox:not(:checked) ~ div .tf-side-fin-container,
-#tf-fins-checkbox:not(:checked) ~ div .tf-tail-fin-container {
-    opacity: 0 !important;
-}
-
-#tf-scales-checkbox:not(:checked) ~ div .tf-scales-container {
-    opacity: 0 !important;
-}
-
-#tf-body-checkbox:not(:checked) ~ div .tf-body-container {
-    opacity: 0 !important;
-}
-
-#tf-bubbles-checkbox:not(:checked) ~ div .tf-bubble {
-    opacity: 0 !important;
-    animation: none !important;
-}
-
-#tf-zzz-checkbox:not(:checked) ~ div .tf-sleep-z {
-    opacity: 0 !important;
-    animation: none !important;
-}
-
-#tf-name-checkbox:not(:checked) ~ div .tf-letters-container {
-    opacity: 0 !important;
 }
 
 #sky-checkbox:not(:checked) ~ div .tf-sky {
@@ -3048,9 +2839,9 @@ a {
     height: 15px;
     width: 15px;
     background-color: transparent;
-    box-shadow: inset -3px 3px 6px 0 #A3CBF7;
+    box-shadow: inset -3px 3px 6px 0 #3387E2;
     border-radius: 50% 50%;
-    border: 1px solid #A3CBF7;
+    border: 1px solid #3387E2;
 }
 
 .tf-bubble--1 {

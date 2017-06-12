@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>togglefish</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6, maximum-scale=0.6, user-scalable=0"/>
+
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body ontouchstart="">
+    <div class="tf-main">
+        <!-- Fish Toggle -->
+        <input class="tf-fish-checkbox" type="checkbox" id="fish-checkbox">
+        <!-- Info button -->
+        <input class="tf-checkbox" type="checkbox" id="info-checkbox">
+        <!-- Toggles button -->
+        <input class="tf-checkbox" type="checkbox" id="options-checkbox">
+        <!-- Scenery -->
+        <input class="tf-checkbox" type="checkbox" checked id="orb-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="clouds-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="mountains-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="waves-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="sandbanks-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="shell-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="rocks-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="tiny-fish-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="crab-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="ufo-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="surfer-checkbox">
+        <!-- Effects -->
+        <input class="tf-checkbox" type="checkbox" id="parallax-checkbox">
+        <!-- CSS Styles -->
+        <input class="tf-checkbox" type="checkbox" id="outline-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="background-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="box-shadow-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="border-radius-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="border-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="transform-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="pseudo-elements-checkbox">
+        <input class="tf-checkbox" type="checkbox" checked id="animation-checkbox">
+
+        <div class="tf-background">
+            <div class="tf-sky">
+                <div class="tf-stars"></div>
+                <div class="tf-orb">
+                    <div class="tf-orb-hole tf-orb-hole--1"></div>
+                    <div class="tf-orb-hole tf-orb-hole--2"></div>
+                    <div class="tf-orb-hole tf-orb-hole--3"></div>
+                </div>
+                <div class="tf-cloud tf-cloud--small"></div>
+                <div class="tf-cloud"></div>
+            </div>
+            <div class="tf-mountains-container">
+                <div class="tf-mountain tf-mountain--1"></div>
+                <div class="tf-mountain tf-mountain--2"></div>
+                <div class="tf-mountain tf-mountain--3"></div>
+            </div>
+            <div class="tf-sea-background"></div>
+            <div class="tf-sand"></div>
+            <div class="tf-sandbank-outer-container">
+                <div class="tf-sandbank-container">
+                    <div class="tf-sandbank-layer tf-sandbank-layer--1">
+                        <div class="tf-sandbank-left"></div>
+                        <div class="tf-sandbank-gap"></div>
+                        <div class="tf-sandbank-right"></div>
+                    </div>
+                    <div class="tf-sandbank-layer tf-sandbank-layer--2">
+                        <div class="tf-sandbank-left"></div>
+                        <div class="tf-sandbank-gap"></div>
+                        <div class="tf-sandbank-right"></div>
+                    </div>
+                    <div class="tf-sandbank-layer tf-sandbank-layer--3">
+                        <div class="tf-sandbank-left"></div>
+                        <div class="tf-sandbank-gap"></div>
+                        <div class="tf-sandbank-right"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tf-sea">
+                <div class="tf-sea-current tf-sea-current--1"></div>
+                <div class="tf-sea-current tf-sea-current--2"></div>
+                <div class="tf-sea-current tf-sea-current--3"></div>
+            </div>
+            <div class="tf-waves tf-waves--1">
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+            </div>
+            <div class="tf-waves tf-waves--2">
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+            </div>
+            <div class="tf-waves tf-waves--3">
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+                <div class="tf-wave"></div>
+            </div>
+            <div class="tf-surf-wave-container">
+                <div class="tf-surf-wave tf-surf-wave--1">
+                    <div class="tf-surf-wave-top"></div>
+                    <div class="tf-surf-wave-bottom"></div>
+                    <div class="tf-surf-wave-top-inner"></div>
+                </div>
+                <div class="tf-surf-wave tf-surf-wave--2">
+                    <div class="tf-surf-wave-top"></div>
+                    <div class="tf-surf-wave-bottom"></div>
+                    <div class="tf-surf-wave-top-inner"></div>
+                </div>
+                <div class="tf-surf-wave tf-surf-wave--3">
+                    <div class="tf-surf-wave-top"></div>
+                    <div class="tf-surf-wave-bottom"></div>
+                    <div class="tf-surf-wave-top-inner"></div>
+                </div>
+                <div class="tf-surf-wave tf-surf-wave--4">
+                    <div class="tf-surf-wave-top"></div>
+                    <div class="tf-surf-wave-bottom"></div>
+                    <div class="tf-surf-wave-top-inner"></div>
+                </div>
+                <div class="tf-surf-wave tf-surf-wave--5">
+                    <div class="tf-surf-wave-top"></div>
+                    <div class="tf-surf-wave-bottom"></div>
+                    <div class="tf-surf-wave-top-inner"></div>
+                </div>
+                <div class="tf-surf-wave tf-surf-wave--6">
+                    <div class="tf-surf-wave-top"></div>
+                    <div class="tf-surf-wave-bottom"></div>
+                    <div class="tf-surf-wave-top-inner"></div>
+                </div>
+            </div>
+            <div class="tf-surfer-container">
+                <div class="tf-surfer">
+                    <div class="tf-surfboard"></div>
+                    <div class="tf-cat">
+                        <div class="tf-cat-tail"></div>
+                        <div class="tf-cat-body"></div>
+                        <div class="tf-cat-ear tf-cat-ear--left"></div>
+                        <div class="tf-cat-ear tf-cat-ear--right"></div>
+                        <div class="tf-cat-head">
+                            <div class="tf-cat-eye tf-cat-eye--left"></div>
+                            <div class="tf-cat-eye tf-cat-eye--right"></div>
+                            <div class="tf-cat-mouth"></div>
+                            <div class="tf-cat-whiskers">
+                                <div class="tf-cat-whisker"></div>
+                            </div>
+                            <div class="tf-cat-nose"></div>
+                        </div>
+                        <div class="tf-cat-paw tf-cat-paw--top-left"></div>
+                        <div class="tf-cat-paw tf-cat-paw--top-right"></div>
+                        <div class="tf-cat-paw tf-cat-paw--bottom-left"></div>
+                        <div class="tf-cat-paw tf-cat-paw--bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tf-ufo-outer-container">
+                <div class="tf-ufo-container">
+                    <div class="tf-ufo">
+                        <div class="tf-ufo-base"></div>
+                        <div class="tf-ufo-disk"></div>
+                        <div class="tf-ufo-cockpit"></div>
+                        <div class="tf-ufo-alien">
+                            <div class="tf-ufo-alien-stalk tf-ufo-alien-stalk--left"></div>
+                            <div class="tf-ufo-alien-stalk tf-ufo-alien-stalk--right"></div>
+                            <div class="tf-ufo-alien-eye tf-ufo-alien-eye--left"></div>
+                            <div class="tf-ufo-alien-eye tf-ufo-alien-eye--right"></div>
+                            <div class="tf-ufo-alien-mouth"></div>
+                        </div>
+                        <div class="tf-ufo-top"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tf-foreground">
+            <div class="tf-outer-container">
+                <div class="tf-fish-container">
+                    <div class="tf-fish tf-fish--1">
+                        <div class="tf-container">
+                            <div class="tf-fish-back">
+                                <div class="tf-tail-fin-container tf-tail-fin-container--bottom">
+                                    <div class="tf-tail-fin tf-tail-fin--bottom"></div>
+                                </div>
+                                <div class="tf-side-fin-container tf-side-fin-container--right">
+                                    <div class="tf-side-fin tf-side-fin--right"></div>
+                                </div>
+                            </div>
+                            <div class="tf-fish-front">
+                                <div class="tf-tail-fin-container tf-tail-fin-container--top">
+                                    <div class="tf-tail-fin tf-tail-fin--top"></div>
+                                </div>
+                                <div class="tf-body-container">
+                                    <div class="tf-body"></div>
+                                </div>
+                                <div class="tf-scales-container">
+                                    <div class="tf-scales tf-scales-1 tf-scales-small"></div>
+                                    <div class="tf-scales tf-scales-2 tf-scales-medium"></div>
+                                    <div class="tf-scales tf-scales-3 tf-scales-large"></div>
+                                    <div class="tf-scales tf-scales-4 tf-scales-large"></div>
+                                    <div class="tf-scales tf-scales-5 tf-scales-large"></div>
+                                    <div class="tf-scales tf-scales-6 tf-scales-large"></div>
+                                    <div class="tf-scales tf-scales-7 tf-scales-medium"></div>
+                                </div>
+                                <div class="tf-toggle-base"></div>
+                                <div class="tf-toggle-ball"></div>
+                                <div class="tf-toggle-shaft"></div>
+                                <div class="tf-toggle-tip"></div>
+                                <div class="tf-eye tf-eye--right"></div>
+                                <div class="tf-eye tf-eye--left"></div>
+                                <div class="tf-eyebrow tf-eyebrow--right"></div>
+                                <div class="tf-eyebrow tf-eyebrow--left"></div>
+                                <div class="tf-mouth"></div>
+                                <div class="tf-teeth"></div>
+                                <div class="tf-lip tf-lip--bottom"></div>
+                                <div class="tf-lip tf-lip--top"></div>
+                                <div class="tf-glint-cross"></div>
+                                <div class="tf-glint-cross tf-glint-cross--rotated"></div>
+                                <div class="tf-side-fin-container tf-side-fin-container--left">
+                                    <div class="tf-side-fin tf-side-fin--left"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tf-bubble-and-sleep-z-container">
+                            <div class="tf-bubble tf-bubble--1"></div>
+                            <div class="tf-bubble tf-bubble--2"></div>
+                            <div class="tf-bubble tf-bubble--3"></div>
+                            <div class="tf-sleep-z tf-sleep-z--1"></div>
+                            <div class="tf-sleep-z tf-sleep-z--2"></div>
+                            <div class="tf-sleep-z tf-sleep-z--3"></div>
+                        </div>
+                        <label class="tf-fish-clickable" for="fish-checkbox"></label>
+                    </div>
+                    <div class="tf-fish tf-fish--2">
+                        <div class="tf-container">
+                            <div class="tf-fish-back">
+                                <div class="tf-tail-fin-container tf-tail-fin-container--bottom">
+                                    <div class="tf-tail-fin tf-tail-fin--bottom"></div>
+                                </div>
+                                <div class="tf-side-fin-container tf-side-fin-container--right">
+                                    <div class="tf-side-fin tf-side-fin--right"></div>
+                                </div>
+                            </div>
+                            <div class="tf-fish-front">
+                                <div class="tf-tail-fin-container tf-tail-fin-container--top">
+                                    <div class="tf-tail-fin tf-tail-fin--top"></div>
+                                </div>
+                                <div class="tf-body-container">
+                                    <div class="tf-body"></div>
+                                </div>
+                                <div class="tf-scales-container">
+                                    <div class="tf-scales tf-scales-1 tf-scales-small"></div>
+                                    <div class="tf-scales tf-scales-2 tf-scales-medium"></div>
+                                    <div class="tf-scales tf-scales-3 tf-scales-large"></div>
+                                    <div class="tf-scales tf-scales-4 tf-scales-large"></div>
+                                    <div class="tf-scales tf-scales-5 tf-scales-large"></div>
+                                    <div class="tf-scales tf-scales-6 tf-scales-large"></div>
+                                    <div class="tf-scales tf-scales-7 tf-scales-medium"></div>
+                                </div>
+                                <div class="tf-toggle-base"></div>
+                                <div class="tf-toggle-ball"></div>
+                                <div class="tf-toggle-shaft"></div>
+                                <div class="tf-toggle-tip"></div>
+                                <div class="tf-eye tf-eye--right"></div>
+                                <div class="tf-eye tf-eye--left"></div>
+                                <div class="tf-eyebrow tf-eyebrow--right"></div>
+                                <div class="tf-eyebrow tf-eyebrow--left"></div>
+                                <div class="tf-mouth"></div>
+                                <div class="tf-teeth"></div>
+                                <div class="tf-lip tf-lip--bottom"></div>
+                                <div class="tf-lip tf-lip--top"></div>
+                                <div class="tf-glint-cross"></div>
+                                <div class="tf-glint-cross tf-glint-cross--rotated"></div>
+                                <div class="tf-side-fin-container tf-side-fin-container--left">
+                                    <div class="tf-side-fin tf-side-fin--left"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tf-bubble-and-sleep-z-container">
+                            <div class="tf-bubble tf-bubble--1"></div>
+                            <div class="tf-bubble tf-bubble--2"></div>
+                            <div class="tf-bubble tf-bubble--3"></div>
+                            <div class="tf-sleep-z tf-sleep-z--1"></div>
+                            <div class="tf-sleep-z tf-sleep-z--2"></div>
+                            <div class="tf-sleep-z tf-sleep-z--3"></div>
+                        </div>
+                        <label class="tf-fish-clickable" for="fish-checkbox"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tf-ufo-beam-container">
+            <div class="tf-ufo-beam tf-ufo-beam--1"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--2"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--3"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--4"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--5"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--6"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--7"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--8"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--9"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--10"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--11"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--12"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--13"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--14"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--15"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--16"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--17"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--18"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--19"></div>
+            <div class="tf-ufo-beam tf-ufo-beam--20"></div>
+        </div>
+        <div class="tf-crab-outer-container">
+            <div class="tf-crab-container">
+                <div class="tf-crab-body"></div>
+                <div class="tf-crab-stalk tf-crab-stalk--left"></div>
+                <div class="tf-crab-stalk tf-crab-stalk--right"></div>
+                <div class="tf-crab-eye tf-crab-eye--left"></div>
+                <div class="tf-crab-eye tf-crab-eye--right"></div>
+                <div class="tf-crab-mouth"></div>
+                <div class="tf-crab-leg tf-crab-leg--1"></div>
+                <div class="tf-crab-leg tf-crab-leg--2"></div>
+                <div class="tf-crab-leg tf-crab-leg--3"></div>
+                <div class="tf-crab-leg tf-crab-leg--4"></div>
+                <div class="tf-crab-leg tf-crab-leg--5"></div>
+                <div class="tf-crab-leg tf-crab-leg--6"></div>
+                <div class="tf-crab-claw-container tf-crab-claw-container--left">
+                    <div class="tf-crab-claw-arm"></div>
+                    <div class="tf-crab-claw tf-crab-claw--top"></div>
+                    <div class="tf-crab-claw tf-crab-claw--bottom"></div>
+                </div>
+                <div class="tf-crab-claw-container tf-crab-claw-container--right">
+                    <div class="tf-crab-claw-arm"></div>
+                    <div class="tf-crab-claw tf-crab-claw--top"></div>
+                    <div class="tf-crab-claw tf-crab-claw--bottom"></div>
+                </div>
+            </div>
+        </div>
+        <div class="tf-shell-and-rocks-container">
+            <div class="tf-tiny-fish-container">
+                <div class="tf-tiny-fish tf-tiny-fish--1"></div>
+                <div class="tf-tiny-fish tf-tiny-fish--2"></div>
+            </div>
+            <div class="tf-shell-container">
+                <div class="tf-shell-ridge tf-shell-ridge--0"></div>
+                <div class="tf-shell-ridge tf-shell-ridge--8"></div>
+                <div class="tf-shell-ridge tf-shell-ridge--1"></div>
+                <div class="tf-shell-ridge tf-shell-ridge--7"></div>
+                <div class="tf-shell-ridge tf-shell-ridge--2"></div>
+                <div class="tf-shell-ridge tf-shell-ridge--6"></div>
+                <div class="tf-shell-ridge tf-shell-ridge--3"></div>
+                <div class="tf-shell-ridge tf-shell-ridge--5"></div>
+                <div class="tf-shell-ridge tf-shell-ridge--4"></div>
+            </div>
+            <div class="tf-sand-hill"></div>
+            <div class="tf-seaweed-container">
+                <div class="tf-seaweed-patch">
+                    <div class="tf-seaweed tf-seaweed--1"></div>
+                    <div class="tf-seaweed tf-seaweed--2"></div>
+                    <div class="tf-seaweed tf-seaweed--3"></div>
+                </div>
+            </div>
+            <div class="tf-rock-container">
+                <div class="tf-rock tf-rock--top">
+                    <div class="tf-rock-holes tf-rock-holes--1"></div>
+                    <div class="tf-rock-holes tf-rock-holes--2"></div>
+                    <div class="tf-rock-holes tf-rock-holes--3"></div>
+                    <div class="tf-rock-holes tf-rock-holes--4"></div>
+                    <div class="tf-rock-holes tf-rock-holes--5"></div>
+                </div>
+                <div class="tf-rock tf-rock--middle-1">
+                    <div class="tf-rock-holes-container tf-rock-holes-container--1">
+                        <div class="tf-rock-holes tf-rock-holes--1"></div>
+                        <div class="tf-rock-holes tf-rock-holes--2"></div>
+                        <div class="tf-rock-holes tf-rock-holes--3"></div>
+                        <div class="tf-rock-holes tf-rock-holes--4"></div>
+                        <div class="tf-rock-holes tf-rock-holes--5"></div>
+                        <div class="tf-rock-holes tf-rock-holes--6"></div>
+                    </div>
+                    <div class="tf-rock-holes-container tf-rock-holes-container--2">
+                        <div class="tf-rock-holes tf-rock-holes--1"></div>
+                        <div class="tf-rock-holes tf-rock-holes--2"></div>
+                        <div class="tf-rock-holes tf-rock-holes--3"></div>
+                        <div class="tf-rock-holes tf-rock-holes--4"></div>
+                        <div class="tf-rock-holes tf-rock-holes--5"></div>
+                        <div class="tf-rock-holes tf-rock-holes--6"></div>
+                    </div>
+                </div>
+                <div class="tf-rock tf-rock--middle-2">
+                    <div class="tf-rock-holes-container tf-rock-holes-container--1">
+                        <div class="tf-rock-holes tf-rock-holes--1"></div>
+                        <div class="tf-rock-holes tf-rock-holes--2"></div>
+                        <div class="tf-rock-holes tf-rock-holes--3"></div>
+                        <div class="tf-rock-holes tf-rock-holes--4"></div>
+                        <div class="tf-rock-holes tf-rock-holes--5"></div>
+                        <div class="tf-rock-holes tf-rock-holes--6"></div>
+                    </div>
+                    <div class="tf-rock-holes-container tf-rock-holes-container--2">
+                        <div class="tf-rock-holes tf-rock-holes--1"></div>
+                        <div class="tf-rock-holes tf-rock-holes--2"></div>
+                        <div class="tf-rock-holes tf-rock-holes--3"></div>
+                        <div class="tf-rock-holes tf-rock-holes--4"></div>
+                        <div class="tf-rock-holes tf-rock-holes--5"></div>
+                        <div class="tf-rock-holes tf-rock-holes--6"></div>
+                    </div>
+                </div>
+                <div class="tf-rock tf-rock--base">
+                    <div class="tf-rock-holes-container tf-rock-holes-container--1">
+                        <div class="tf-rock-holes tf-rock-holes--1"></div>
+                        <div class="tf-rock-holes tf-rock-holes--2"></div>
+                        <div class="tf-rock-holes tf-rock-holes--3"></div>
+                        <div class="tf-rock-holes tf-rock-holes--4"></div>
+                        <div class="tf-rock-holes tf-rock-holes--5"></div>
+                        <div class="tf-rock-holes tf-rock-holes--6"></div>
+                    </div>
+                    <div class="tf-rock-holes-container tf-rock-holes-container--2">
+                        <div class="tf-rock-holes tf-rock-holes--1"></div>
+                        <div class="tf-rock-holes tf-rock-holes--2"></div>
+                        <div class="tf-rock-holes tf-rock-holes--3"></div>
+                        <div class="tf-rock-holes tf-rock-holes--4"></div>
+                        <div class="tf-rock-holes tf-rock-holes--5"></div>
+                        <div class="tf-rock-holes tf-rock-holes--6"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tf-starfish tf-starfish--1">
+                <div class="tf-starfish-5-points"></div>
+                <div class="tf-starfish-center"></div>
+                <div class="tf-starfish-dots"></div>
+            </div>
+            <div class="tf-starfish tf-starfish--2">
+                <div class="tf-starfish-5-points"></div>
+                <div class="tf-starfish-center"></div>
+                <div class="tf-starfish-dots"></div>
+            </div>
+            <div class="tf-starfish tf-starfish--3">
+                <div class="tf-starfish-5-points"></div>
+                <div class="tf-starfish-center"></div>
+                <div class="tf-starfish-dots"></div>
+            </div>
+            <div class="tf-seaweed-container">
+                <div class="tf-seaweed-patch">
+                    <div class="tf-seaweed tf-seaweed--4"></div>
+                </div>
+            </div>
+        </div>
+        <div class="tf-letters-container">
+            <div class="tf-letters">
+                <div class="tf-letter tf-letter--1"><div class="tf-letter-t"></div></div>
+                <div class="tf-letter tf-letter--2"><div class="tf-letter-o1"></div><div class="tf-letter-o2"></div></div>
+                <div class="tf-letter tf-letter--3"><div class="tf-letter-g1"></div><div class="tf-letter-g2"></div></div>
+                <div class="tf-letter tf-letter--4"><div class="tf-letter-g1"></div><div class="tf-letter-g2"></div></div>
+                <div class="tf-letter tf-letter--5"><div class="tf-letter-l"></div></div>
+                <div class="tf-letter tf-letter--6"><div class="tf-letter-e1"></div><div class="tf-letter-e2"></div></div>
+                <div class="tf-letter tf-letter--7"><div class="tf-letter-f1"></div><div class="tf-letter-f2"></div></div>
+                <div class="tf-letter tf-letter--8"><div class="tf-letter-i1"></div><div class="tf-letter-i2"></div></div>
+                <div class="tf-letter tf-letter--9"><div class="tf-letter-s1"></div><div class="tf-letter-s2"></div></div>
+                <div class="tf-letter tf-letter--10"><div class="tf-letter-h1"></div><div class="tf-letter-h2"></div></div>
+            </div>
+        </div>
+        <span class="tf-info-noclick-overlay"></span>
+        <span class="tf-info-outer-container">
+            <label class="tf-outline-button" for="info-checkbox">?</label>
+            <span class="tf-info-container">
+                <div class="tf-info-cube-container">
+                    <div class="tf-cube-container">
+                      <div class="tf-cube">
+                        <div class="tf-cube-side tf-cube-side--back"></div>
+                        <div class="tf-cube-side tf-cube-side--top"></div>
+                        <div class="tf-cube-side tf-cube-side--bottom"></div>
+                        <div class="tf-cube-side tf-cube-side--left"></div>
+                        <div class="tf-cube-side tf-cube-side--right"></div>
+                        <div class="tf-cube-side tf-cube-side--front">
+                            <div class="tf-info-description-container">
+                                <div class="tf-info-description">
+                                    Togglefish is an experiment in using <span class="tf-text-emphasis">pure CSS</span> to create an animated scene.
+                                </div>
+                                <div class="tf-info-description">
+                                    No JavaScript, SVG, or images were used.
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tf-crab-container-info">
+                        <div class="tf-crab-body"></div>
+                        <div class="tf-crab-stalk tf-crab-stalk--left"></div>
+                        <div class="tf-crab-stalk tf-crab-stalk--right"></div>
+                        <div class="tf-crab-eye tf-crab-eye--left"></div>
+                        <div class="tf-crab-eye tf-crab-eye--right"></div>
+                        <div class="tf-crab-mouth"></div>
+                        <div class="tf-crab-leg tf-crab-leg--1"></div>
+                        <div class="tf-crab-leg tf-crab-leg--2"></div>
+                        <div class="tf-crab-leg tf-crab-leg--3"></div>
+                        <div class="tf-crab-leg tf-crab-leg--4"></div>
+                        <div class="tf-crab-leg tf-crab-leg--5"></div>
+                        <div class="tf-crab-leg tf-crab-leg--6"></div>
+                        <div class="tf-crab-claw-container tf-crab-claw-container--left">
+                            <div class="tf-crab-claw-arm"></div>
+                            <div class="tf-crab-claw tf-crab-claw--top"></div>
+                            <div class="tf-crab-claw tf-crab-claw--bottom"></div>
+                        </div>
+                        <div class="tf-crab-claw-container tf-crab-claw-container--right">
+                            <div class="tf-crab-claw-arm"></div>
+                            <div class="tf-crab-claw tf-crab-claw--top"></div>
+                            <div class="tf-crab-claw tf-crab-claw--bottom"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tf-jellyfish-outer-container">
+                        <div class="tf-jellyfish-container tf-jellyfish-container--1">
+                            <div class="tf-jellyfish-tail-container">
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--1a"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--1b"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--1c"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--2a"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--2b"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--2c"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--3a"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--3b"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--3c"></div>
+                            </div>
+                            <div class="tf-jellyfish-head">
+                                <div class="tf-jellyfish-eye tf-jellyfish-eye--left"></div>
+                                <div class="tf-jellyfish-eye tf-jellyfish-eye--right"></div>
+                                <div class="tf-jellyfish-mouth"></div>
+                            </div>
+                        </div>
+                        <div class="tf-jellyfish-container tf-jellyfish-container--2">
+                            <div class="tf-jellyfish-tail-container">
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--1a"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--1b"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--1c"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--2a"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--2b"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--2c"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--3a"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--3b"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--3c"></div>
+                            </div>
+                            <div class="tf-jellyfish-head">
+                                <div class="tf-jellyfish-eye tf-jellyfish-eye--left"></div>
+                                <div class="tf-jellyfish-eye tf-jellyfish-eye--right"></div>
+                                <div class="tf-jellyfish-mouth"></div>
+                            </div>
+                        </div>
+                        <div class="tf-jellyfish-container tf-jellyfish-container--3">
+                            <div class="tf-jellyfish-tail-container">
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--1a"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--1b"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--1c"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--2a"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--2b"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--2c"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--3a"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--3b"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--3c"></div>
+                            </div>
+                            <div class="tf-jellyfish-head">
+                                <div class="tf-jellyfish-eye tf-jellyfish-eye--left"></div>
+                                <div class="tf-jellyfish-eye tf-jellyfish-eye--right"></div>
+                                <div class="tf-jellyfish-mouth"></div>
+                            </div>
+                        </div>
+                        <div class="tf-jellyfish-container tf-jellyfish-container--4">
+                            <div class="tf-jellyfish-tail-container">
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--1a"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--1b"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--1c"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--2a"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--2b"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--2c"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--3a"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--3b"></div>
+                                <div class="tf-jellyfish-tail tf-jellyfish-tail--3c"></div>
+                            </div>
+                            <div class="tf-jellyfish-head">
+                                <div class="tf-jellyfish-eye tf-jellyfish-eye--left"></div>
+                                <div class="tf-jellyfish-eye tf-jellyfish-eye--right"></div>
+                                <div class="tf-jellyfish-mouth"></div>
+                            </div>
+                        </div>
+                    </div>
+            </span>
+        </span>
+        <span class="tf-options-outer-container">
+            <label class="tf-outline-button" for="options-checkbox">Toggles</label>
+            <div class="tf-menu">
+                <div class="tf-options-container">
+                    <div class="tf-option-heading">Scenery</div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Sun/Moon</div>
+                        <label class="tf-button" for="orb-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Clouds</div>
+                        <label class="tf-button" for="clouds-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Mountains</div>
+                        <label class="tf-button" for="mountains-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Waves</div>
+                        <label class="tf-button" for="waves-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Sandbanks</div>
+                        <label class="tf-button" for="sandbanks-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Shell</div>
+                        <label class="tf-button" for="shell-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Rocks</div>
+                        <label class="tf-button" for="rocks-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Tiny Fish</div>
+                        <label class="tf-button" for="tiny-fish-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Crab</div>
+                        <label class="tf-button" for="crab-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">UFO</div>
+                        <label class="tf-button" for="ufo-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Surfer</div>
+                        <label class="tf-button" for="surfer-checkbox"></label>
+                    </div>
+                </div>
+                <div class="tf-options-container">
+                    <div class="tf-option-heading">Effects</div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Parallax</div>
+                        <label class="tf-button" for="parallax-checkbox"></label>
+                    </div>
+                    <div class="tf-option-heading">CSS Styles</div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Outline</div>
+                        <label class="tf-button" for="outline-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Background</div>
+                        <label class="tf-button" for="background-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Box Shadow</div>
+                        <label class="tf-button" for="box-shadow-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Border Radius</div>
+                        <label class="tf-button" for="border-radius-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Border</div>
+                        <label class="tf-button" for="border-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Transform</div>
+                        <label class="tf-button" for="transform-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Pseudo Elements</div>
+                        <label class="tf-button" for="pseudo-elements-checkbox"></label>
+                    </div>
+                    <div class="tf-option">
+                        <div class="tf-option-text">Animation</div>
+                        <label class="tf-button" for="animation-checkbox"></label>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+</body>
+</html>

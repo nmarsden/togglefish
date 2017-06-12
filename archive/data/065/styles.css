@@ -150,7 +150,7 @@ a {
 }
 
 .tf-info-button {
-    padding: 15px 10px 5px 10px;
+    padding: 15px 10px 10px 10px;
     width: 200px;
     height: 50px;
     font-size: 30px;
@@ -160,10 +160,6 @@ a {
     border: 2px solid #EEE;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     cursor: pointer;
-}
-
-.tf-info-button + .tf-info-button {
-    border-left: none;
 }
 
 .tf-info-cube-container {
@@ -254,7 +250,7 @@ a {
     padding: 20px;
     width: calc(100% - 40px);
     height: calc(100% - 40px);
-    box-shadow: inset 0 0 0 1px rgba(21, 83, 138, 0.5);
+    box-shadow: inset 0 0 10px 0 #15538A;
 }
 
 .tf-info-description {
@@ -266,7 +262,7 @@ a {
 }
 
 .tf-info-description--heading {
-    color: #133260;
+    color: #15538A;
 }
 
 .tf-jellyfish-outer-container {
@@ -475,11 +471,10 @@ a {
 
 .tf-outline-button {
     display: inline-block;
-    padding: 15px 25px 5px 25px;
-    height: 50px;
-    font-size: 30px;
     margin: 12px 8px;
+    padding: 8px 14px;
     color: #FFF;
+    font-size: 2em;
     text-align: center;
     background: rgba(1, 1, 1, 0.1);
     border: 2px solid #EEE;
@@ -488,153 +483,7 @@ a {
 }
 
 #info-checkbox:checked ~ .tf-info-outer-container > .tf-outline-button {
-    display: none;
     opacity: 0;
-}
-#info-checkbox:not(:checked) ~ .tf-info-outer-container > .tf-outline-button {
-    display: inline-block;
-    opacity: 1;
-}
-
-#info-checkbox:checked ~ .tf-time-machine-outer-container {
-    display: none;
-    opacity: 0;
-}
-#info-checkbox:not(:checked) ~ .tf-time-machine-outer-container {
-    display: inline-block;
-    opacity: 1;
-}
-
-#time-machine-checkbox:checked ~ .tf-time-machine-noclick-overlay {
-    display: block;
-    opacity: 1;
-}
-#time-machine-checkbox:not(:checked) ~ .tf-time-machine-noclick-overlay {
-    display: none;
-    opacity: 0;
-}
-
-#time-machine-checkbox:checked ~ .tf-time-machine-outer-container > div {
-    opacity: 1;
-}
-#time-machine-checkbox:not(:checked) ~ .tf-time-machine-outer-container > div {
-    opacity: 0;
-}
-
-.tf-time-machine-noclick-overlay {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, #298eff, #298eff 50%, #001d2d);
-    pointer-events: auto;
-    z-index: 20;
-    transition: opacity 500ms;
-}
-
-.tf-time-machine-outer-container {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 21;
-}
-
-#time-machine-checkbox:not(:checked) ~ .tf-time-machine-outer-container > .tf-outline-button--time-machine-unchecked {
-    position: relative;
-    left: 80px;
-}
-#time-machine-checkbox:checked ~ .tf-time-machine-outer-container > .tf-outline-button--time-machine-unchecked {
-    opacity: 0;
-}
-
-#time-machine-checkbox:checked ~ .tf-time-machine-outer-container > .tf-outline-button--time-machine-checked {
-    position: absolute;
-    right: 0;
-}
-#time-machine-checkbox:not(:checked) ~ .tf-time-machine-outer-container > .tf-outline-button--time-machine-checked {
-    opacity: 0;
-}
-
-.tf-outline-button--time-machine-unchecked:before {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 30px;
-    border: 3px solid #FFF;
-    border-radius: 100%
-}
-
-.tf-outline-button--time-machine-unchecked:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 32px;
-    left: 42px;
-    width: 3px;
-    height: 14px;
-    background: #FFF;
-    transform-origin: top;
-    transform: rotateZ(-45deg);
-}
-
-.tf-time-machine-nav-container {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.tf-time-machine-heading-container {
-    height: 230px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.2);
-}
-
-.tf-time-machine-heading {
-    font-size: 70px;
-    line-height: 90px;
-    color: white;
-}
-
-.tf-time-machine-nav-items-container {
-    height: 220px;
-    width: 100%;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    pointer-events: auto;
-}
-
-.tf-time-machine-nav-items {
-    display: flex;
-    flex-shrink: 0;
-}
-
-.tf-time-machine-nav-item {
-    padding-left: 2px;
-    padding-right: 2px;
-}
-
-.tf-time-machine-screenshot {
-    width: 200px;
-    height: 128px;
-    padding-top: 40px;
-}
-
-.tf-time-machine-screenshot-label {
-    text-align: center;
-    pointer-events: auto;
 }
 
 #options-checkbox:checked ~ .tf-options-outer-container > .tf-outline-button {
@@ -646,31 +495,9 @@ a {
     display: flex;
 }
 
-.tf-options-menu-items {
-    display: flex;
-    flex-direction: column;
-}
-
-.tf-options-button {
-    padding: 15px 10px 5px 10px;
-    width: 200px;
-    height: 50px;
-    font-size: 30px;
-    text-align: center;
-    color: white;
-    background: rgba(1, 1, 1, 0.1);
-    border-bottom: 1px solid #EEE;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    cursor: pointer;
-}
-
-.tf-options-button + .tf-options-button {
-    border-top: none;
-}
-
 .tf-options-container {
     margin-right: 8px;
-    width: 320px;
+    margin-left: 8px;
     padding: 10px;
     display: flex;
     background: rgba(1, 1, 1, 0.3);
@@ -679,11 +506,13 @@ a {
     transition: all 500ms ease-in-out;
 }
 
-.tf-options-container--menu {
-    width: auto;
-    margin-right: 0;
-    border-right: none;
-    padding: 0;
+.tf-option-heading {
+    color: #FFF;
+    font-size: 1.6em;
+    line-height: 2em;
+    text-align: center;
+    border-bottom: 1px dashed white;
+    margin-bottom: 10px;
 }
 
 .tf-option {
@@ -695,8 +524,8 @@ a {
     position: relative;
     top: 6px;
     color: #FFF;
-    font-size: 30px;
-    line-height: 60px;
+    font-size: 1.6em;
+    line-height: 2em;
 }
 
 #options-checkbox:checked ~ .tf-options-outer-container > .tf-menu {
@@ -708,9 +537,9 @@ a {
 }
 
 .tf-button {
-    min-width: 60px;
-    height: 60px;
-    margin: 4px 4px 6px 10px;
+    min-width: 3em;
+    height: 3em;
+    margin: 4px 4px 4px 10px;
     background: #F0592A;
     border-radius: 100%;
     border: 3px solid #DDD;
@@ -720,19 +549,10 @@ a {
     cursor: pointer;
 }
 
-#tf-toggle-checkbox:checked ~ .tf-options-outer-container label[for="tf-toggle-checkbox"],
-#tf-eyebrows-checkbox:checked ~ .tf-options-outer-container label[for="tf-eyebrows-checkbox"],
-#tf-eyes-checkbox:checked ~ .tf-options-outer-container label[for="tf-eyes-checkbox"],
-#tf-mouth-checkbox:checked ~ .tf-options-outer-container label[for="tf-mouth-checkbox"],
-#tf-fins-checkbox:checked ~ .tf-options-outer-container label[for="tf-fins-checkbox"],
-#tf-scales-checkbox:checked ~ .tf-options-outer-container label[for="tf-scales-checkbox"],
-#tf-body-checkbox:checked ~ .tf-options-outer-container label[for="tf-body-checkbox"],
-#tf-bubbles-checkbox:checked ~ .tf-options-outer-container label[for="tf-bubbles-checkbox"],
-#tf-zzz-checkbox:checked ~ .tf-options-outer-container label[for="tf-zzz-checkbox"],
-#tf-name-checkbox:checked ~ .tf-options-outer-container label[for="tf-name-checkbox"],
-#sky-checkbox:checked ~ .tf-options-outer-container label[for="sky-checkbox"],
+#orb-checkbox:checked ~ .tf-options-outer-container label[for="orb-checkbox"],
+#clouds-checkbox:checked ~ .tf-options-outer-container label[for="clouds-checkbox"],
 #mountains-checkbox:checked ~ .tf-options-outer-container label[for="mountains-checkbox"],
-#sea-checkbox:checked ~ .tf-options-outer-container label[for="sea-checkbox"],
+#waves-checkbox:checked ~ .tf-options-outer-container label[for="waves-checkbox"],
 #sandbanks-checkbox:checked ~ .tf-options-outer-container label[for="sandbanks-checkbox"],
 #shell-checkbox:checked ~ .tf-options-outer-container label[for="shell-checkbox"],
 #rocks-checkbox:checked ~ .tf-options-outer-container label[for="rocks-checkbox"],
@@ -749,79 +569,25 @@ a {
 #pseudo-elements-checkbox:checked ~ .tf-options-outer-container label[for="pseudo-elements-checkbox"],
 #animation-checkbox:checked ~ .tf-options-outer-container label[for="animation-checkbox"],
 #parallax-checkbox:checked ~ .tf-options-outer-container label[for="parallax-checkbox"],
-#shake-it-checkbox:checked ~ .tf-options-outer-container label[for="shake-it-checkbox"] {
+#shake-it-checkbox:checked ~ .tf-options-outer-container label[for="shake-it-checkbox"],
+#info-page-1:checked ~ .tf-info-outer-container label[for="info-page-1"],
+#info-page-2:checked ~ .tf-info-outer-container label[for="info-page-2"],
+#info-page-3:checked ~ .tf-info-outer-container label[for="info-page-3"] {
     background: #4FB95E;
 }
 
 #info-page-1:checked ~ .tf-info-outer-container label[for="info-page-1"],
 #info-page-2:checked ~ .tf-info-outer-container label[for="info-page-2"],
-#info-page-3:checked ~ .tf-info-outer-container label[for="info-page-3"],
-#options-page-1:checked ~ .tf-options-outer-container label[for="options-page-1"],
-#options-page-2:checked ~ .tf-options-outer-container label[for="options-page-2"],
-#options-page-3:checked ~ .tf-options-outer-container label[for="options-page-3"],
-#options-page-4:checked ~ .tf-options-outer-container label[for="options-page-4"] {
+#info-page-3:checked ~ .tf-info-outer-container label[for="info-page-3"] {
     color: #000;
     background: #FFF;
 }
 
-#options-page-1:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-1,
-#options-page-2:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-2,
-#options-page-3:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-3,
-#options-page-4:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-4 {
-    display: none;
-}
-
-#tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-base,
-#tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-ball,
-#tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-shaft,
-#tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-tip {
+#orb-checkbox:not(:checked) ~ div .tf-orb {
     opacity: 0 !important;
 }
 
-#tf-eyebrows-checkbox:not(:checked) ~ div .tf-eyebrow {
-    opacity: 0 !important;
-}
-
-#tf-eyes-checkbox:not(:checked) ~ div .tf-eye {
-    opacity: 0 !important;
-}
-
-#tf-mouth-checkbox:not(:checked) ~ div .tf-mouth,
-#tf-mouth-checkbox:not(:checked) ~ div .tf-teeth,
-#tf-mouth-checkbox:not(:checked) ~ div .tf-lip,
-#tf-mouth-checkbox:not(:checked) ~ div .tf-glint-cross {
-    opacity: 0 !important;
-    animation: none;
-}
-
-#tf-fins-checkbox:not(:checked) ~ div .tf-side-fin-container,
-#tf-fins-checkbox:not(:checked) ~ div .tf-tail-fin-container {
-    opacity: 0 !important;
-}
-
-#tf-scales-checkbox:not(:checked) ~ div .tf-scales-container {
-    opacity: 0 !important;
-}
-
-#tf-body-checkbox:not(:checked) ~ div .tf-body-container {
-    opacity: 0 !important;
-}
-
-#tf-bubbles-checkbox:not(:checked) ~ div .tf-bubble {
-    opacity: 0 !important;
-    animation: none !important;
-}
-
-#tf-zzz-checkbox:not(:checked) ~ div .tf-sleep-z {
-    opacity: 0 !important;
-    animation: none !important;
-}
-
-#tf-name-checkbox:not(:checked) ~ div .tf-letters-container {
-    opacity: 0 !important;
-}
-
-#sky-checkbox:not(:checked) ~ div .tf-sky {
+#clouds-checkbox:not(:checked) ~ div .tf-cloud {
     opacity: 0 !important;
 }
 
@@ -829,12 +595,10 @@ a {
     opacity: 0 !important;
 }
 
-#sea-checkbox:not(:checked) ~ div .tf-sea,
-#sea-checkbox:not(:checked) ~ div .tf-waves {
+#waves-checkbox:not(:checked) ~ div .tf-waves {
     opacity: 0 !important;
 }
 
-#sandbanks-checkbox:not(:checked) ~ div .tf-sand,
 #sandbanks-checkbox:not(:checked) ~ div .tf-sandbank-outer-container {
     opacity: 0 !important;
 }
@@ -2818,34 +2582,45 @@ a {
 
 .tf-eye {
     position: absolute;
-    z-index: 1;
     top: 200px;
     height: 80px;
     width: 60px;
-
-    background: radial-gradient(ellipse at 22px 38px, #000 0%, #000 15%, #FFF 5%, #FFF 100%);
-
+    background-color: #FFF;
     border: solid 3px black;
     border-radius: 50% 50% 50% 50% / 50% 50% 36% 50%;
     box-shadow: inset 0 6px 14px 3px #A8DCE2;
-    overflow: hidden;
+    transition: all 30ms;
 }
 
-.tf-eyelid {
+.tf-eye::before {
+    content: '';
     position: absolute;
-    top: 0;
-    left: -110px;
-    height: 330px;
-    width: 330px;
-    transition: opacity 300ms;
+    top: 38px;
+    left: 17px;
+    height: 10px;
+    width: 10px;
+    background-color: #000;
+    border-radius: 50% 50%;
+    transition: all 30ms;
 }
 
-.tf-eyelid--asleep {
-    background: radial-gradient(ellipse at center, transparent 0%, transparent 35%, #000 36%, #F0592A 37%, #CE4728 100%);
+.tf-eye::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    height: 80px;
+    width: 60px;
+    background-color: var(--fish-main-colour);
+    border: solid 3px black;
+    border-radius: 50% 50% 50% 50% / 50% 50% 36% 50%;
+    box-shadow: inset 5px -11px 14px 3px var(--fish-shade-colour);
+    transition: opacity 30ms;
 }
-.tf-eyelid--awake {
-    opacity: 0;
-    background: radial-gradient(ellipse at center, transparent 0%, transparent 35%, #000 36%, #4FB95E 37%, #459C4B 100%);
+
+.tf-eye.tf-eye--right::after {
+    height: 75px;
+    width: 55px;
 }
 
 .tf-eye--right {
@@ -3048,9 +2823,9 @@ a {
     height: 15px;
     width: 15px;
     background-color: transparent;
-    box-shadow: inset -3px 3px 6px 0 #A3CBF7;
+    box-shadow: inset -3px 3px 6px 0 #3387E2;
     border-radius: 50% 50%;
-    border: 1px solid #A3CBF7;
+    border: 1px solid #3387E2;
 }
 
 .tf-bubble--1 {
@@ -3560,19 +3335,10 @@ a {
     transform: translateY(-10px);
 }
 
-.tf-fish-checkbox:checked ~ div .tf-foreground .tf-eyelid {
-    opacity: 1;
-    transform: translateY(0);
-    animation: eye_open 1s ease-in-out,
-               eye_blink 10s ease-out infinite;
-    animation-delay: 300ms, 1.3s;
-    animation-fill-mode: forwards;
-}
-.tf-fish-checkbox:not(:checked) ~ div .tf-foreground .tf-eyelid {
-    transform: translateY(-90px);
-    animation: eye_close 1s ease-in-out;
-    animation-delay: 300ms;
-    animation-fill-mode: forwards;
+.tf-fish-checkbox:checked ~ div .tf-foreground .tf-eye::after {
+    opacity: 0;
+    animation: eye_blink 10s ease-out;
+    animation-iteration-count: infinite;
 }
 
 .tf-fish-checkbox:checked ~ div .tf-foreground .tf-lip--bottom {
@@ -3926,23 +3692,13 @@ a {
     100% { transform: rotate(0deg); }
 }
 
-@keyframes eye_close {
-    0%   { transform: translateY(-90px); }
-    100% { transform: translateY(0); }
-}
-
-@keyframes eye_open {
-    0%   { transform: translateY(0); }
-    100% { transform: translateY(-90px); }
-}
-
 @keyframes eye_blink {
-    0%   { transform: translateY(-90px); }
-    96%  { transform: translateY(-90px); }
-    97%  { transform: translateY(0); }
-    98%  { transform: translateY(-90px); }
-    99%  { transform: translateY(0); }
-    100% { transform: translateY(-90px); }
+    0% { opacity: 0; }
+    96% { opacity: 0; }
+    97% { opacity: 1; }
+    98% { opacity: 0; }
+    99% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 @keyframes glint {

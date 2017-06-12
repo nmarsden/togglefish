@@ -1,0 +1,539 @@
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    background-color: #DFEAF9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tf-toggler {
+    opacity: 0;
+    position: fixed;
+}
+
+.tf-container {
+    position: relative;
+    height: 485px;
+    width: 485px;
+    border-radius: 50% 50%;
+    background-color: transparent;
+    box-shadow: 0 0 40px 54px #FDEBE6,
+                inset 0 0 0 10px #FFF;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    transition: box-shadow 300ms;
+}
+
+.tf-container:after {
+    content: '';
+    position: absolute;
+    height: 485px;
+    width: 485px;
+    border-radius: 50% 50%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.tf-fish-back {
+    position: absolute;
+    z-index: -1;
+    animation: fish_float 10s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-fish-front {
+    position: absolute;
+    animation: fish_float 10s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-tail-fin-container {
+    position: absolute;
+    height: 110px;
+    width: 40px;
+    transform-origin: right;
+    animation: tail_fin_paddle 2s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-tail-fin-container--top {
+    top: 156px;
+    left: 6px;
+}
+
+.tf-tail-fin-container--bottom {
+    top: 275px;
+}
+
+.tf-tail-fin {
+    position: absolute;
+    height: 110px;
+    width: 40px;
+    background-color: #F0592A;
+    border: solid 3px black;
+    border-radius: 0 50% 0 50%;
+    box-shadow: inset 5px -11px 14px 3px #CE4728;
+    transform: rotate(-5deg) skewX(-15deg) skewY(5deg);
+    transition: all 300ms;
+}
+
+.tf-tail-fin--top {
+}
+
+.tf-tail-fin--bottom {
+    height: 60px;
+    width: 40px;
+    border-radius: 50% 0 50% 0;
+}
+
+.tf-body {
+    position: absolute;
+    left: 98px;
+    top: 90px;
+    height: 360px;
+    width: 360px;
+    background-color: #F0592A;
+    border: solid 3px black;
+    border-radius: 100px 300px 300px 300px / 50px 280px 280px 280px;
+    box-shadow: inset 20px -20px 56px 20px #CE4728;
+    transform: rotate(-0.125turn);
+    transition: all 300ms;
+
+    animation: fish_breathe 10s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-scales-1 {
+    left: 160px;
+    top: 220px;
+}
+
+.tf-scales-2 {
+    left: 180px;
+    top: 200px;
+}
+
+.tf-scales-3 {
+    left: 200px;
+    top: 180px;
+}
+
+.tf-scales-4 {
+    left: 220px;
+    top: 200px;
+}
+
+.tf-scales-5 {
+    left: 240px;
+    top: 180px;
+}
+
+.tf-scales-6 {
+    left: 260px;
+    top: 200px;
+}
+
+.tf-scales-7 {
+    left: 280px;
+    top: 220px;
+}
+
+.tf-scales-small {
+    position: absolute;
+    height: 40px;
+    width: 20px;
+    background-color: #CE4728;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    box-shadow: 0 0 0 0 red,
+                0 -6px  0 4px #CE4728, -3px  -6px 0 4px black,
+                0 40px  0 4px #CE4728, -3px  40px 0 4px black;
+    transition: all 300ms;
+}
+
+.tf-scales-medium {
+    position: absolute;
+    height: 40px;
+    width: 20px;
+    background-color: #F0592A;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    box-shadow: 0 0 0 0 red,
+                0 -6px  0 4px #F0592A, -3px  -6px 0 4px black,
+                0 40px  0 4px #F0592A, -3px  40px 0 4px black,
+                0 86px  0 4px #F0592A, -3px  86px 0 4px black;
+    transition: all 300ms;
+}
+
+.tf-scales-large {
+    position: absolute;
+    height: 40px;
+    width: 20px;
+    background-color: #F0592A;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    box-shadow: 0 0 0 0 red,
+                0 -6px  0 4px #F0592A, -3px  -6px 0 4px black,
+                0 40px  0 4px #CE4728, -3px  40px 0 4px black,
+                0 86px  0 4px #CE4728, -3px  86px 0 4px black,
+                0 132px 0 4px #F0592A, -3px 132px 0 4px black;
+    transition: all 300ms;
+}
+
+.tf-eye {
+    position: absolute;
+    top: 200px;
+    height: 80px;
+    width: 60px;
+    background-color: #FFF;
+    border: solid 3px black;
+    border-radius: 50% 50% 50% 50% / 50% 50% 36% 50%;
+    box-shadow: inset 0 6px 14px 3px #A8DCE2;
+    transition: all 30ms;
+}
+
+.tf-eye::before {
+    content: '';
+    position: absolute;
+    top: 38px;
+    left: 17px;
+    height: 10px;
+    width: 10px;
+    background-color: #000;
+    border-radius: 50% 50%;
+    transition: all 30ms;
+}
+
+.tf-eye::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    height: 80px;
+    width: 60px;
+    background-color: #F0592A;
+    border: solid 3px black;
+    border-radius: 50% 50% 50% 50% / 50% 50% 36% 50%;
+    box-shadow: inset 5px -11px 14px 3px #CE4728;
+    transition: opacity 30ms;
+}
+
+.tf-eye.tf-eye--right::after {
+    height: 75px;
+    width: 55px;
+}
+
+.tf-eye--right {
+    left: 420px;
+    top: 195px;
+    height: 75px;
+    width: 55px;
+}
+
+.tf-eye--left {
+    left: 350px;
+}
+
+.tf-lip {
+    position: absolute;
+    left: 350px;
+    height: 50px;
+    width: 135px;
+    background-color: #F0592A;
+    border: solid 3px black;
+    border-radius: 0 45% 45% 50%;
+    box-shadow: inset 5px -11px 14px 3px #CE4728;
+    transform: skewX(10deg) rotate(-10deg);
+    transition: all 300ms;
+}
+
+.tf-lip--top {
+    top: 300px;
+}
+
+.tf-lip--bottom {
+    top: 320px;
+    left: 355px;
+    width: 100px;
+    transform: skewX(10deg) rotate(0deg);
+}
+
+.tf-mouth {
+    position: absolute;
+    top: 327px;
+    left: 360px;
+    height: 40px;
+    width: 70px;
+    background-color: #000;
+    border: solid 3px black;
+    border-radius: 50% 50%;
+    transition: all 300ms;
+}
+
+.tf-teeth {
+    position: absolute;
+    top: 327px;
+    left: 370px;
+    height: 30px;
+    width: 80px;
+    background-color: #FFF;
+    border: solid 3px black;
+    transition: all 300ms;
+}
+
+.tf-side-fin-container {
+    position: absolute;
+    top: 400px;
+    height: 110px;
+    width: 40px;
+    transform-origin: top right;
+    animation: side_fin_paddle 10s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-side-fin-container--left {
+    left: 170px;
+}
+
+.tf-side-fin-container--right {
+    left: 300px;
+}
+
+.tf-side-fin {
+    position: absolute;
+    height: 110px;
+    width: 40px;
+    background-color: #F0592A;
+    border: solid 3px black;
+    border-radius: 50% 0 50% 0;
+    box-shadow: inset 12px 8px 14px 3px #CE4728;
+    transform: rotate(-133deg) skewX(-2deg) skewY(-20deg);
+    transition: all 300ms;
+}
+
+.tf-side-fin--left {
+}
+
+.tf-side-fin--right {
+    height: 100px;
+    width: 30px;
+}
+
+.tf-toggle-base {
+    position: absolute;
+    top: 80px;
+    left: 200px;
+    height: 60px;
+    width: 160px;
+    background-color: #8A8A8A;
+    border: solid 3px black;
+    border-radius: 50% 50%;
+    box-shadow: inset 4px -7px 14px 3px #6D6E6E;
+}
+
+.tf-toggle-ball {
+    position: absolute;
+    top: 25px;
+    left: 226px;
+    height: 94px;
+    width: 114px;
+    background-color: #8A8A8A;
+    border-radius: 134px 134px 74px 74px;
+    box-shadow: inset 4px -7px 14px 3px #6D6E6E,
+                inset 4px -7px 14px 3px #FFF,
+                0 0 0 3px #000;
+}
+
+.tf-toggle-ball::after {
+    content: '';
+    position: absolute;
+    top: 9px;
+    left: 24px;
+    height: 24px;
+    width: 66px;
+    background-color: #000;
+    border-radius: 10px 10px;
+}
+
+.tf-toggle-shaft {
+    position: absolute;
+    top: -6px;
+    left: 270px;
+    height: 50px;
+    width: 20px;
+    background-color: #8A8A8A;
+    border: solid 3px black;
+    border-radius: 0 0 50% 50% / 0 0 10% 10%;
+    box-shadow: inset 4px -7px 14px 3px #6D6E6E;
+    transform-origin: 10px 110px;
+    transform: rotate(-20deg);
+    transition: all 300ms;
+}
+
+.tf-toggle-tip {
+    position: absolute;
+    top: -16px;
+    left: 260px;
+    height: 30px;
+    width: 40px;
+    background-color: #8A8A8A;
+    border: solid 3px black;
+    border-radius: 50% 50%;
+    box-shadow: inset 4px -7px 14px 3px #6D6E6E,
+                inset 4px -7px 14px 3px #FFF;
+    transform-origin: 20px 120px;
+    transform: rotate(-20deg);
+    transition: all 300ms;
+}
+
+.tf-bubble {
+    opacity: 0;
+    position: absolute;
+    top: 320px;
+    height: 15px;
+    width: 15px;
+    background-color: transparent;
+    box-shadow: inset -3px 3px 6px 0 #3387E2;
+    border-radius: 50% 50%;
+    border: 1px solid #3387E2;
+}
+
+.tf-bubble--1 {
+    left: 500px;
+    animation: bubble_up 10s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-bubble--2 {
+    left: 520px;
+    animation: bubble_up 10s ease-out;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+}
+
+.tf-bubble--3 {
+    left: 510px;
+    height: 20px;
+    width: 20px;
+    animation: bubble_up 10s ease-out;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+}
+
+.tf-toggler:checked ~ .tf-container {
+    box-shadow: 0 0 40px 54px #DFF9E3,
+                inset 0 0 0 10px #FFF;
+}
+
+.tf-toggler:checked ~ .tf-container .tf-tail-fin {
+    background-color: #4FB95E;
+    box-shadow: inset 5px -11px 14px 3px #459C4B;
+}
+
+.tf-toggler:checked ~ .tf-container .tf-body {
+    background-color: #4FB95E;
+    box-shadow: inset 20px -20px 56px 20px #459C4B;
+}
+
+.tf-toggler:checked ~ .tf-container .tf-scales-small {
+    background-color: #459C4B;
+    box-shadow: 0 0 0 0 red,
+                0 -6px  0 4px #459C4B, -3px  -6px 0 4px black,
+                0 40px  0 4px #459C4B, -3px  40px 0 4px black;
+}
+
+.tf-toggler:checked ~ .tf-container .tf-scales-medium {
+    background-color: #4FB95E;
+    box-shadow: 0 0 0 0 red,
+                0 -6px  0 4px #4FB95E, -3px  -6px 0 4px black,
+                0 40px  0 4px #4FB95E, -3px  40px 0 4px black,
+                0 86px  0 4px #4FB95E, -3px  86px 0 4px black;
+}
+
+.tf-toggler:checked ~ .tf-container .tf-scales-large {
+    background-color: #4FB95E;
+    box-shadow: 0 0 0 0 red,
+                0 -6px  0 4px #4FB95E, -3px  -6px 0 4px black,
+                0 40px  0 4px #459C4B, -3px  40px 0 4px black,
+                0 86px  0 4px #459C4B, -3px  86px 0 4px black,
+                0 132px 0 4px #4FB95E, -3px 132px 0 4px black;
+}
+
+.tf-toggler:checked ~ .tf-container .tf-eye::after {
+    opacity: 0;
+    background-color: #4FB95E;
+    box-shadow: inset 5px -11px 14px 3px #459C4B;
+    animation: eye_blink 10s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-toggler:checked ~ .tf-container .tf-lip {
+    background-color: #4FB95E;
+    box-shadow: inset 5px -11px 14px 3px #459C4B;
+}
+
+.tf-toggler:checked ~ .tf-container .tf-lip--bottom {
+    transform: skewX(10deg) rotate(0deg) translate(0, 40px);
+}
+
+.tf-toggler:checked ~ .tf-container .tf-side-fin {
+    background-color: #4FB95E;
+    box-shadow: inset 12px 8px 14px 3px #459C4B;
+}
+
+.tf-toggler:checked ~ .tf-container .tf-toggle-shaft {
+    transform: rotate(20deg);
+}
+
+.tf-toggler:checked ~ .tf-container .tf-toggle-tip {
+    transform: rotate(20deg);
+}
+
+@keyframes fish_breathe {
+    0% { transform: rotate(-0.125turn) scale(1); }
+    96% { transform: rotate(-0.125turn) scale(1); }
+    98% { transform: rotate(-0.125turn) scale(1.01); }
+    100% { transform: rotate(-0.125turn) scale(1); }
+}
+
+@keyframes fish_float {
+    0% { transform: translate(0, -20px); }
+    50% { transform: translate(0, 20px); }
+    100% { transform: translate(0, -20px); }
+}
+
+@keyframes bubble_up {
+    0% { opacity: 1; transform: translate(0, 0); }
+    50% { opacity: 1; }
+    100% { opacity: 0.1; transform: translate(20px, -306px); }
+}
+
+@keyframes tail_fin_paddle {
+    0% { transform: translateZ(-100px) rotateY(50deg); }
+    50% { transform: translateZ(-100px) rotateY(0deg); }
+    100% { transform: translateZ(-100px) rotateY(50deg); }
+}
+
+@keyframes side_fin_paddle {
+    0% { transform: rotate(0deg); }
+    45% { transform: rotate(0deg); }
+    47% { transform: rotate(10deg); }
+    49% { transform: rotate(0deg); }
+    50% { transform: rotate(20deg); }
+    52% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes eye_blink {
+    0% { opacity: 0; }
+    96% { opacity: 0; }
+    97% { opacity: 1; }
+    98% { opacity: 0; }
+    99% { opacity: 1; }
+    100% { opacity: 0; }
+}
