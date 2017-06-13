@@ -509,7 +509,13 @@ a {
     display: block;
     opacity: 1;
 }
-#time-machine-checkbox:not(:checked) ~ .tf-time-machine-noclick-overlay {
+#time-machine-checkbox:checked ~ .tf-time-machine-outer-container > .tf-time-machine-nav-container {
+    display: flex;
+    opacity: 1;
+}
+
+#time-machine-checkbox:not(:checked) ~ .tf-time-machine-noclick-overlay,
+#time-machine-checkbox:not(:checked) ~ .tf-time-machine-outer-container > .tf-time-machine-nav-container {
     display: none;
     opacity: 0;
 }
