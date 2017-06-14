@@ -1,0 +1,3959 @@
+:root {
+    --sky-top-colour: #01293F;
+    --sky-bottom-colour: #01476a;
+    --orb-main-colour: #DEDEDE;
+    --orb-shade-colour: #999;
+    --mountain-colour: #11381C;
+    --surf-wave-main-colour: #1E8381;
+    --surf-wave-shade-colour: #b0fffa;
+    --cat-main-colour: #000000;
+    --cat-shade-colour: #ffffff;
+    --sea-top-colour: #1E8381;
+    --sea-bottom-colour: #454C98;
+    --fish-main-colour: #F0592A;
+    --fish-shade-colour: #CE4728;
+    --letters-main-colour: #DDDDFF;
+    --starfish-colour: #D06A3A;
+    --crab-main-colour: #ff282f;
+    --crab-shade-colour: #D6242B;
+    --tiny-fish-colour: #FFF;
+    --ufo-glow-colour: #1CFFAC;
+    --jellyfish-main-colour: rgba(45, 213, 255, 0.8);
+    --jellyfish-shade-colour: rgba(36, 157, 190, 0.8);
+    --ufo-beam-gap: -25px;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+div {
+    pointer-events: none;
+}
+
+label {
+    pointer-events: auto;
+}
+
+a {
+    color: #2dd5ff;
+    pointer-events: auto;
+}
+
+.tf-main {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.tf-scene {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.tf-checkbox {
+    opacity: 0;
+    position: fixed;
+}
+
+.tf-radio {
+    opacity: 0;
+    position: fixed;
+}
+
+#info-checkbox:checked ~ .tf-info-noclick-overlay {
+    display: block;
+    opacity: 1;
+}
+#info-checkbox:not(:checked) ~ .tf-info-noclick-overlay {
+    display: none;
+    opacity: 0;
+}
+
+#info-checkbox:checked ~ .tf-info-outer-container > div {
+    opacity: 1;
+}
+#info-checkbox:not(:checked) ~ .tf-info-outer-container > div {
+    opacity: 0;
+}
+#info-checkbox:checked ~ .tf-info-outer-container > .tf-info-container,
+#info-checkbox:checked ~ .tf-info-outer-container > .tf-info-menu-container {
+    visibility: visible;
+}
+#info-checkbox:not(:checked) ~ .tf-info-outer-container > .tf-info-container,
+#info-checkbox:not(:checked) ~ .tf-info-outer-container > .tf-info-menu-container {
+    visibility: hidden;
+}
+
+.tf-info-noclick-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, #298eff, #298eff 50%, #001d2d);
+    pointer-events: auto;
+    z-index: 10;
+    transition: opacity 500ms;
+}
+
+.tf-info-outer-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 11;
+}
+
+.tf-info-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 500ms;
+}
+
+.tf-info-menu-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.tf-info-menu-items {
+    position: relative;
+    height: 100px;
+    width: 600px;
+    margin: 0 auto 0 auto;
+
+    display: flex;
+    justify-content: center;
+}
+
+.tf-info-button {
+    padding: 15px 10px 5px 10px;
+    width: 200px;
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    background: rgba(1, 1, 1, 0.1);
+    border: 2px solid #EEE;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    cursor: pointer;
+}
+
+.tf-info-button + .tf-info-button {
+    border-left: none;
+}
+
+.tf-info-cube-container {
+    transition: opacity 500ms;
+}
+
+#info-page-1:checked ~ .tf-info-outer-container .tf-info-cube-container {
+    animation: info_cube_container_sink 1s ease-in-out,
+               info_cube_container_float 40s infinite ease-in-out;
+    animation-delay: 0s, 1s;
+}
+
+#info-page-2:checked ~ .tf-info-outer-container .tf-cube {
+    transform: rotateY(-90deg);
+}
+#info-page-2:checked ~ .tf-info-outer-container .tf-cube-side--top:after {
+    transform: rotateZ(-90deg);
+}
+
+#info-page-3:checked ~ .tf-info-outer-container .tf-cube {
+    transform: rotateY(-180deg);
+}
+#info-page-3:checked ~ .tf-info-outer-container .tf-cube-side--top:after {
+    transform: rotateZ(-180deg);
+}
+
+.tf-cube-container {
+    width: 450px;
+    height: 450px;
+    perspective: 1600px;
+    perspective-origin: 50% -240px;
+}
+
+.tf-cube {
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.tf-cube-side {
+    display: block;
+    width: 450px;
+    height: 450px;
+    background-color: #0287CE;
+    position: absolute;
+    top: 0;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+
+.tf-cube-side--back {
+    transform: rotateY(180deg) translateZ(225px);
+}
+
+.tf-cube-side--top {
+    transform: rotateX(90deg) translateZ(225px);
+}
+.tf-cube-side--top:after {
+    display: block;
+    content: " ";
+    opacity: 0.5;
+    width: 200%;
+    height: 200%;
+    margin-left: -50%;
+    margin-top: -50%;
+    background-image: radial-gradient(at bottom, rgba(0, 0, 0, 0) 33%, #000000);
+    transition: transform 1s;
+}
+
+.tf-cube-side--bottom {
+    transform: rotateX(-90deg) translateZ(225px);
+    backface-visibility: visible;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.tf-cube-side--left {
+    transform: rotateY(-90deg) translateZ(225px);
+}
+
+.tf-cube-side--right {
+    transform: rotateY(90deg) translateZ(225px);
+}
+
+.tf-cube-side--front {
+    transform: translateZ(225px);
+}
+
+.tf-info-description-container {
+    padding: 20px;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    box-shadow: inset 0 0 0 1px rgba(21, 83, 138, 0.5);
+}
+
+.tf-info-description {
+    max-width: 450px;
+    font-size: 1.8em;
+    color: #FFF;
+    margin: 15px;
+    text-align: center;
+}
+
+.tf-info-description--heading {
+    color: #133260;
+}
+
+.tf-jellyfish-outer-container {
+    width: 400px;
+}
+
+#info-page-1:checked ~ .tf-info-outer-container .tf-jellyfish-outer-container {
+    animation: jellyfish_enter 1s ease-in-out,
+               jellyfish_swim 20s infinite ease-in-out;
+    animation-delay: 0s, 1s;
+}
+
+#info-page-1:not(:checked) ~ .tf-info-outer-container .tf-jellyfish-outer-container {
+    animation: jellyfish_leave 1s linear;
+    animation-fill-mode: forwards;
+}
+
+.tf-jellyfish-container--1 {
+    transform: translateX(0) translateY(40px);
+}
+
+.tf-jellyfish-container--2 {
+    transform: translateX(100px) translateY(40px);
+}
+
+.tf-jellyfish-container--3 {
+    transform: translateX(200px) translateY(40px);
+}
+
+.tf-jellyfish-container--4 {
+    transform: translateX(300px) translateY(40px);
+}
+
+.tf-jellyfish-container {
+    position: absolute;
+}
+
+.tf-jellyfish-head {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    border-radius: 50px 50px 0 0;
+    background: var(--jellyfish-main-colour);
+    box-shadow: inset 0 10px 10px 3px var(--jellyfish-shade-colour);
+
+    animation: jellyfish_head_pulse 5s infinite ease-in-out;
+}
+
+.tf-jellyfish-head:before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    width: 20px;
+    height: 10px;
+    border-radius: 0 0 10px 10px;
+    background: var(--jellyfish-main-colour);
+    box-shadow: 20px 0 0 0 var(--jellyfish-main-colour),
+                40px 0 0 0 var(--jellyfish-main-colour),
+                60px 0 0 0 var(--jellyfish-main-colour),
+                80px 0 0 0 var(--jellyfish-main-colour);
+}
+
+.tf-jellyfish-tail--1a {
+    left: 12px;
+    top: -40px;
+}
+
+.tf-jellyfish-tail--1b {
+    left: 12px;
+    top: 0;
+}
+
+.tf-jellyfish-tail--1c {
+    left: 12px;
+    top: 40px;
+}
+
+.tf-jellyfish-tail--2a {
+    left: 32px;
+    top: -40px;
+}
+
+.tf-jellyfish-tail--2b {
+    left: 32px;
+    top: 0;
+}
+
+.tf-jellyfish-tail--2c {
+    left: 32px;
+    top: 40px;
+}
+
+.tf-jellyfish-tail--3a {
+    left: 52px;
+    top: -40px;
+}
+
+.tf-jellyfish-tail--3b {
+    left: 52px;
+    top: 0;
+}
+
+.tf-jellyfish-tail--3c {
+    left: 52px;
+    top: 40px;
+}
+
+.tf-jellyfish-tail-container {
+    position: absolute;
+    top: 58px;
+    width: 100px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.tf-jellyfish-tail {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    border-right: 5px solid rgba(255, 255, 255, 0.5);
+    transform-origin: 18px;
+
+    animation: jellyfish_tail_move 3s infinite linear;
+}
+
+.tf-jellyfish-tail:before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    border-left: 5px solid rgba(255, 255, 255, 0.5);
+}
+
+.tf-jellyfish-eye {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+}
+
+.tf-jellyfish-eye:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: black;
+}
+
+.tf-jellyfish-eye--left {
+    left: 20px;
+}
+
+.tf-jellyfish-eye--right {
+    left: 60px;
+}
+
+.tf-jellyfish-mouth {
+    position: absolute;
+    left: 40px;
+    top: 13px;
+    width: 17px;
+    height: 20px;
+    border-radius: 50%;
+    border-bottom: 5px solid black;
+
+    animation: jellyfish_smile 20s infinite ease-in-out;
+}
+
+.tf-crab-outer-container-info {
+    position: relative;
+    top: -100px;
+    width: 120px;
+    height: 120px;
+}
+
+#info-page-1:checked ~ .tf-info-outer-container .tf-crab-outer-container-info {
+    animation: crab_enter 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+#info-page-1:not(:checked) ~ .tf-info-outer-container .tf-crab-outer-container-info {
+    opacity: 0;
+}
+
+#info-page-1:checked ~ .tf-info-outer-container .tf-crab-container-info {
+    animation: crab_slide 40s infinite ease-in-out;
+    animation-delay: 1s;
+}
+
+.tf-options-outer-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.tf-outline-button {
+    display: inline-block;
+    padding: 15px 25px 5px 25px;
+    height: 50px;
+    font-size: 30px;
+    margin: 12px 8px;
+    color: #FFF;
+    text-align: center;
+    background: rgba(1, 1, 1, 0.1);
+    border: 2px solid #EEE;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    cursor: pointer;
+}
+
+#info-checkbox:checked ~ .tf-info-outer-container > .tf-outline-button {
+    display: none;
+    opacity: 0;
+}
+#info-checkbox:not(:checked) ~ .tf-info-outer-container > .tf-outline-button {
+    display: inline-block;
+    opacity: 1;
+}
+
+#info-checkbox:checked ~ .tf-time-machine-outer-container {
+    display: none;
+    opacity: 0;
+}
+#info-checkbox:not(:checked) ~ .tf-time-machine-outer-container {
+    display: inline-block;
+    opacity: 1;
+}
+
+#time-machine-checkbox:checked ~ .tf-time-machine-noclick-overlay {
+    display: block;
+    opacity: 1;
+}
+#time-machine-checkbox:checked ~ .tf-time-machine-outer-container > .tf-time-machine-nav-container {
+    display: flex;
+    opacity: 1;
+}
+
+#time-machine-checkbox:not(:checked) ~ .tf-time-machine-noclick-overlay,
+#time-machine-checkbox:not(:checked) ~ .tf-time-machine-outer-container > .tf-time-machine-nav-container {
+    display: none;
+    opacity: 0;
+}
+
+#time-machine-checkbox:checked ~ .tf-time-machine-outer-container > div {
+    opacity: 1;
+}
+#time-machine-checkbox:not(:checked) ~ .tf-time-machine-outer-container > div {
+    opacity: 0;
+}
+
+.tf-time-machine-noclick-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, #298eff, #298eff 50%, #001d2d);
+    pointer-events: auto;
+    z-index: 20;
+    transition: opacity 500ms;
+}
+
+.tf-time-machine-outer-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 21;
+}
+
+#time-machine-checkbox:not(:checked) ~ .tf-time-machine-outer-container > .tf-outline-button--time-machine-unchecked {
+    position: relative;
+    left: 80px;
+}
+#time-machine-checkbox:checked ~ .tf-time-machine-outer-container > .tf-outline-button--time-machine-unchecked {
+    opacity: 0;
+}
+
+#time-machine-checkbox:checked ~ .tf-time-machine-outer-container > .tf-outline-button--time-machine-checked {
+    position: absolute;
+    right: 0;
+}
+#time-machine-checkbox:not(:checked) ~ .tf-time-machine-outer-container > .tf-outline-button--time-machine-checked {
+    opacity: 0;
+}
+
+.tf-outline-button--time-machine-unchecked:before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #FFF;
+    border-radius: 100%
+}
+
+.tf-outline-button--time-machine-unchecked:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 32px;
+    left: 42px;
+    width: 3px;
+    height: 14px;
+    background: #FFF;
+    transform-origin: top;
+    transform: rotateZ(-45deg);
+}
+
+.tf-time-machine-nav-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tf-time-machine-heading-container {
+    height: 230px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.tf-time-machine-heading {
+    font-size: 70px;
+    line-height: 90px;
+    color: white;
+}
+
+.tf-time-machine-nav-items-container {
+    height: 220px;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    pointer-events: auto;
+}
+
+.tf-time-machine-nav-items {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.tf-time-machine-nav-item {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.tf-time-machine-screenshot {
+    width: 200px;
+    height: 128px;
+    padding-top: 40px;
+}
+
+.tf-time-machine-screenshot-label {
+    text-align: center;
+    pointer-events: auto;
+}
+
+#options-checkbox:checked ~ .tf-options-outer-container > .tf-outline-button {
+    color: #000;
+    background: #FFF;
+}
+
+.tf-menu {
+    display: flex;
+}
+
+.tf-options-menu-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.tf-options-button {
+    padding: 15px 10px 5px 10px;
+    width: 200px;
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    background: rgba(1, 1, 1, 0.1);
+    border-bottom: 1px solid #EEE;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    cursor: pointer;
+}
+
+.tf-options-button + .tf-options-button {
+    border-top: none;
+}
+
+.tf-options-container {
+    margin-right: 8px;
+    width: 320px;
+    padding: 10px;
+    display: flex;
+    background: rgba(1, 1, 1, 0.3);
+    border: 1px solid #FFF;
+    flex-direction: column;
+    transition: all 500ms ease-in-out;
+}
+
+.tf-options-container--menu {
+    width: auto;
+    margin-right: 0;
+    border-right: none;
+    padding: 0;
+}
+
+.tf-option {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tf-option-text {
+    position: relative;
+    top: 6px;
+    color: #FFF;
+    font-size: 30px;
+    line-height: 60px;
+}
+
+#options-checkbox:checked ~ .tf-options-outer-container > .tf-menu {
+    transform: translateX(0);
+}
+
+#options-checkbox:not(:checked) ~ .tf-options-outer-container > .tf-menu {
+    transform: translateX(1000px);
+}
+
+.tf-button {
+    min-width: 60px;
+    height: 60px;
+    margin: 4px 4px 6px 10px;
+    background: #F0592A;
+    border-radius: 100%;
+    border: 3px solid #DDD;
+    box-shadow: inset 0 -4px 3px 1px #000,
+                inset 0 2px 2px 3px #FFF;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    cursor: pointer;
+}
+
+#tf-toggle-checkbox:checked ~ .tf-options-outer-container label[for="tf-toggle-checkbox"],
+#tf-eyebrows-checkbox:checked ~ .tf-options-outer-container label[for="tf-eyebrows-checkbox"],
+#tf-eyes-checkbox:checked ~ .tf-options-outer-container label[for="tf-eyes-checkbox"],
+#tf-mouth-checkbox:checked ~ .tf-options-outer-container label[for="tf-mouth-checkbox"],
+#tf-fins-checkbox:checked ~ .tf-options-outer-container label[for="tf-fins-checkbox"],
+#tf-scales-checkbox:checked ~ .tf-options-outer-container label[for="tf-scales-checkbox"],
+#tf-body-checkbox:checked ~ .tf-options-outer-container label[for="tf-body-checkbox"],
+#tf-bubbles-checkbox:checked ~ .tf-options-outer-container label[for="tf-bubbles-checkbox"],
+#tf-zzz-checkbox:checked ~ .tf-options-outer-container label[for="tf-zzz-checkbox"],
+#tf-name-checkbox:checked ~ .tf-options-outer-container label[for="tf-name-checkbox"],
+#sky-checkbox:checked ~ .tf-options-outer-container label[for="sky-checkbox"],
+#mountains-checkbox:checked ~ .tf-options-outer-container label[for="mountains-checkbox"],
+#sea-checkbox:checked ~ .tf-options-outer-container label[for="sea-checkbox"],
+#sandbanks-checkbox:checked ~ .tf-options-outer-container label[for="sandbanks-checkbox"],
+#shell-checkbox:checked ~ .tf-options-outer-container label[for="shell-checkbox"],
+#rocks-checkbox:checked ~ .tf-options-outer-container label[for="rocks-checkbox"],
+#tiny-fish-checkbox:checked ~ .tf-options-outer-container label[for="tiny-fish-checkbox"],
+#crab-checkbox:checked ~ .tf-options-outer-container label[for="crab-checkbox"],
+#ufo-checkbox:checked ~ .tf-options-outer-container label[for="ufo-checkbox"],
+#surfer-checkbox:checked ~ .tf-options-outer-container label[for="surfer-checkbox"],
+#outline-checkbox:checked ~ .tf-options-outer-container label[for="outline-checkbox"],
+#background-checkbox:checked ~ .tf-options-outer-container label[for="background-checkbox"],
+#box-shadow-checkbox:checked ~ .tf-options-outer-container label[for="box-shadow-checkbox"],
+#border-radius-checkbox:checked ~ .tf-options-outer-container label[for="border-radius-checkbox"],
+#border-checkbox:checked ~ .tf-options-outer-container label[for="border-checkbox"],
+#transform-checkbox:checked ~ .tf-options-outer-container label[for="transform-checkbox"],
+#pseudo-elements-checkbox:checked ~ .tf-options-outer-container label[for="pseudo-elements-checkbox"],
+#animation-checkbox:checked ~ .tf-options-outer-container label[for="animation-checkbox"],
+#parallax-checkbox:checked ~ .tf-options-outer-container label[for="parallax-checkbox"],
+#shake-it-checkbox:checked ~ .tf-options-outer-container label[for="shake-it-checkbox"] {
+    background: #4FB95E;
+}
+
+#info-page-1:checked ~ .tf-info-outer-container label[for="info-page-1"],
+#info-page-2:checked ~ .tf-info-outer-container label[for="info-page-2"],
+#info-page-3:checked ~ .tf-info-outer-container label[for="info-page-3"],
+#options-page-1:checked ~ .tf-options-outer-container label[for="options-page-1"],
+#options-page-2:checked ~ .tf-options-outer-container label[for="options-page-2"],
+#options-page-3:checked ~ .tf-options-outer-container label[for="options-page-3"],
+#options-page-4:checked ~ .tf-options-outer-container label[for="options-page-4"] {
+    color: #000;
+    background: #FFF;
+}
+
+#options-page-1:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-1,
+#options-page-2:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-2,
+#options-page-3:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-3,
+#options-page-4:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-4 {
+    display: none;
+}
+
+#tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-base,
+#tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-ball,
+#tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-shaft,
+#tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-tip {
+    opacity: 0 !important;
+}
+
+#tf-eyebrows-checkbox:not(:checked) ~ div .tf-eyebrow {
+    opacity: 0 !important;
+}
+
+#tf-eyes-checkbox:not(:checked) ~ div .tf-eye {
+    opacity: 0 !important;
+}
+
+#tf-mouth-checkbox:not(:checked) ~ div .tf-mouth,
+#tf-mouth-checkbox:not(:checked) ~ div .tf-teeth,
+#tf-mouth-checkbox:not(:checked) ~ div .tf-lip,
+#tf-mouth-checkbox:not(:checked) ~ div .tf-glint-cross {
+    opacity: 0 !important;
+    animation: none;
+}
+
+#tf-fins-checkbox:not(:checked) ~ div .tf-side-fin-container,
+#tf-fins-checkbox:not(:checked) ~ div .tf-tail-fin-container {
+    opacity: 0 !important;
+}
+
+#tf-scales-checkbox:not(:checked) ~ div .tf-scales-container {
+    opacity: 0 !important;
+}
+
+#tf-body-checkbox:not(:checked) ~ div .tf-body-container {
+    opacity: 0 !important;
+}
+
+#tf-bubbles-checkbox:not(:checked) ~ div .tf-bubble {
+    opacity: 0 !important;
+    animation: none !important;
+}
+
+#tf-zzz-checkbox:not(:checked) ~ div .tf-sleep-z {
+    opacity: 0 !important;
+    animation: none !important;
+}
+
+#tf-name-checkbox:not(:checked) ~ div .tf-letters-container {
+    opacity: 0 !important;
+}
+
+#sky-checkbox:not(:checked) ~ div .tf-sky {
+    opacity: 0 !important;
+}
+
+#mountains-checkbox:not(:checked) ~ div .tf-mountains-container {
+    opacity: 0 !important;
+}
+
+#sea-checkbox:not(:checked) ~ div .tf-sea,
+#sea-checkbox:not(:checked) ~ div .tf-waves {
+    opacity: 0 !important;
+}
+
+#sandbanks-checkbox:not(:checked) ~ div .tf-sand,
+#sandbanks-checkbox:not(:checked) ~ div .tf-sandbank-outer-container {
+    opacity: 0 !important;
+}
+
+#shell-checkbox:not(:checked) ~ div .tf-shell-container,
+#shell-checkbox:not(:checked) ~ div .tf-sand-hill {
+    opacity: 0 !important;
+}
+
+#rocks-checkbox:not(:checked) ~ div .tf-seaweed-container,
+#rocks-checkbox:not(:checked) ~ div .tf-rock-container,
+#rocks-checkbox:not(:checked) ~ div .tf-starfish {
+    opacity: 0 !important;
+}
+
+#tiny-fish-checkbox:not(:checked) ~ div .tf-tiny-fish-container {
+    opacity: 0 !important;
+}
+
+#crab-checkbox:not(:checked) ~ div .tf-crab-container,
+#info-checkbox:checked ~ div .tf-crab-container {
+    opacity: 0 !important;
+}
+
+#ufo-checkbox:not(:checked) ~ div .tf-ufo-container,
+#ufo-checkbox:not(:checked) ~ div .tf-ufo-beam-container {
+    opacity: 0 !important;
+}
+
+#surfer-checkbox:not(:checked) ~ div .tf-surfer-container,
+#surfer-checkbox:not(:checked) ~ div .tf-surf-wave-container {
+    opacity: 0 !important;
+}
+
+#outline-checkbox:checked ~ div div,
+#outline-checkbox:checked ~ div div:before,
+#outline-checkbox:checked ~ div div:after {
+    outline: 3px solid white;
+}
+
+#background-checkbox:not(:checked) ~ div div,
+#background-checkbox:not(:checked) ~ div div:before,
+#background-checkbox:not(:checked) ~ div div:after {
+    background: transparent !important;
+}
+
+#box-shadow-checkbox:not(:checked) ~ div div,
+#box-shadow-checkbox:not(:checked) ~ div div:before,
+#box-shadow-checkbox:not(:checked) ~ div div:after {
+    box-shadow: 0 0 transparent !important;
+}
+
+#border-radius-checkbox:not(:checked) ~ div div,
+#border-radius-checkbox:not(:checked) ~ div div:before,
+#border-radius-checkbox:not(:checked) ~ div div:after {
+    border-radius: 0 !important;
+}
+
+#border-checkbox:not(:checked) ~ div div,
+#border-checkbox:not(:checked) ~ div div:before,
+#border-checkbox:not(:checked) ~ div div:after {
+    border: none !important;
+}
+
+#transform-checkbox:not(:checked) ~ div div,
+#transform-checkbox:not(:checked) ~ div div:before,
+#transform-checkbox:not(:checked) ~ div div:after {
+    transform: none !important;
+}
+
+#pseudo-elements-checkbox:not(:checked) ~ div div:before,
+#pseudo-elements-checkbox:not(:checked) ~ div div:after {
+    display: none !important;
+}
+
+#animation-checkbox:not(:checked) ~ div div,
+#animation-checkbox:not(:checked) ~ div div:before,
+#animation-checkbox:not(:checked) ~ div div:after {
+    animation-play-state: paused !important;
+}
+
+#parallax-checkbox:checked ~ div .tf-sandbank-layer--1 {
+    animation: parallax_sandbank_layer_1_move 10s infinite ease-in-out;
+}
+#parallax-checkbox:checked ~ div .tf-sandbank-layer--2 {
+    animation: parallax_sandbank_layer_2_move 10s infinite ease-in-out;
+}
+#parallax-checkbox:checked ~ div .tf-sandbank-layer--3 {
+    animation: parallax_sandbank_layer_3_move 10s infinite ease-in-out;
+}
+#parallax-checkbox:checked ~ div .tf-outer-container,
+#parallax-checkbox:checked ~ div .tf-ufo-outer-container,
+#parallax-checkbox:checked ~ div .tf-ufo-beam-container {
+    animation: parallax_fish_container_move 10s infinite ease-in-out;
+}
+#parallax-checkbox:checked ~ div .tf-shell-and-rocks-container,
+#parallax-checkbox:checked ~ div .tf-crab-outer-container {
+    animation: parallax_shell_and_rocks_container_move 10s infinite ease-in-out;
+}
+
+#shake-it-checkbox:checked ~ .tf-scene {
+    animation: shake_scene 1s infinite ease-in-out;
+}
+
+.tf-background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.tf-sky {
+    position: absolute;
+    height: 220px;
+    width: 100%;
+    background: linear-gradient(to bottom, var(--sky-top-colour), var(--sky-top-colour) 50%, var(--sky-bottom-colour));
+}
+
+.tf-cloud {
+    opacity: 0.2;
+    position: absolute;
+    top: 50px;
+    width: 70px;
+    height: 24px;
+    background: linear-gradient(to bottom, #f2f9fe 5%, #d6f0fd 100%);
+    border-radius: 20px;
+    transform: scale(1.5);
+    animation: cloud_large 25s linear infinite;
+}
+
+.tf-cloud--small {
+    top: 80px;
+    transform: scale(1);
+    animation: cloud_small 25s linear infinite;
+    animation-delay: -1.5s;
+}
+
+.tf-cloud:before,
+.tf-cloud:after {
+    position: absolute;
+    content: "";
+    background: inherit;
+}
+
+.tf-cloud:before {
+    width: 36px;
+    height: 36px;
+    top: -18px;
+    right: 10px;
+    border-radius: 40px;
+}
+
+.tf-cloud:after {
+    width: 20px;
+    height: 20px;
+    top: -10px;
+    left: 10px;
+    border-radius: 20px;
+}
+
+.tf-stars {
+    height: 3px;
+    width: 3px;
+    background: transparent;
+    box-shadow:
+            985px 6px #fff,
+            375px 54px #fff,
+            845px 4px #fff,
+            624px 51px #fff,
+            267px 30px #fff,
+            7px 28px #fff,
+            1027px 88px #fff,
+            234px 88px #fff,
+            1009px 26px #fff,
+            1358px 63px #fff,
+            1447px 21px #fff,
+            1329px 1px #fff,
+            1398px 94px #fff,
+            269px 7px #fff,
+            988px 51px #fff,
+            1706px 95px #fff,
+            346px 1px #fff,
+            260px 142px #fff,
+            1595px 58px #fff,
+            1680px 43px #fff,
+            678px 72px #fff,
+            772px 9px #fff,
+            222px 22px #fff,
+            1493px 22px #fff,
+            1400px 10px #fff,
+            352px 79px #fff,
+            786px 17px #fff,
+            1945px 66px #fff,
+            888px 50px #fff,
+            1439px 29px #fff,
+            580px 79px #fff,
+            1643px 95px #fff,
+            1249px 15px #fff,
+            1703px 67px #fff,
+            1195px 44px #fff,
+            1890px 52px #fff,
+            143px 36px #fff,
+            1700px 9px #fff;
+}
+
+.tf-orb {
+    position: absolute;
+    left: 30px;
+    top: -80px;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    background: radial-gradient(at center, var(--orb-main-colour), var(--orb-main-colour) 20%, var(--orb-shade-colour));
+    box-shadow: 0 0 40px 8px #FFF,
+                inset -5px 10px 20px 8px var(--orb-shade-colour);
+}
+
+.tf-orb-hole {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    border-radius: 100%;
+    background: #CCC;
+    transform: rotate(30deg);
+    box-shadow: 0 2px 1px 1px #FFF, inset 0 2px 1px 1px #999;
+}
+
+.tf-orb-hole--1 {
+    width: 30px;
+    height: 40px;
+    top: 110px;
+    left: 130px;
+}
+
+.tf-orb-hole--2 {
+    top: 70px;
+    left: 30px;
+}
+
+.tf-orb-hole--3 {
+    top: 160px;
+    left: 70px;
+    height: 20px;
+    width: 30px;
+}
+
+.tf-mountains-container {
+    position: absolute;
+    top: 20px;
+    left: 150px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.tf-mountain {
+    position: relative;
+    top: -50px;
+    background: var(--mountain-colour);
+    border-radius: 20%;
+    box-shadow: inset 20px 5px 40px 0px white;
+    transform: rotate(-45deg);
+}
+
+.tf-mountain--1 {
+    min-width: 300px;
+    min-height: 200px;
+    left: 100px;
+}
+
+.tf-mountain--2 {
+    min-width: 400px;
+    min-height: 400px;
+}
+
+.tf-mountain--3 {
+    min-width: 600px;
+    min-height: 600px;
+}
+
+.tf-waves {
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    animation: waves_and_sea_move 5s ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-wave {
+    min-width: 100px;
+    height: 40px;
+    background: transparent;
+    border-radius: 0 0 100px 100px;
+    border-bottom: 2px solid rgba(123, 255, 224, 0.55);
+    box-shadow: 0 20px 20px 0 var(--sea-top-colour);
+    animation: wave_move 10s ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-waves--1 {
+    top: 150px;
+    left: 0;
+}
+
+.tf-waves--2 {
+    top: 163px;
+    left: -50px;
+}
+
+.tf-waves--3 {
+    top: 176px;
+    left: 0;
+}
+
+.tf-waves--2 .tf-wave {
+    animation-delay: 5s;
+}
+
+.tf-waves--3 .tf-wave {
+    animation: none;
+}
+
+.tf-surf-wave-container {
+    position: absolute;
+    top: 49px;
+    left: -300px;
+    width: 100%;
+    height: 100px;
+    transform: translateX(-300px);
+
+    animation: surf_wave_container_move 40s infinite linear;
+    animation-delay: 60s;
+}
+
+.tf-surf-wave {
+    position: absolute;
+    transform: rotateZ(20deg);
+
+    animation: surf_wave_move 7s infinite ease-in-out;
+}
+
+.tf-surf-wave--1 {
+    left: 50px;
+    animation-delay: 0s;
+}
+
+.tf-surf-wave--2 {
+    left: 40px;
+    animation-delay: 1s;
+}
+
+.tf-surf-wave--3 {
+    left: 30px;
+    animation-delay: 2s;
+}
+
+.tf-surf-wave--4 {
+    left: 20px;
+    animation-delay: 3s;
+}
+
+.tf-surf-wave--5 {
+    left: 10px;
+    animation-delay: 4s;
+}
+
+.tf-surf-wave--6 {
+    left: 0;
+    animation-delay: 5s;
+}
+
+.tf-surf-wave-top {
+    position: absolute;
+    width: 50px;
+    height: 100px;
+    background: var(--surf-wave-main-colour);
+    border-radius: 50px 0 0 0;
+}
+
+.tf-surf-wave-top:before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    background: var(--surf-wave-main-colour);
+    border-radius: 50px 50px 0 0;
+    box-shadow: inset -1px 3px 0 0 var(--surf-wave-shade-colour);
+}
+
+.tf-surf-wave-top:after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 50px;
+    height: 100px;
+    background: transparent;
+    border-radius: 50px 0 0 50px;
+    box-shadow: -10px -10px 0 6px var(--surf-wave-main-colour);
+}
+
+.tf-surf-wave-top-inner {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 50px;
+    height: 100px;
+    background: transparent;
+    border-radius: 50px 0 0 50px;
+}
+
+.tf-surf-wave-top-inner:before {
+    content: '';
+    position: absolute;
+    left: 42px;
+    width: 10px;
+    height: 10px;
+    background: #FFF;
+    border-radius: 50%;
+}
+
+.tf-surf-wave-top-inner:after {
+    content: '';
+    position: absolute;
+    left: 35px;
+    top: -3px;
+    width: 20px;
+    height: 10px;
+    background: #FFF;
+    border-radius: 50%;
+}
+
+.tf-surf-wave-bottom {
+    position: absolute;
+    top: 50px;
+    left: -50px;
+    width: 50px;
+    height: 140px;
+    background: transparent;
+    border-radius: 0 0 50px 0;
+    box-shadow: 10px 10px 0 0 var(--surf-wave-main-colour);
+}
+
+.tf-surf-wave-bottom:before {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: 26px;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 46px solid transparent;
+    border-bottom: 100px solid var(--surf-wave-main-colour);
+    transform: rotateZ(-20deg);
+}
+
+.tf-surf-wave-bottom:after {
+    content: '';
+    position: absolute;
+    top: 111px;
+    left: 1px;
+    width: 147px;
+    height: 22px;
+    background: var(--surf-wave-main-colour);
+    border-radius: 50%;
+    transform: rotateZ(-20deg);
+}
+
+.tf-surfer-container {
+    position: absolute;
+    left: -300px;
+    top: 139px;
+    width: 100%;
+    height: 100px;
+    transform: translateX(-300px);
+
+    animation: surfer_container_move 40s infinite linear;
+    animation-delay: 60s;
+}
+
+.tf-surfer {
+    position: absolute;
+
+    animation: surfer_move 2s infinite ease-in-out;
+}
+
+.tf-surfboard {
+    position: absolute;
+    width: 50px;
+    height: 150px;
+    background: yellow;
+    border-radius: 50%;
+    box-shadow: inset 1px -1px 8px 7px #c9c900;
+    overflow: hidden;
+
+    animation: surfboard_move 4s infinite ease-in-out;
+}
+
+.tf-surfboard:before {
+    position: absolute;
+    content: '';
+    left: -2px;
+    width: 25px;
+    height: 150px;
+    border-right: 8px solid rgba(255, 0, 0, 0.5);
+}
+
+.tf-cat {
+    position: absolute;
+}
+
+.tf-cat-tail {
+    position: absolute;
+    left: -50px;
+    top: 30px;
+    width: 100px;
+    height: 10px;
+    background: var(--cat-main-colour);
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 4px 0 var(--cat-shade-colour);
+    transform: rotateZ(20deg);
+}
+
+.tf-cat-body {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: var(--cat-main-colour);
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 10px 0 var(--cat-shade-colour);
+}
+
+.tf-cat-head {
+    position: absolute;
+    top: -50px;
+    width: 70px;
+    height: 70px;
+    background: var(--cat-main-colour);
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 10px 0 var(--cat-shade-colour);
+}
+
+.tf-cat-eye {
+    position: absolute;
+    top: 13px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #8A8A8A;
+    background: white;
+    overflow: hidden;
+}
+
+.tf-cat-eye:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 5px;
+    height: 8px;
+    border-radius: 50%;
+    background: black;
+}
+
+.tf-cat-eye--left {
+    left: 14px;
+}
+
+.tf-cat-eye--right {
+    left: 40px;
+}
+
+.tf-cat-ear {
+    position: absolute;
+    top: -58px;
+    width: 30px;
+    height: 30px;
+    border-radius: 20%;
+    background: var(--cat-main-colour);
+    box-shadow: inset 2px 2px 10px 0 var(--cat-shade-colour);
+}
+
+.tf-cat-ear:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 20%;
+    background: #999;
+    box-shadow: inset 2px 2px 10px 0 var(--cat-shade-colour);
+}
+
+.tf-cat-ear--left {
+    transform: translateZ(-100px) rotateZ(15deg) rotateY(-40deg);
+}
+
+.tf-cat-ear--right {
+    transform: translateZ(-100px) translateX(40px) rotateZ(-15deg) rotateY(40deg);
+}
+
+.tf-cat-nose {
+    position: absolute;
+    left: 30px;
+    top: 27px;
+    width: 12px;
+    height: 12px;
+    background: pink;
+    border-radius: 4px 4px 8px 8px / 8px 8px 8px 8px;
+    border: 1px solid black;
+}
+
+.tf-cat-mouth {
+    position: absolute;
+    left: 16px;
+    top: 43px;
+    width: 40px;
+    height: 20px;
+    border-radius: 0 0 20px 20px;
+    background: white;
+    overflow: hidden;
+}
+
+.tf-cat-mouth:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 9px;
+    border: 1px solid black;
+    width: 10px;
+    height: 22px;
+}
+
+.tf-cat-mouth:after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 30px;
+    border: 1px solid black;
+    width: 10px;
+    height: 22px;
+}
+
+.tf-cat-whiskers {
+    position: absolute;
+    left: -20px;
+    top: 27px;
+    width: 110px;
+    height: 30px;
+    background: transparent;
+    overflow: hidden;
+}
+
+.tf-cat-whisker {
+    position: absolute;
+    left: -50px;
+    top: 5px;
+    width: 200px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.tf-cat-whisker:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    width: 200px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.tf-cat-whisker:after {
+    content: '';
+    position: absolute;
+    top: -35px;
+    width: 200px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.tf-cat-paw {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    background: var(--cat-main-colour);
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 4px 0 var(--cat-shade-colour);
+}
+
+.tf-cat-paw--top-left {
+    left: 0;
+    top: 37px;
+}
+
+.tf-cat-paw--top-right {
+    left: 30px;
+    top: 33px;
+}
+
+.tf-cat-paw--bottom-left {
+    left: 0;
+    top: 57px;
+}
+
+.tf-cat-paw--bottom-right {
+    left: 30px;
+    top: 63px;
+}
+
+.tf-sea-background {
+    position: absolute;
+    top: 180px;
+    height: 100%;
+    width: 100%;
+    background: #FFF;
+}
+
+.tf-sea {
+    opacity: 0.85;
+
+    position: absolute;
+    top: 180px;
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+    background: linear-gradient(to bottom, var(--sea-top-colour), var(--sea-top-colour) 20%, var(--sea-bottom-colour));
+    transition: background 300ms;
+}
+
+.tf-sea-current {
+    opacity: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(91, 136, 240, 0.5);
+    box-shadow: 0 0 100px 100px rgba(91, 136, 240, 0.5);
+    animation: sea_current_move 3s linear;
+    animation-iteration-count: infinite;
+}
+
+.tf-sea-current--1 {
+    animation-delay: 0s;
+}
+
+.tf-sea-current--2 {
+    animation-delay: 1s;
+}
+
+.tf-sea-current--3 {
+    animation-delay: 2s;
+}
+
+.tf-ufo-outer-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 220px;
+    width: 100%;
+}
+
+.tf-ufo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 220px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: ufo_outer_container_hover 1s infinite ease-in-out;
+}
+
+.tf-ufo {
+    width: 200px;
+    height: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    animation: ufo_container_move 40s infinite ease-in-out;
+}
+
+.tf-ufo-base {
+    position: relative;
+    top: 25px;
+    width: 100px;
+    min-height: 20px;
+    border-radius: 0 0 20px 20px / 0 0 20px 20px;
+    border-left: 3px solid #FFF;
+    background: #BDBDBD;
+    box-shadow: inset -3px -3px 10px 0 #818181,
+                0 0 40px 0 var(--ufo-glow-colour);
+}
+
+.tf-ufo-disk {
+    position: relative;
+    top: -40px;
+    width: 200px;
+    min-height: 50px;
+    border-radius: 50%;
+    border-left: 3px solid #FFF;
+    background: #BDBDBD;
+    box-shadow: 0 1px 0 0 #000,
+                0 0 40px 0 var(--ufo-glow-colour);
+}
+
+.tf-ufo-cockpit {
+    position: relative;
+    top: -80px;
+    width: 100px;
+    min-height: 20px;
+    border-radius: 50%;
+    background: #000;
+    box-shadow: 0 0 40px 0 var(--ufo-glow-colour);
+}
+
+.tf-ufo-alien {
+    position: relative;
+    top: -130px;
+    width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    background: #008000;
+    box-shadow: inset -4px -4px 10px 0 #005400;
+}
+
+.tf-ufo-alien-stalk {
+    position: absolute;
+    top: 5px;
+    width: 20px;
+    height: 10px;
+    background: #008000;
+    transform-origin: 25px 6px;
+}
+
+.tf-ufo-alien-stalk:after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -15px;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background: #008000;
+}
+
+.tf-ufo-alien-stalk--left {
+    left: -14px;
+    transform: rotateZ(65deg);
+}
+
+.tf-ufo-alien-stalk--right {
+    left: 12px;
+    transform: rotateZ(108deg);
+}
+
+.tf-ufo-alien-eye {
+    position: absolute;
+    top: -23px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+}
+
+.tf-ufo-alien-eye:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: black;
+}
+
+.tf-ufo-alien-eye--left {
+    left: -7px;
+}
+
+.tf-ufo-alien-eye--right {
+    left: 34px;
+}
+
+.tf-ufo-alien-mouth {
+    position: absolute;
+    left: 16px;
+    top: 13px;
+    width: 17px;
+    height: 20px;
+    border-radius: 50%;
+    border-bottom: 5px solid black;
+}
+
+.tf-ufo-top {
+    position: relative;
+    top: -227px;
+    width: 100px;
+    min-height: 90px;
+    border-radius: 50% 50% 0 0;
+    background: rgba(63, 184, 255, 0.27);
+    box-shadow: 0 0 40px 0 var(--ufo-glow-colour);
+}
+
+.tf-ufo-top:after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 15px;
+    height: 5px;
+    border-radius: 100%;
+    background: #bedcff;
+    transform: rotateZ(-35deg);
+}
+
+.tf-ufo-beam-container {
+    position: absolute;
+    top: 170px;
+    left: 0;
+    height: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tf-ufo-beam {
+    opacity: 0;
+    position: relative;
+    min-height: 20px;
+    width: 100px;
+    border: 3px solid rgba(28, 255, 172, 0.5);
+    border-radius: 50%;
+    box-shadow: 0 0 20px 0 rgba(28, 255, 172, 0.5);
+
+    animation: ufo_beam_activation 40s infinite linear;
+}
+
+.tf-ufo-beam--1 {
+    top: 0;
+    animation-delay: 0s;
+}
+
+.tf-ufo-beam--2 {
+    top: calc(1 * var(--ufo-beam-gap));
+    animation-delay: 0.5s;
+}
+
+.tf-ufo-beam--3 {
+    top: calc(2 * var(--ufo-beam-gap));
+    animation-delay: 1s;
+}
+
+.tf-ufo-beam--4 {
+    top: calc(3 * var(--ufo-beam-gap));
+    animation-delay: 1.5s;
+}
+
+.tf-ufo-beam--5 {
+    top: calc(4 * var(--ufo-beam-gap));
+    animation-delay: 2s;
+}
+
+.tf-ufo-beam--6 {
+    top: calc(5 * var(--ufo-beam-gap));
+    animation-delay: 2.5s;
+}
+
+.tf-ufo-beam--7 {
+    top: calc(6 * var(--ufo-beam-gap));
+    animation-delay: 3s;
+}
+
+.tf-ufo-beam--8 {
+    top: calc(7 * var(--ufo-beam-gap));
+    animation-delay: 3.5s;
+}
+
+.tf-ufo-beam--9 {
+    top: calc(8 * var(--ufo-beam-gap));
+    animation-delay: 4s;
+}
+
+.tf-ufo-beam--10 {
+    top: calc(9 * var(--ufo-beam-gap));
+    animation-delay: 4.5s;
+}
+
+.tf-ufo-beam--11 {
+    top: calc(10 * var(--ufo-beam-gap));
+    animation-delay: 5s;
+}
+
+.tf-ufo-beam--12 {
+    top: calc(11 * var(--ufo-beam-gap));
+    animation-delay: 5.5s;
+}
+
+
+.tf-ufo-beam--13 {
+    top: calc(12 * var(--ufo-beam-gap));
+    animation-delay: 6s;
+}
+
+.tf-ufo-beam--14 {
+    top: calc(13 * var(--ufo-beam-gap));
+    animation-delay: 6.5s;
+}
+
+.tf-ufo-beam--15 {
+    top: calc(14 * var(--ufo-beam-gap));
+    animation-delay: 7s;
+}
+
+.tf-ufo-beam--16 {
+    top: calc(15 * var(--ufo-beam-gap));
+    animation-delay: 7.5s;
+}
+
+.tf-ufo-beam--17 {
+    top: calc(16 * var(--ufo-beam-gap));
+    animation-delay: 8s;
+}
+
+.tf-ufo-beam--18 {
+    top: calc(17 * var(--ufo-beam-gap));
+    animation-delay: 8.5s;
+}
+
+.tf-ufo-beam--19 {
+    top: calc(18 * var(--ufo-beam-gap));
+    animation-delay: 9s;
+}
+
+.tf-ufo-beam--20 {
+    top: calc(19 * var(--ufo-beam-gap));
+    animation-delay: 9.5s;
+}
+
+.tf-crab-outer-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 330px;
+}
+
+.tf-crab-container {
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    width: 120px;
+    height: 120px;
+    transform: translateX(30px) rotateZ(-70deg);
+
+    animation: crab_peek 40s infinite ease-in-out;
+    animation-delay: 20s;
+}
+
+.tf-crab-body {
+    position: relative;
+    left: -23px;
+    width: 100px;
+    height: 80px;
+    background: var(--crab-main-colour);
+    box-shadow: inset 12px -12px 20px 7px var(--crab-shade-colour);
+    border-radius: 50%;
+}
+
+.tf-crab-stalk {
+    position: absolute;
+    top: 5px;
+    width: 20px;
+    height: 10px;
+    background: var(--crab-main-colour);
+    border-radius: 0 10px 10px 0;
+    border-right: 3px solid var(--crab-shade-colour);
+    box-shadow: inset 0 5px 10px 0 var(--crab-shade-colour);
+    transform-origin: 25px 6px;
+}
+
+.tf-crab-stalk:after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -15px;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background: var(--crab-main-colour);
+}
+
+.tf-crab-stalk--left {
+    left: -14px;
+    transform: rotateZ(65deg);
+}
+
+.tf-crab-stalk--right {
+    left: 12px;
+    transform: rotateZ(108deg);
+}
+
+.tf-crab-eye {
+    position: absolute;
+    top: -23px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+}
+
+.tf-crab-eye:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: black;
+}
+
+.tf-crab-eye--left {
+    left: -7px;
+}
+
+.tf-crab-eye--right {
+    left: 34px;
+}
+
+.tf-crab-mouth {
+    position: absolute;
+    left: 16px;
+    top: 13px;
+    width: 17px;
+    height: 20px;
+    border-radius: 50%;
+    border-bottom: 5px solid black;
+}
+
+.tf-crab-leg {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-right: 6px solid var(--crab-main-colour);
+    box-shadow: 3px 0 0 0 var(--crab-shade-colour);
+    border-radius: 50%;
+}
+
+.tf-crab-leg--1 {
+    top: 50px;
+    left: 50px;
+}
+
+.tf-crab-leg--2 {
+    top: 60px;
+    left: 40px;
+}
+
+.tf-crab-leg--3 {
+    top: 70px;
+    left: 30px;
+}
+
+.tf-crab-leg--4 {
+    top: 50px;
+    left: -30px;
+    transform: rotate(180deg);
+}
+
+.tf-crab-leg--5 {
+    top: 60px;
+    left: -20px;
+    transform: rotate(180deg);
+}
+
+.tf-crab-leg--6 {
+    top: 70px;
+    left: -10px;
+    transform: rotate(180deg);
+}
+
+.tf-crab-claw-container {
+    top: 0;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+.tf-crab-claw-container--left {
+    left: -10px;
+    transform: rotateZ(190deg);
+    transform-origin: left;
+
+    animation: crab_wave 40s infinite ease-in-out;
+    animation-delay: 20s;
+}
+
+.tf-crab-claw-container--right {
+    left: 60px;
+    transform: rotateZ(-10deg);
+}
+
+.tf-crab-claw-arm {
+    position: absolute;
+    top: 12px;
+    width: 30px;
+    height: 10px;
+    border-left: 3px solid var(--crab-shade-colour);
+    background: var(--crab-main-colour);
+    box-shadow: inset 0 5px 10px 0 var(--crab-shade-colour);
+    border-radius: 10px 0 0 10px;
+}
+
+.tf-crab-claw {
+    position: absolute;
+    left: 25px;
+    width: 30px;
+    height: 15px;
+    background: var(--crab-main-colour);
+    box-shadow: inset 0 5px 10px 0 var(--crab-shade-colour);
+    border-radius: 15px 15px 0 0;
+}
+
+.tf-crab-claw--top {
+    top: 0;
+    transform: rotateZ(-20deg);
+}
+
+.tf-crab-claw--bottom {
+    top: 15px;
+    transform: rotateZ(200deg);
+}
+
+.tf-tiny-fish-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+    animation: tiny_fish_container_move 30s linear;
+    animation-iteration-count: infinite;
+}
+
+.tf-tiny-fish {
+    position: relative;
+    width: 100px;
+    height: 20px;
+    background: var(--tiny-fish-colour);
+    box-shadow: inset 0 3px 3px 3px #69a0dd;
+    border-radius: 100%;
+    animation: tiny_fish_swim 30s ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-tiny-fish:after {
+    content: '';
+    position: absolute;
+    left: 98px;
+    top: 0;
+    width: 10px;
+    height: 20px;
+    background: var(--tiny-fish-colour);
+    box-shadow: inset 0 1px 1px 1px #69a0dd;
+    border-radius: 50% 0 0 50%;
+    transform-origin: left;
+    animation: tail_fin_paddle 2s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-tiny-fish:before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    width: 4px;
+    height: 4px;
+    background: #000;
+    border: 2px solid yellow;
+    border-radius: 100%;
+}
+
+.tf-tiny-fish--1 {
+    left: -100px;
+    top: 180px;
+    animation-delay: 1s;
+}
+
+.tf-tiny-fish--2 {
+    left: 0;
+    top: 200px;
+}
+
+.tf-foreground {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tf-sand {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(to bottom, rgba(194, 161, 97, 0.20), #FFDA77);
+}
+
+.tf-sandbank-outer-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+}
+
+.tf-sandbank-container {
+    width: 100%;
+    height: 700px;
+}
+
+.tf-sandbank-layer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tf-sandbank-layer--1 {
+    transform: scale(0.6);
+}
+
+.tf-sandbank-layer--2 {
+    transform: scale(0.8);
+}
+
+.tf-sandbank-layer--3 {
+    transform: scale(1);
+}
+
+.tf-sandbank-left {
+    min-width: 1000px;
+    height: 420px;
+    background: #FFDA77;
+    border-radius: 0 50% 0 50%;
+    box-shadow: inset 17px 20px 40px 23px rgb(194, 161, 97);
+    transform: rotate(-5deg) skewX(15deg) skewY(-5deg);
+}
+
+.tf-sandbank-right {
+    min-width: 1000px;
+    height: 420px;
+    background: #FFDA77;
+    border-radius: 50% 0 50% 0;
+    box-shadow: inset 17px 20px 40px 23px rgb(194, 161, 97);
+    transform: rotate(5deg) skewX(-15deg) skewY(5deg);
+}
+
+.tf-sandbank-gap {
+    min-width: 400px;
+    height: 420px;
+    background: transparent;
+}
+
+.tf-shell-and-rocks-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+}
+
+.tf-shell-container {
+    position: absolute;
+    bottom: 70px;
+    left: 38px;
+    width: 160px;
+    height: 150px;
+    transform: scale(1.6);
+}
+
+.tf-shell-ridge {
+    position: absolute;
+    bottom: 0;
+    height: 180px;
+    width: 30px;
+    background: #FFF;
+    border-radius: 20px 20px 0 0;
+    box-shadow: inset 11px -11px 20px 5px #B19359;
+    transform-origin: 80px 50px;
+}
+
+.tf-shell-ridge--0 {
+    height: 80px;
+    left: 0;
+    transform: skewX(20deg);
+}
+
+.tf-shell-ridge--1 {
+    height: 100px;
+    left: 10px;
+    transform: skewX(15deg);
+}
+
+.tf-shell-ridge--2 {
+    height: 120px;
+    left: 25px;
+    transform: skewX(10deg);
+}
+
+.tf-shell-ridge--3 {
+    height: 140px;
+    left: 40px;
+    transform: skewX(5deg);
+}
+
+.tf-shell-ridge--4 {
+    height: 150px;
+    width: 25px;
+    left: 60px;
+    transform: skewX(0deg);
+}
+
+.tf-shell-ridge--5 {
+    height: 140px;
+    left: 75px;
+    transform: skewX(-5deg);
+}
+
+.tf-shell-ridge--6 {
+    height: 120px;
+    left: 90px;
+    transform: skewX(-10deg);
+}
+
+.tf-shell-ridge--7 {
+    height: 100px;
+    left: 105px;
+    transform: skewX(-15deg);
+}
+
+.tf-shell-ridge--8 {
+    height: 80px;
+    left: 115px;
+    transform: skewX(-20deg);
+}
+
+.tf-sand-hill {
+    position: absolute;
+    bottom: -45px;
+    left: -54px;
+    width: 309px;
+    height: 109px;
+    background: #FFDA77;
+    border-radius: 60px 60px 0 0 / 20px 20px 0 0;
+    box-shadow: inset 20px -8px 20px 11px #B19359;
+    transform: rotateZ(15deg);
+}
+
+.tf-rock-container {
+    position: absolute;
+    bottom: 0;
+    right: -20px;
+    width: 200px;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.tf-rock {
+    position: relative;
+    width: 100px;
+    min-height: 80px;
+    background: #FFDA77;
+    box-shadow: inset 14px -20px 40px 0 #B46E4F;
+    border-radius: 40px 20px 30px 10px;
+}
+
+.tf-rock--top {
+    align-self: center;
+    transform: rotateZ(-5deg);
+}
+
+.tf-rock--middle-1 {
+    width: 180px;
+    transform: rotateZ(-10deg);
+}
+
+.tf-rock--middle-2 {
+    width: 200px;
+    transform: rotateZ(-5deg);
+}
+
+.tf-rock--base {
+    min-width: 260px;
+    min-height: 100px;
+    transform: rotateZ(-10deg);
+}
+
+.tf-rock-holes-container {
+    position: absolute;
+}
+
+.tf-rock-holes-container--1 {
+}
+
+.tf-rock-holes-container--2 {
+    top: 5px;
+    left: 85px;
+}
+
+.tf-rock-holes {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    border-radius: 100%;
+    background: rgba(180, 110, 79, 0.3);
+    transform: rotate(30deg);
+    box-shadow: 0 1px 1px 1px rgba(90, 45, 45, 0.2),
+                inset 0 1px 1px 1px rgba(180, 110, 79, 0.5);
+}
+
+.tf-rock-holes--1 {
+    left: 15px;
+    top: 15px;
+}
+
+.tf-rock-holes--2 {
+    left: 35px;
+    top: 10px;
+}
+
+.tf-rock-holes--3 {
+    left: 55px;
+    top: 20px;
+}
+
+.tf-rock-holes--4 {
+    left: 75px;
+    top: 15px;
+}
+
+.tf-rock-holes--5 {
+    left: 65px;
+    top: 40px;
+}
+
+.tf-rock-holes--6 {
+    left: 35px;
+    top: 35px;
+}
+
+.tf-starfish {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.tf-starfish--1 {
+    bottom: 0;
+    right: 0;
+}
+
+.tf-starfish--2 {
+    bottom: 90px;
+    right: -60px;
+    transform: scale(0.5);
+}
+
+.tf-starfish--3 {
+    bottom: 200px;
+    right: 0;
+    transform: scale(0.4) rotateZ(45deg);
+}
+
+.tf-starfish-5-points {
+    width: 0;
+    height: 0;
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    margin: 50px 0;
+    border: 100px solid rgba(0,0,0,0);
+    border-top: 0 solid rgba(0,0,0,1);
+    border-bottom: 70px solid var(--starfish-colour);
+    border-radius: 0 0 50px 50px;
+    transform-origin: 50% 50% 0;
+}
+
+.tf-starfish-5-points:before {
+    width: 0;
+    height: 0;
+    position: absolute;
+    content: "";
+    top: -45px;
+    right: auto;
+    bottom: auto;
+    left: -65px;
+    border: 30px solid rgba(0,0,0,0);
+    border-top: 0 solid rgba(0,0,0,1);
+    border-bottom: 80px solid var(--starfish-colour);
+    border-radius: 0;
+    transform: rotateZ(-35deg);
+    transform-origin: 50% 50% 0;
+}
+
+.tf-starfish-5-points:after {
+    width: 0;
+    height: 0;
+    position: absolute;
+    content: "";
+    top: 3px;
+    right: auto;
+    bottom: auto;
+    left: -105px;
+    border: 100px solid rgba(0,0,0,0);
+    border-top: 0 solid rgba(0,0,0,1);
+    border-bottom: 70px solid var(--starfish-colour);
+    border-radius: 0 0 50px 50px;
+    transform: rotateZ(-70deg);
+    transform-origin: 50% 50% 0;
+}
+
+.tf-starfish-center {
+    position: absolute;
+    left: 80px;
+    top: 70px;
+    width: 35px;
+    height: 30px;
+    border-radius: 100%;
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.tf-starfish-dots {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    background: transparent;
+    box-shadow: 53px 30px #FFF,
+                63px 40px #FFF,
+                73px 50px #FFF,
+                83px 60px #FFF,
+                140px 30px #FFF,
+                130px 40px #FFF,
+                120px 50px #FFF,
+                110px 60px #FFF,
+                120px 90px #FFF,
+                130px 92px #FFF,
+                143px 96px #FFF,
+                155px 100px #FFF,
+                35px 100px #FFF,
+                45px 96px #FFF,
+                55px 92px #FFF,
+                65px 90px #FFF,
+                94px 110px #FFF,
+                94px 123px #FFF,
+                92px 137px #FFF,
+                90px 150px #FFF;
+}
+
+.tf-seaweed-container {
+    position: absolute;
+    bottom: -20px;
+    right: 100px;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tf-seaweed-patch {
+    min-width: 180px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.tf-seaweed {
+    position: relative;
+    left: -90px;
+    height: 200px;
+    width: 10px;
+    background: green;
+    border-radius: 0 50% 0 50%;
+    box-shadow: inset 5px -11px 14px 3px #006400,
+                15px -15px #006400,
+                25px -5px #006400,
+                35px 0 #006300,
+                45px -10px #006400,
+                55px -15px #006400,
+                65px -5px #007000,
+                75px 0 #006400,
+                85px -10px #006400,
+                95px -15px #006400,
+                105px -5px #006300,
+                115px 0 #006400,
+                125px -10px #006200,
+                135px -15px #006400,
+                145px -5px #006400,
+                155px 0 #006400,
+                165px -10px #006400;
+    transform: rotate(-10deg) skewX(-15deg) skewY(5deg);
+    transform-origin: 45px 200px;
+    animation: seaweed_sway 10s ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-seaweed--1 {
+    animation-delay: 0s;
+    opacity: 0.6;
+}
+
+.tf-seaweed--2 {
+    animation-delay: 3s;
+    top: 30px;
+    opacity: 0.8;
+}
+
+.tf-seaweed--3 {
+    animation-delay: 6s;
+    top: 60px;
+    opacity: 0.9;
+}
+
+.tf-seaweed--4 {
+    animation-delay: 0s;
+    top: 90px;
+    left: 50px;
+    opacity: 0.9;
+}
+
+.tf-outer-container {
+    margin-top: 200px;
+    height: 665px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tf-fish-container {
+    height: 485px;
+    width: 485px;
+}
+
+.tf-fish {
+    position: absolute;
+    height: 485px;
+    width: 485px;
+}
+
+.tf-fish--1 {
+    animation: fish_swim_right 40s linear;
+    animation-iteration-count: infinite;
+}
+
+.tf-fish--1 .tf-eye {
+    opacity: 0;
+}
+
+.tf-fish--1 .tf-eyebrow {
+    opacity: 0;
+}
+
+.tf-fish--1 .tf-mouth {
+    top: 127px;
+    left: 343px;
+    height: 240px;
+    width: 113px;
+}
+
+.tf-fish--1 .tf-teeth {
+    top: 127px;
+}
+
+.tf-fish--1 .tf-lip--top {
+    top: 100px;
+}
+
+.tf-fish--2 {
+    animation: fish_shrink 40s linear;
+    animation-iteration-count: infinite;
+}
+
+.tf-container {
+    position: absolute;
+    height: 485px;
+    width: 485px;
+    animation: fish_spin 20s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-fish-back {
+    position: absolute;
+    z-index: -1;
+    animation: fish_float 10s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-fish-front {
+    position: absolute;
+    animation: fish_float 10s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-tail-fin-container {
+    position: absolute;
+    height: 110px;
+    width: 40px;
+    transform-origin: right;
+    animation: tail_fin_paddle 2s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-tail-fin-container--top {
+    top: 156px;
+    left: 6px;
+}
+
+.tf-tail-fin-container--bottom {
+    top: 275px;
+}
+
+.tf-tail-fin {
+    position: absolute;
+    height: 110px;
+    width: 40px;
+    background-color: var(--fish-main-colour);
+    border: solid 3px black;
+    border-radius: 0 50% 0 50%;
+    box-shadow: inset 5px -11px 14px 3px var(--fish-shade-colour);
+    transform: rotate(-5deg) skewX(-15deg) skewY(5deg);
+    transition: all 300ms;
+}
+
+.tf-tail-fin--top {
+}
+
+.tf-tail-fin--bottom {
+    height: 60px;
+    width: 40px;
+    border-radius: 50% 0 50% 0;
+}
+
+.tf-body-container {
+    position: absolute;
+    left: 98px;
+    top: 90px;
+    transition: all 300ms;
+
+    animation: fish_breathe 10s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-body {
+    position: absolute;
+    height: 360px;
+    width: 360px;
+    background-color: var(--fish-main-colour);
+    border: solid 3px black;
+    border-radius: 100px 300px 300px 300px / 50px 280px 280px 280px;
+    box-shadow: inset 20px -20px 56px 20px var(--fish-shade-colour);
+    transform: rotate(-0.125turn);
+    transition: all 300ms;
+}
+
+.tf-scales-container {
+    position: absolute;
+    left: 160px;
+    top: 140px;
+    transition: all 300ms;
+
+    animation: fish_breathe 10s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-scales {
+    position: absolute;
+    height: 40px;
+    width: 25px;
+    border-radius: 20px 2px 2px 20px;
+    transition: all 300ms;
+}
+
+.tf-scales-1 {
+    left: 0;
+    top: 40px;
+}
+
+.tf-scales-2 {
+    left: 20px;
+    top: 20px;
+}
+
+.tf-scales-3 {
+    left: 40px;
+    top: 0;
+}
+
+.tf-scales-4 {
+    left: 60px;
+    top: 20px;
+}
+
+.tf-scales-5 {
+    left: 80px;
+    top: 0;
+}
+
+.tf-scales-6 {
+    left: 100px;
+    top: 20px;
+}
+
+.tf-scales-7 {
+    left: 120px;
+    top: 40px;
+}
+
+.tf-scales-small {
+    box-shadow: 0 44px  0 4px var(--fish-main-colour), -3px  44px 0 4px var(--fish-shade-colour),
+                0 90px  0 4px var(--fish-main-colour), -3px  90px 0 4px var(--fish-shade-colour);
+    transition: all 300ms;
+}
+
+.tf-scales-medium {
+    box-shadow: 0 44px  0 4px var(--fish-main-colour), -3px  44px 0 4px var(--fish-shade-colour),
+                0 90px  0 4px var(--fish-main-colour), -3px  90px 0 4px var(--fish-shade-colour),
+                0 136px 0 4px var(--fish-main-colour), -3px 136px 0 4px var(--fish-shade-colour);
+    transition: all 300ms;
+}
+
+.tf-scales-large {
+    box-shadow: 0 44px  0 4px var(--fish-main-colour), -3px  44px 0 4px var(--fish-shade-colour),
+                0 90px  0 4px var(--fish-main-colour), -3px  90px 0 4px var(--fish-shade-colour),
+                0 136px 0 4px var(--fish-main-colour), -3px 136px 0 4px var(--fish-shade-colour),
+                0 182px 0 4px var(--fish-main-colour), -3px 182px 0 4px var(--fish-shade-colour);
+    transition: all 300ms;
+}
+
+.tf-eyebrow {
+    position: absolute;
+    height: 16px;
+    background-color: black;
+    border-radius: 50% 50% 0 0;
+    transition: all 300ms;
+}
+
+.tf-eyebrow--left {
+    left: 348px;
+    top: 178px;
+    width: 60px;
+    transform: rotate(-7deg);
+}
+
+.tf-eyebrow--right {
+    left: 426px;
+    top: 175px;
+    width: 56px;
+    transform: rotate(5deg);
+}
+
+.tf-eye {
+    position: absolute;
+    z-index: 1;
+    top: 200px;
+    height: 80px;
+    width: 60px;
+
+    background: radial-gradient(ellipse at 22px 38px, #000 0%, #000 15%, #FFF 5%, #FFF 100%);
+
+    border: solid 3px black;
+    border-radius: 50% 50% 50% 50% / 50% 50% 36% 50%;
+    box-shadow: inset 0 6px 14px 3px #A8DCE2;
+    overflow: hidden;
+}
+
+.tf-eyelid {
+    position: absolute;
+    top: 0;
+    left: -110px;
+    height: 330px;
+    width: 330px;
+    transition: opacity 300ms;
+}
+
+.tf-eyelid--asleep {
+    background: radial-gradient(ellipse at center, transparent 0%, transparent 35%, #000 36%, #F0592A 37%, #CE4728 100%);
+}
+.tf-eyelid--awake {
+    opacity: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, transparent 35%, #000 36%, #4FB95E 37%, #459C4B 100%);
+}
+
+.tf-eye--right {
+    left: 420px;
+    top: 195px;
+    height: 75px;
+    width: 55px;
+}
+
+.tf-eye--left {
+    left: 350px;
+}
+
+.tf-lip {
+    position: absolute;
+    left: 350px;
+    height: 50px;
+    width: 135px;
+    background-color: var(--fish-main-colour);
+    border: solid 3px black;
+    border-radius: 0 45% 45% 50%;
+    box-shadow: inset 5px -11px 14px 3px var(--fish-shade-colour);
+    transform: skewX(10deg) rotate(-10deg);
+    transition: all 300ms;
+}
+
+.tf-lip--top {
+    top: 300px;
+}
+
+.tf-lip--bottom {
+    top: 320px;
+    left: 355px;
+    width: 100px;
+    transform: skewX(10deg) rotate(0deg);
+}
+
+.tf-mouth {
+    position: absolute;
+    top: 327px;
+    left: 360px;
+    height: 40px;
+    width: 70px;
+    background-color: #000;
+    border: solid 3px black;
+    border-radius: 50% 50%;
+    transition: all 300ms;
+}
+
+.tf-teeth {
+    position: absolute;
+    top: 327px;
+    left: 370px;
+    height: 30px;
+    width: 80px;
+    background-color: #FFF;
+    border: solid 3px black;
+    transition: all 300ms;
+}
+
+.tf-glint-cross {
+    opacity: 0;
+    position: absolute;
+    top: 340px;
+    left: 445px;
+    height: 30px;
+    width: 2px;
+    background-color: #FFF;
+}
+
+.tf-glint-cross::after {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 15px;
+    height: 2px;
+    width: 30px;
+    background-color: #FFF;
+}
+
+.tf-glint-cross--rotated {
+    transform: rotate(45deg);
+}
+
+.tf-side-fin-container {
+    position: absolute;
+    top: 400px;
+    height: 110px;
+    width: 40px;
+    transform-origin: top right;
+    animation: side_fin_paddle 10s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-side-fin-container--left {
+    left: 170px;
+}
+
+.tf-side-fin-container--right {
+    left: 300px;
+}
+
+.tf-side-fin {
+    position: absolute;
+    height: 110px;
+    width: 40px;
+    background-color: var(--fish-main-colour);
+    border: solid 3px black;
+    border-radius: 50% 0 50% 0;
+    box-shadow: inset 12px 8px 14px 3px var(--fish-shade-colour);
+    transform: rotate(-133deg) skewX(-2deg) skewY(-20deg);
+    transition: all 300ms;
+}
+
+.tf-side-fin--left {
+}
+
+.tf-side-fin--right {
+    height: 100px;
+    width: 30px;
+}
+
+.tf-toggle-base {
+    position: absolute;
+    top: 80px;
+    left: 200px;
+    height: 60px;
+    width: 160px;
+    background-color: #8A8A8A;
+    border: solid 3px black;
+    border-radius: 50% 50%;
+    box-shadow: inset 4px -7px 14px 3px #6D6E6E;
+}
+
+.tf-toggle-ball {
+    position: absolute;
+    top: 25px;
+    left: 226px;
+    height: 94px;
+    width: 114px;
+    background-color: #8A8A8A;
+    border-radius: 134px 134px 74px 74px;
+    box-shadow: inset 4px -7px 14px 3px #6D6E6E,
+                inset 4px -7px 14px 3px #FFF,
+                0 0 0 3px #000;
+}
+
+.tf-toggle-ball::after {
+    content: '';
+    position: absolute;
+    top: 9px;
+    left: 24px;
+    height: 24px;
+    width: 66px;
+    background-color: #000;
+    border-radius: 10px 10px;
+}
+
+.tf-toggle-shaft {
+    position: absolute;
+    top: -6px;
+    left: 270px;
+    height: 50px;
+    width: 20px;
+    background-color: #8A8A8A;
+    border: solid 3px black;
+    border-radius: 0 0 50% 50% / 0 0 10% 10%;
+    box-shadow: inset 4px -7px 14px 3px #6D6E6E;
+    transform-origin: 10px 110px;
+    transform: rotate(-20deg);
+    transition: all 300ms;
+}
+
+.tf-toggle-tip {
+    position: absolute;
+    top: -16px;
+    left: 260px;
+    height: 30px;
+    width: 40px;
+    background-color: #8A8A8A;
+    border: solid 3px black;
+    border-radius: 50% 50%;
+    box-shadow: inset 4px -7px 14px 3px #6D6E6E,
+                inset 4px -7px 14px 3px #FFF;
+    transform-origin: 20px 120px;
+    transform: rotate(-20deg);
+    transition: all 300ms;
+}
+
+.tf-bubble-and-sleep-z-container {
+    position: absolute;
+    height: 485px;
+    width: 485px;
+}
+
+.tf-bubble {
+    opacity: 0;
+    position: absolute;
+    top: 320px;
+    height: 15px;
+    width: 15px;
+    background-color: transparent;
+    box-shadow: inset -3px 3px 6px 0 #A3CBF7;
+    border-radius: 50% 50%;
+    border: 1px solid #A3CBF7;
+}
+
+.tf-bubble--1 {
+    left: 500px;
+    animation: bubble_up 10s ease-out;
+    animation-iteration-count: infinite;
+}
+
+.tf-bubble--2 {
+    left: 520px;
+    animation: bubble_up 10s ease-out;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+}
+
+.tf-bubble--3 {
+    left: 510px;
+    height: 20px;
+    width: 20px;
+    animation: bubble_up 10s ease-out;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+}
+
+.tf-sleep-z--1 {
+    animation: sleep_z_up 9s linear;
+    animation-iteration-count: infinite;
+    animation-delay: 0s;
+}
+
+.tf-sleep-z--2 {
+    animation: sleep_z_up 9s linear;
+    animation-iteration-count: infinite;
+    animation-delay: 3s;
+}
+
+.tf-sleep-z--3 {
+    animation: sleep_z_up 9s linear;
+    animation-iteration-count: infinite;
+    animation-delay: 6s;
+}
+
+.tf-sleep-z {
+    opacity: 0;
+    position: absolute;
+    left: 400px;
+    top: 120px;
+    height: 15px;
+    width: 45px;
+    background-color: #000;
+}
+
+.tf-sleep-z::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: -5px;
+    height: 15px;
+    width: 45px;
+    background: #000;
+    transform-origin: right;
+    transform: rotate(-40deg);
+}
+
+.tf-sleep-z::after {
+    content: '';
+    position: absolute;
+    top: 34px;
+    height: 15px;
+    width: 45px;
+    background: #000;
+}
+
+.tf-letters-container {
+    position: absolute;
+    bottom: 0;
+    height: 240px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.tf-letters {
+    height: 90px;
+    width: 565px;
+    margin-top: 120px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tf-letter {
+    display: inline-block;
+    position: relative;
+    height: 90px;
+    width: 50px;
+    animation: letters_float 10s linear;
+    animation-iteration-count: infinite;
+}
+
+.tf-letter--1 {
+    animation-delay: 0s;
+}
+
+.tf-letter--2 {
+    animation-delay: 1s;
+}
+
+.tf-letter--3 {
+    animation-delay: 2s;
+}
+
+.tf-letter--4 {
+    animation-delay: 3s;
+}
+
+.tf-letter--5 {
+    animation-delay: 4s;
+}
+
+.tf-letter--6 {
+    animation-delay: 5s;
+}
+
+.tf-letter--7 {
+    animation-delay: 6s;
+}
+
+.tf-letter--8 {
+    animation-delay: 7s;
+}
+
+.tf-letter--9 {
+    animation-delay: 8s;
+}
+
+.tf-letter--10 {
+    animation-delay: 9s;
+}
+
+.tf-letter-t {
+    height: 20px;
+    width: 50px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-t::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    height: 50px;
+    width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--letters-main-colour);
+    background: var(--letters-main-colour);
+}
+
+.tf-letter-o1 {
+    height: 20px;
+    width: 50px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-o1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50px;
+    height: 20px;
+    width: 50px;
+    border: 1px solid #000;
+    background: var(--letters-main-colour);
+}
+
+.tf-letter-o2 {
+    position: relative;
+    top: -1px;
+    left: 0;
+    height: 28px;
+    width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--letters-main-colour);
+    border-bottom: 1px solid var(--letters-main-colour);
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-o2::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 29px;
+    height: 28px;
+    width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--letters-main-colour);
+    border-bottom: 1px solid var(--letters-main-colour);
+    background: var(--letters-main-colour);
+}
+
+.tf-letter-g1 {
+    height: 20px;
+    width: 50px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-g1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50px;
+    height: 20px;
+    width: 50px;
+    border: 1px solid #000;
+    background: var(--letters-main-colour);
+}
+
+.tf-letter-g2 {
+    position: relative;
+    top: -1px;
+    left: 0;
+    height: 28px;
+    width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--letters-main-colour);
+    border-bottom: 1px solid var(--letters-main-colour);
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-g2::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 29px;
+    height: 8px;
+    width: 20px;
+    border: 1px solid #000;
+    border-bottom: 1px solid var(--letters-main-colour);
+    background: var(--letters-main-colour);
+}
+
+.tf-letter-l {
+    height: 70px;
+    width: 20px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-l::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 50px;
+    height: 20px;
+    width: 30px;
+    border: 1px solid #000;
+    border-left: 1px solid var(--letters-main-colour);
+    background: var(--letters-main-colour);
+}
+
+.tf-letter-e1 {
+    height: 20px;
+    width: 50px;
+    border-radius: 5px 5px 0 0;
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-e1 {
+    height: 20px;
+    width: 50px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-e1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50px;
+    height: 20px;
+    width: 50px;
+    border: 1px solid #000;
+    background: var(--letters-main-colour);
+}
+
+.tf-letter-e2 {
+    position: relative;
+    top: -1px;
+    left: 0;
+    height: 28px;
+    width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--letters-main-colour);
+    border-bottom: 1px solid var(--letters-main-colour);
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-e2::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 20px;
+    height: 18px;
+    width: 8px;
+    border: 1px solid #000;
+    border-left: 1px solid var(--letters-main-colour);
+    background: var(--letters-main-colour);
+}
+
+.tf-letter-f1 {
+    height: 20px;
+    width: 50px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-f2 {
+    position: relative;
+    top: -1px;
+    left: 0;
+    height: 49px;
+    width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--letters-main-colour);
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-f2::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 20px;
+    height: 18px;
+    width: 8px;
+    border: 1px solid #000;
+    border-left: 1px solid var(--letters-main-colour);
+    background: var(--letters-main-colour);
+}
+
+.tf-letter-i1 {
+    height: 20px;
+    width: 50px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-i1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50px;
+    height: 20px;
+    width: 50px;
+    border: 1px solid #000;
+    background: var(--letters-main-colour);
+}
+
+.tf-letter-i2 {
+    position: relative;
+    top: -1px;
+    left: 15px;
+    height: 28px;
+    width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--letters-main-colour);
+    border-bottom: 1px solid var(--letters-main-colour);
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-s1 {
+    height: 20px;
+    width: 50px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-s1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50px;
+    height: 20px;
+    width: 50px;
+    border: 1px solid #000;
+    background: var(--letters-main-colour);
+}
+
+.tf-letter-s1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 30px;
+    height: 10px;
+    width: 50px;
+    border: 1px solid #000;
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-s2 {
+    position: relative;
+    top: -1px;
+    height: 8px;
+    width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--letters-main-colour);
+    border-bottom: 1px solid var(--letters-main-colour);
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-s2::after {
+    content: '';
+    position: absolute;
+    top: 19px;
+    left: 29px;
+    height: 8px;
+    width: 20px;
+    border: 1px solid #000;
+    border-top: 1px solid var(--letters-main-colour);
+    border-bottom: 1px solid var(--letters-main-colour);
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-h1 {
+    height: 70px;
+    width: 20px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
+    background-color: var(--letters-main-colour);
+}
+
+.tf-letter-h1::after {
+    content: '';
+    position: absolute;
+    left: 30px;
+    height: 70px;
+    width: 20px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #000;
+    background: var(--letters-main-colour);
+}
+
+.tf-letter-h2 {
+    position: relative;
+    top: -45px;
+    left: 21px;
+    height: 20px;
+    width: 8px;
+    border: 1px solid #000;
+    border-left: 1px solid var(--letters-main-colour);
+    border-right: 1px solid var(--letters-main-colour);
+    background-color: var(--letters-main-colour);
+}
+
+.tf-fish-checkbox {
+    opacity: 0;
+    position: fixed;
+}
+
+.tf-fish-clickable {
+    position: absolute;
+    height: 485px;
+    width: 485px;
+    border-radius: 50% 50%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    cursor: pointer;
+}
+
+.tf-fish-checkbox:checked ~ div .tf-background {
+    --sky-top-colour: #17A9D0;
+    --sky-bottom-colour: #19CAF5;
+    --orb-main-colour: #FFF452;
+    --orb-shade-colour: #FFA500;
+    --mountain-colour: #206A2E;
+    --surf-wave-main-colour: #0171AD;
+    --sea-top-colour: #0171AD;
+    --sea-bottom-colour: #6074EA;
+}
+
+.tf-fish-checkbox:checked ~ div .tf-background .tf-cloud {
+    opacity: 1;
+}
+
+.tf-fish-checkbox:checked ~ div .tf-background .tf-orb-hole {
+    opacity: 0;
+}
+
+.tf-fish-checkbox:checked ~ div .tf-background .tf-stars {
+    opacity: 0;
+}
+
+.tf-fish-checkbox:checked ~ div .tf-foreground {
+    --fish-main-colour: #4FB95E;
+    --fish-shade-colour: #459C4B;
+}
+
+.tf-fish-checkbox:checked ~ div .tf-foreground .tf-eyebrow {
+    transform: translateY(-10px);
+}
+
+.tf-fish-checkbox:checked ~ div .tf-foreground .tf-eyelid {
+    opacity: 1;
+    transform: translateY(0);
+    animation: eye_open 1s ease-in-out,
+               eye_blink 10s ease-out infinite;
+    animation-delay: 300ms, 1.3s;
+    animation-fill-mode: forwards;
+}
+.tf-fish-checkbox:not(:checked) ~ div .tf-foreground .tf-eyelid {
+    transform: translateY(-90px);
+    animation: eye_close 1s ease-in-out;
+    animation-delay: 300ms;
+    animation-fill-mode: forwards;
+}
+
+.tf-fish-checkbox:checked ~ div .tf-foreground .tf-lip--bottom {
+    transform: skewX(10deg) rotate(0deg) translate(0, 40px);
+}
+
+.tf-fish-checkbox:checked ~ div .tf-foreground .tf-glint-cross {
+    animation: glint 1s ease-out;
+    animation-delay: 1s;
+}
+
+.tf-fish-checkbox:checked ~ div .tf-foreground .tf-toggle-shaft {
+    transform: rotate(20deg);
+}
+
+.tf-fish-checkbox:checked ~ div .tf-foreground .tf-toggle-tip {
+    transform: rotate(20deg);
+}
+
+.tf-fish-checkbox:checked ~ div .tf-foreground .tf-sleep-z {
+    opacity: 0;
+    animation: none;
+}
+
+@keyframes cloud_large {
+    0%   { transform: scale(1.5) translateX(-150px); }
+    100% { transform: scale(1.5) translateX(2000px); }
+}
+
+@keyframes cloud_small {
+    0%   { transform: scale(1) translateX(-150px); }
+    100% { transform: scale(1) translateX(2000px); }
+}
+
+@keyframes parallax_sandbank_layer_1_move {
+    0%    { transform: scale(0.6) translateX(-1%); }
+    50%   { transform: scale(0.6) translateX(1%); }
+    100%  { transform: scale(0.6) translateX(-1%); }
+}
+
+@keyframes parallax_sandbank_layer_2_move {
+    0%    { transform: scale(0.8) translateX(-2%); }
+    50%   { transform: scale(0.8) translateX(2%); }
+    100%  { transform: scale(0.8) translateX(-2%); }
+}
+
+@keyframes parallax_sandbank_layer_3_move {
+    0%    { transform: scale(1) translateX(-3%); }
+    50%   { transform: scale(1) translateX(3%); }
+    100%  { transform: scale(1) translateX(-3%); }
+}
+
+@keyframes parallax_fish_container_move {
+    0%    { transform: translateX(-5%); }
+    50%   { transform: translateX(5%); }
+    100%  { transform: translateX(-5%); }
+}
+
+@keyframes parallax_shell_and_rocks_container_move {
+    0%    { transform: translateX(-15%); }
+    50%   { transform: translateX(15%); }
+    100%  { transform: translateX(-15%); }
+}
+
+@keyframes shake_scene {
+    0%   { transform: scale(1) rotateZ(0) }
+    25%  { transform: scale(2) rotateZ(5deg) }
+    50%  { transform: scale(1) rotateZ(0) }
+    75%  { transform: scale(2) rotateZ(-5deg) }
+    100% { transform: scale(1) rotateZ(0) }
+}
+
+@keyframes info_cube_container_sink {
+    0%     { transform: translateY(0); }
+    100%   { transform: translateY(60px); }
+}
+
+@keyframes info_cube_container_float {
+    0%     { transform: translateY(60px)  rotateZ(0); }
+    12.5%  { transform: translateY(-60px) rotateZ(0); }
+    18.75% { transform: translateY(-30px) rotateZ(5deg); }
+    31.25% { transform: translateY(0)     rotateZ(-5deg); }
+    43.75% { transform: translateY(30px)  rotateZ(5deg); }
+    50%    { transform: translateY(60px)  rotateZ(0); }
+    62.5%  { transform: translateY(-60px) rotateZ(0); }
+    68.75% { transform: translateY(-30px) rotateZ(-5deg); }
+    81.25% { transform: translateY(0)     rotateZ(5deg); }
+    93.75% { transform: translateY(30px)  rotateZ(-5deg); }
+    100%   { transform: translateY(60px)  rotateZ(0); }
+}
+
+@keyframes jellyfish_enter {
+    0%   { transform: translateY(300px); }
+    100% { transform: translateY(13px); }
+}
+
+@keyframes jellyfish_leave {
+    0%   { transform: translateY(13px); }
+    100% { transform: translateY(300px); }
+}
+
+@keyframes jellyfish_swim {
+    0%    { transform: translateY(13px); }
+    25%   { transform: translateY(-103px); }
+    40%   { transform: translateY(-3px); }
+    90%   { transform: translateY(-3px); }
+    100%  { transform: translateY(13px); }
+}
+
+@keyframes jellyfish_smile {
+    0%    { transform: scaleY(0.4); }
+    25%   { transform: scaleY(0.4); }
+    30%   { transform: scaleY(1.4); }
+    95%   { transform: scaleY(1.4); }
+    100%  { transform: scaleY(0.4); }
+}
+
+@keyframes jellyfish_head_pulse {
+    0%    { transform: rotateY(0); }
+    50%   { transform: rotateY(30deg); }
+    100%  { transform: rotateY(0); }
+}
+
+@keyframes jellyfish_tail_move {
+    0%    { transform: translateY(0); }
+    100%  { transform: translateY(40px); }
+}
+
+@keyframes crab_enter {
+    0%   { transform: translateY(-800px); }
+    100% { transform: translateY(-395px); }
+}
+
+@keyframes crab_slide {
+    0%    { transform: translateX(0); }
+    12.5% { transform: translateX(0); }
+    25%   { transform: translateX(350px); }
+    37.5% { transform: translateX(0); }
+    50%   { transform: translateX(350px); }
+    62.5% { transform: translateX(350px); }
+    75%   { transform: translateX(0); }
+    87.5% { transform: translateX(350px); }
+    100%  { transform: translateX(0); }
+}
+
+@keyframes crab_peek {
+    0%    { transform: translateX(30px) rotateZ(-70deg); }
+    4%    { transform: translateX(30px) rotateZ(-70deg); }
+    6%    { transform: translateX(0)    rotateZ(-70deg); }
+    10%   { transform: translateX(0)    rotateZ(-70deg); }
+    10.5% { transform: translateX(30px) rotateZ(-70deg); }
+    20%   { transform: translateX(30px) rotateZ(-70deg); }
+    21%   { transform: translateX(0)    rotateZ(-70deg); }
+    30%   { transform: translateX(0)    rotateZ(-70deg); }
+    31%   { transform: translateX(30px) rotateZ(-70deg); }
+    49%   { transform: translateX(30px) rotateZ(-70deg); }
+    52%   { transform: translateX(-40px) rotateZ(0); }
+    72%   { transform: translateX(-40px) rotateZ(0); }
+    75%   { transform: translateX(30px) rotateZ(-70deg); }
+    100%  { transform: translateX(30px) rotateZ(-70deg); }
+}
+
+@keyframes crab_wave {
+    0%   { transform: rotateZ(190deg); }
+    51%  { transform: rotateZ(190deg); }
+    52%  { transform: rotateZ(220deg); }
+    54%  { transform: rotateZ(170deg); }
+    55%  { transform: rotateZ(210deg); }
+    56%  { transform: rotateZ(170deg); }
+    57%  { transform: rotateZ(210deg); }
+    58%  { transform: rotateZ(170deg); }
+    59%  { transform: rotateZ(210deg); }
+    60%  { transform: rotateZ(170deg); }
+    61%  { transform: rotateZ(210deg); }
+    62%  { transform: rotateZ(170deg); }
+    63%  { transform: rotateZ(210deg); }
+    64%  { transform: rotateZ(170deg); }
+    65%  { transform: rotateZ(210deg); }
+    66%  { transform: rotateZ(170deg); }
+    67%  { transform: rotateZ(210deg); }
+    68%  { transform: rotateZ(170deg); }
+    69%  { transform: rotateZ(210deg); }
+    70%  { transform: rotateZ(170deg); }
+    71%  { transform: rotateZ(210deg); }
+    72%  { transform: rotateZ(190deg); }
+    100% { transform: rotateZ(190deg); }
+}
+
+@keyframes tiny_fish_container_move {
+    0%    { transform: translateX(0%); }
+    49.9% { transform: translateX(100%); }
+    50%   { transform: translateX(100%); }
+    100%  { transform: translateX(0%); }
+}
+
+@keyframes tiny_fish_swim {
+    0%    { transform: scale(1.2) translateY(0)    rotateY(180deg); }
+    20%   { transform: scale(1.2) translateY(40px) rotateY(180deg); }
+    49.9% { transform: scale(1.2) translateY(0   ) rotateY(180deg); }
+    50%   { transform: scale(1.2) translateY(40px) rotateY(0); }
+    80%   { transform: scale(1.2) translateY(0)    rotateY(0); }
+    100%  { transform: scale(1.2) translateY(40px) rotateY(0); }
+}
+
+@keyframes seaweed_sway {
+    0%    { transform: rotate(-10deg) skewX(-15deg) skewY(5deg); }
+    50%  { transform: rotate(5deg) skewX(-15deg) skewY(5deg); }
+    100%  { transform: rotate(-10deg) skewX(-15deg) skewY(5deg); }
+}
+
+@keyframes fish_swim_right {
+    0%    { transform: scale(0.9) translateX(-1500px); }
+    90%   { transform: scale(0.9) translateX(-1500px); }
+    100%  { transform: scale(0.9) translateX(0); }
+}
+
+@keyframes fish_shrink {
+    0%    { transform: scale(0.9); }
+    50%   { transform: scale(0.9); }
+    98%   { transform: scale(0.3); opacity: 1; }
+    99%   { transform: scale(0.3); opacity: 0; }
+    100%  { transform: scale(0.3); opacity: 0; }
+}
+
+@keyframes fish_spin {
+    0% { transform: rotateZ(0deg); }
+    8% { transform: rotateZ(0deg); }
+    10% { transform: rotateZ(-20deg); }
+    18% { transform: rotateZ(380deg); }
+    20% { transform: rotateZ(360deg); }
+    100% { transform: rotateZ(360deg); }
+}
+
+@keyframes fish_breathe {
+    0% { transform: scale(1); }
+    96% { transform: scale(1); }
+    98% { transform: scale(1.01); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fish_float {
+    0% { transform: translate(0, -20px); }
+    50% { transform: translate(0, 20px); }
+    100% { transform: translate(0, -20px); }
+}
+
+@keyframes letters_float {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(0, 15px); }
+    75% { transform: translate(0, -15px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes waves_and_sea_move {
+    0%   { transform: translateY(-5px); }
+    50%  { transform: translateY(5px);  }
+    100% { transform: translateY(-5px); }
+}
+
+@keyframes wave_move {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-100px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes surf_wave_container_move {
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(0); }
+    100% { transform: translateX(2300px); }
+}
+
+@keyframes surf_wave_move {
+    0%   { transform: rotateZ(20deg) translateY(0); }
+    50%  { transform: rotateZ(20deg) translateY(-10px); }
+    100% { transform: rotateZ(20deg) translateY(0); }
+}
+
+@keyframes surfer_container_move {
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(0); }
+    100% { transform: translateX(2300px); }
+}
+
+@keyframes surfer_move {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes surfboard_move {
+    0%   { transform: translateZ(-100px) rotateZ(-60deg) rotateX(40deg); }
+    50%  { transform: translateZ(-100px) rotateZ(-40deg) rotateX(40deg); }
+    100% { transform: translateZ(-100px) rotateZ(-60deg) rotateX(40deg); }
+}
+
+@keyframes sea_current_move {
+    0% { transform: translateY(0); opacity: 0; }
+    100% { transform: translateY(120%); opacity: 1.0; }
+}
+
+@keyframes ufo_outer_container_hover {
+    0%   { transform: translateY(-10px); }
+    50%  { transform: translateY(10px); }
+    100% { transform: translateY(-10px); }
+}
+
+@keyframes ufo_container_move {
+    0%    { transform: translateX(1500px) rotateZ(0); }
+    42%   { transform: translateX(1500px) rotateZ(0); }
+    44%   { transform: translateX(-50px)  rotateZ(20deg); }
+    45%   { transform: translateX(0)      rotateZ(0); }
+    97%   { transform: translateX(0)      rotateZ(0); }
+    98%   { transform: translateX(-30px)  rotateZ(20deg); }
+    100%  { transform: translateX(1500px) rotateZ(0); }
+}
+
+@keyframes ufo_beam_activation {
+    0%    { transform: translateY(0)     scale(1); opacity: 0; }
+    50%   { transform: translateY(0)     scale(1); opacity: 0; }
+    50.1% { transform: translateY(0)     scale(1); opacity: 1; }
+    61%   { transform: translateY(154px) scale(3); opacity: 1; }
+    62%   { transform: translateY(154px) scale(3); opacity: 0; }
+    100%  { transform: translateY(154px) scale(3); opacity: 0; }
+}
+
+@keyframes bubble_up {
+    0% { opacity: 1; transform: translate(0, 0); }
+    50% { opacity: 1; }
+    100% { opacity: 0.1; transform: translate(20px, -306px); }
+}
+
+@keyframes sleep_z_up {
+    0% { opacity: 1; transform: translate(0, 0) scale(0.1); }
+    50% { opacity: 1; }
+    100% { opacity: 0.1; transform: translate(-100px, -230px) scale(1); }
+}
+
+@keyframes tail_fin_paddle {
+    0% { transform: translateZ(-100px) rotateY(50deg); }
+    50% { transform: translateZ(-100px) rotateY(0deg); }
+    100% { transform: translateZ(-100px) rotateY(50deg); }
+}
+
+@keyframes side_fin_paddle {
+    0% { transform: rotate(0deg); }
+    45% { transform: rotate(0deg); }
+    47% { transform: rotate(10deg); }
+    49% { transform: rotate(0deg); }
+    50% { transform: rotate(20deg); }
+    52% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes eye_close {
+    0%   { transform: translateY(-90px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes eye_open {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-90px); }
+}
+
+@keyframes eye_blink {
+    0%   { transform: translateY(-90px); }
+    96%  { transform: translateY(-90px); }
+    97%  { transform: translateY(0); }
+    98%  { transform: translateY(-90px); }
+    99%  { transform: translateY(0); }
+    100% { transform: translateY(-90px); }
+}
+
+@keyframes glint {
+    0% { opacity: 0; transform: scale(0.2); }
+    30% { opacity: 1; transform: scale(1); }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
