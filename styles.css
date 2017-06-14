@@ -21,6 +21,7 @@
     --jellyfish-main-colour: rgba(45, 213, 255, 0.8);
     --jellyfish-shade-colour: rgba(36, 157, 190, 0.8);
     --ufo-beam-gap: -25px;
+    --animation_duration_factor: 1;
 }
 
 html {
@@ -487,6 +488,14 @@ a {
     cursor: pointer;
 }
 
+.tf-outline-button--speed-control {
+    margin: 0;
+}
+
+.tf-outline-button--speed-control + .tf-outline-button--speed-control {
+    border-left: none;
+}
+
 #info-checkbox:checked ~ .tf-info-outer-container > .tf-outline-button {
     display: none;
     opacity: 0;
@@ -765,7 +774,12 @@ a {
 #options-page-1:checked ~ .tf-options-outer-container label[for="options-page-1"],
 #options-page-2:checked ~ .tf-options-outer-container label[for="options-page-2"],
 #options-page-3:checked ~ .tf-options-outer-container label[for="options-page-3"],
-#options-page-4:checked ~ .tf-options-outer-container label[for="options-page-4"] {
+#options-page-4:checked ~ .tf-options-outer-container label[for="options-page-4"],
+#speed-checkbox-0-25:checked ~ .tf-scene label[for="speed-checkbox-0-25"],
+#speed-checkbox-0-5:checked ~  .tf-scene label[for="speed-checkbox-0-5"],
+#speed-checkbox-1:checked ~    .tf-scene label[for="speed-checkbox-1"],
+#speed-checkbox-2:checked ~    .tf-scene label[for="speed-checkbox-2"],
+#speed-checkbox-4:checked ~    .tf-scene label[for="speed-checkbox-4"] {
     color: #000;
     background: #FFF;
 }
@@ -775,6 +789,22 @@ a {
 #options-page-3:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-3,
 #options-page-4:not(:checked) ~ .tf-options-outer-container .tf-options-container--page-4 {
     display: none;
+}
+
+#speed-checkbox-0-25:checked ~ div div {
+    --animation_duration_factor: 4;
+}
+#speed-checkbox-0-5:checked ~ div div {
+    --animation_duration_factor: 2;
+}
+#speed-checkbox-1:checked ~ div div {
+    --animation_duration_factor: 1;
+}
+#speed-checkbox-2:checked ~ div div {
+    --animation_duration_factor: 0.5;
+}
+#speed-checkbox-4:checked ~ div div {
+    --animation_duration_factor: 0.25;
 }
 
 #tf-toggle-checkbox:not(:checked) ~ div .tf-toggle-base,
@@ -968,14 +998,14 @@ a {
     background: linear-gradient(to bottom, #f2f9fe 5%, #d6f0fd 100%);
     border-radius: 20px;
     transform: scale(1.5);
-    animation: cloud_large 25s linear infinite;
+    animation: cloud_large calc(var(--animation_duration_factor) * 25s) linear infinite;
 }
 
 .tf-cloud--small {
     top: 80px;
     transform: scale(1);
-    animation: cloud_small 25s linear infinite;
-    animation-delay: -1.5s;
+    animation: cloud_small calc(var(--animation_duration_factor) * 25s) linear infinite;
+    animation-delay: calc(var(--animation_duration_factor) * -1.5s);
 }
 
 .tf-cloud:before,
@@ -1126,7 +1156,7 @@ a {
     height: 50px;
     width: 100%;
     display: flex;
-    animation: waves_and_sea_move 5s ease-in-out;
+    animation: waves_and_sea_move calc(var(--animation_duration_factor) * 5s) ease-in-out;
     animation-iteration-count: infinite;
 }
 
@@ -1137,7 +1167,7 @@ a {
     border-radius: 0 0 100px 100px;
     border-bottom: 2px solid rgba(123, 255, 224, 0.55);
     box-shadow: 0 20px 20px 0 var(--sea-top-colour);
-    animation: wave_move 10s ease-in-out;
+    animation: wave_move calc(var(--animation_duration_factor) * 10s) ease-in-out;
     animation-iteration-count: infinite;
 }
 
@@ -1157,7 +1187,7 @@ a {
 }
 
 .tf-waves--2 .tf-wave {
-    animation-delay: 5s;
+    animation-delay: calc(var(--animation_duration_factor) * 5s);
 }
 
 .tf-waves--3 .tf-wave {
@@ -1172,15 +1202,15 @@ a {
     height: 100px;
     transform: translateX(-300px);
 
-    animation: surf_wave_container_move 40s infinite linear;
-    animation-delay: 60s;
+    animation: surf_wave_container_move calc(var(--animation_duration_factor) * 40s) infinite linear;
+    animation-delay: calc(var(--animation_duration_factor) * 60s);
 }
 
 .tf-surf-wave {
     position: absolute;
     transform: rotateZ(20deg);
 
-    animation: surf_wave_move 7s infinite ease-in-out;
+    animation: surf_wave_move calc(var(--animation_duration_factor) * 7s) infinite ease-in-out;
 }
 
 .tf-surf-wave--1 {
@@ -1190,27 +1220,27 @@ a {
 
 .tf-surf-wave--2 {
     left: 40px;
-    animation-delay: 1s;
+    animation-delay: calc(var(--animation_duration_factor) * 1s);
 }
 
 .tf-surf-wave--3 {
     left: 30px;
-    animation-delay: 2s;
+    animation-delay: calc(var(--animation_duration_factor) * 2s);
 }
 
 .tf-surf-wave--4 {
     left: 20px;
-    animation-delay: 3s;
+    animation-delay: calc(var(--animation_duration_factor) * 3s);
 }
 
 .tf-surf-wave--5 {
     left: 10px;
-    animation-delay: 4s;
+    animation-delay: calc(var(--animation_duration_factor) * 4s);
 }
 
 .tf-surf-wave--6 {
     left: 0;
-    animation-delay: 5s;
+    animation-delay: calc(var(--animation_duration_factor) * 5s);
 }
 
 .tf-surf-wave-top {
@@ -1318,14 +1348,14 @@ a {
     height: 100px;
     transform: translateX(-300px);
 
-    animation: surfer_container_move 40s infinite linear;
-    animation-delay: 60s;
+    animation: surfer_container_move calc(var(--animation_duration_factor) * 40s) infinite linear;
+    animation-delay: calc(var(--animation_duration_factor) * 60s);
 }
 
 .tf-surfer {
     position: absolute;
 
-    animation: surfer_move 2s infinite ease-in-out;
+    animation: surfer_move calc(var(--animation_duration_factor) * 2s) infinite ease-in-out;
 }
 
 .tf-surfboard {
@@ -1337,7 +1367,7 @@ a {
     box-shadow: inset 1px -1px 8px 7px #c9c900;
     overflow: hidden;
 
-    animation: surfboard_move 4s infinite ease-in-out;
+    animation: surfboard_move calc(var(--animation_duration_factor) * 4s) infinite ease-in-out;
 }
 
 .tf-surfboard:before {
@@ -1582,7 +1612,7 @@ a {
     width: 100%;
     background: rgba(91, 136, 240, 0.5);
     box-shadow: 0 0 100px 100px rgba(91, 136, 240, 0.5);
-    animation: sea_current_move 3s linear;
+    animation: sea_current_move calc(var(--animation_duration_factor) * 3s) linear;
     animation-iteration-count: infinite;
 }
 
@@ -1591,11 +1621,11 @@ a {
 }
 
 .tf-sea-current--2 {
-    animation-delay: 1s;
+    animation-delay: calc(var(--animation_duration_factor) * 1s);
 }
 
 .tf-sea-current--3 {
-    animation-delay: 2s;
+    animation-delay: calc(var(--animation_duration_factor) * 2s);
 }
 
 .tf-ufo-outer-container {
@@ -1616,7 +1646,7 @@ a {
     justify-content: center;
     align-items: center;
 
-    animation: ufo_outer_container_hover 1s infinite ease-in-out;
+    animation: ufo_outer_container_hover calc(var(--animation_duration_factor) * 1s) infinite ease-in-out;
 }
 
 .tf-ufo {
@@ -1627,7 +1657,7 @@ a {
     justify-content: flex-start;
     align-items: center;
 
-    animation: ufo_container_move 40s infinite ease-in-out;
+    animation: ufo_container_move calc(var(--animation_duration_factor) * 40s) infinite ease-in-out;
 }
 
 .tf-ufo-base {
@@ -1785,7 +1815,7 @@ a {
     border-radius: 50%;
     box-shadow: 0 0 20px 0 rgba(28, 255, 172, 0.5);
 
-    animation: ufo_beam_activation 40s infinite linear;
+    animation: ufo_beam_activation calc(var(--animation_duration_factor) * 40s) infinite linear;
 }
 
 .tf-ufo-beam--1 {
@@ -1795,98 +1825,98 @@ a {
 
 .tf-ufo-beam--2 {
     top: calc(1 * var(--ufo-beam-gap));
-    animation-delay: 0.5s;
+    animation-delay: calc(var(--animation_duration_factor) * 0.5s);
 }
 
 .tf-ufo-beam--3 {
     top: calc(2 * var(--ufo-beam-gap));
-    animation-delay: 1s;
+    animation-delay: calc(var(--animation_duration_factor) * 1s);
 }
 
 .tf-ufo-beam--4 {
     top: calc(3 * var(--ufo-beam-gap));
-    animation-delay: 1.5s;
+    animation-delay: calc(var(--animation_duration_factor) * 1.5s);
 }
 
 .tf-ufo-beam--5 {
     top: calc(4 * var(--ufo-beam-gap));
-    animation-delay: 2s;
+    animation-delay: calc(var(--animation_duration_factor) * 2s);
 }
 
 .tf-ufo-beam--6 {
     top: calc(5 * var(--ufo-beam-gap));
-    animation-delay: 2.5s;
+    animation-delay: calc(var(--animation_duration_factor) * 2.5s);
 }
 
 .tf-ufo-beam--7 {
     top: calc(6 * var(--ufo-beam-gap));
-    animation-delay: 3s;
+    animation-delay: calc(var(--animation_duration_factor) * 3s);
 }
 
 .tf-ufo-beam--8 {
     top: calc(7 * var(--ufo-beam-gap));
-    animation-delay: 3.5s;
+    animation-delay: calc(var(--animation_duration_factor) * 3.5s);
 }
 
 .tf-ufo-beam--9 {
     top: calc(8 * var(--ufo-beam-gap));
-    animation-delay: 4s;
+    animation-delay: calc(var(--animation_duration_factor) * 4s);
 }
 
 .tf-ufo-beam--10 {
     top: calc(9 * var(--ufo-beam-gap));
-    animation-delay: 4.5s;
+    animation-delay: calc(var(--animation_duration_factor) * 4.5s);
 }
 
 .tf-ufo-beam--11 {
     top: calc(10 * var(--ufo-beam-gap));
-    animation-delay: 5s;
+    animation-delay: calc(var(--animation_duration_factor) * 5s);
 }
 
 .tf-ufo-beam--12 {
     top: calc(11 * var(--ufo-beam-gap));
-    animation-delay: 5.5s;
+    animation-delay: calc(var(--animation_duration_factor) * 5.5s);
 }
 
 
 .tf-ufo-beam--13 {
     top: calc(12 * var(--ufo-beam-gap));
-    animation-delay: 6s;
+    animation-delay: calc(var(--animation_duration_factor) * 6s);
 }
 
 .tf-ufo-beam--14 {
     top: calc(13 * var(--ufo-beam-gap));
-    animation-delay: 6.5s;
+    animation-delay: calc(var(--animation_duration_factor) * 6.5s);
 }
 
 .tf-ufo-beam--15 {
     top: calc(14 * var(--ufo-beam-gap));
-    animation-delay: 7s;
+    animation-delay: calc(var(--animation_duration_factor) * 7s);
 }
 
 .tf-ufo-beam--16 {
     top: calc(15 * var(--ufo-beam-gap));
-    animation-delay: 7.5s;
+    animation-delay: calc(var(--animation_duration_factor) * 7.5s);
 }
 
 .tf-ufo-beam--17 {
     top: calc(16 * var(--ufo-beam-gap));
-    animation-delay: 8s;
+    animation-delay: calc(var(--animation_duration_factor) * 8s);
 }
 
 .tf-ufo-beam--18 {
     top: calc(17 * var(--ufo-beam-gap));
-    animation-delay: 8.5s;
+    animation-delay: calc(var(--animation_duration_factor) * 8.5s);
 }
 
 .tf-ufo-beam--19 {
     top: calc(18 * var(--ufo-beam-gap));
-    animation-delay: 9s;
+    animation-delay: calc(var(--animation_duration_factor) * 9s);
 }
 
 .tf-ufo-beam--20 {
     top: calc(19 * var(--ufo-beam-gap));
-    animation-delay: 9.5s;
+    animation-delay: calc(var(--animation_duration_factor) * 9.5s);
 }
 
 .tf-crab-outer-container {
@@ -1905,8 +1935,8 @@ a {
     height: 120px;
     transform: translateX(30px) rotateZ(-70deg);
 
-    animation: crab_peek 40s infinite ease-in-out;
-    animation-delay: 20s;
+    animation: crab_peek calc(var(--animation_duration_factor) * 40s) infinite ease-in-out;
+    animation-delay: calc(var(--animation_duration_factor) * 20s);
 }
 
 .tf-crab-body {
@@ -2044,8 +2074,8 @@ a {
     transform: rotateZ(190deg);
     transform-origin: left;
 
-    animation: crab_wave 40s infinite ease-in-out;
-    animation-delay: 20s;
+    animation: crab_wave calc(var(--animation_duration_factor) * 40s) infinite ease-in-out;
+    animation-delay: calc(var(--animation_duration_factor) * 20s);
 }
 
 .tf-crab-claw-container--right {
@@ -2089,7 +2119,7 @@ a {
     bottom: 0;
     width: 100%;
     height: 300px;
-    animation: tiny_fish_container_move 30s linear;
+    animation: tiny_fish_container_move calc(var(--animation_duration_factor) * 30s) linear;
     animation-iteration-count: infinite;
 }
 
@@ -2100,7 +2130,7 @@ a {
     background: var(--tiny-fish-colour);
     box-shadow: inset 0 3px 3px 3px #69a0dd;
     border-radius: 100%;
-    animation: tiny_fish_swim 30s ease-in-out;
+    animation: tiny_fish_swim calc(var(--animation_duration_factor) * 30s) ease-in-out;
     animation-iteration-count: infinite;
 }
 
@@ -2115,7 +2145,7 @@ a {
     box-shadow: inset 0 1px 1px 1px #69a0dd;
     border-radius: 50% 0 0 50%;
     transform-origin: left;
-    animation: tail_fin_paddle 2s ease-out;
+    animation: tail_fin_paddle calc(var(--animation_duration_factor) * 2s) ease-out;
     animation-iteration-count: infinite;
 }
 
@@ -2134,7 +2164,7 @@ a {
 .tf-tiny-fish--1 {
     left: -100px;
     top: 180px;
-    animation-delay: 1s;
+    animation-delay: calc(var(--animation_duration_factor) * 1s);
 }
 
 .tf-tiny-fish--2 {
@@ -2563,7 +2593,7 @@ a {
                 165px -10px #006400;
     transform: rotate(-10deg) skewX(-15deg) skewY(5deg);
     transform-origin: 45px 200px;
-    animation: seaweed_sway 10s ease-in-out;
+    animation: seaweed_sway calc(var(--animation_duration_factor) * 10s) ease-in-out;
     animation-iteration-count: infinite;
 }
 
@@ -2573,13 +2603,13 @@ a {
 }
 
 .tf-seaweed--2 {
-    animation-delay: 3s;
+    animation-delay: calc(var(--animation_duration_factor) * 3s);
     top: 30px;
     opacity: 0.8;
 }
 
 .tf-seaweed--3 {
-    animation-delay: 6s;
+    animation-delay: calc(var(--animation_duration_factor) * 6s);
     top: 60px;
     opacity: 0.9;
 }
@@ -2612,7 +2642,7 @@ a {
 }
 
 .tf-fish--1 {
-    animation: fish_swim_right 40s linear;
+    animation: fish_swim_right calc(var(--animation_duration_factor) * 40s) linear;
     animation-iteration-count: infinite;
 }
 
@@ -2640,7 +2670,7 @@ a {
 }
 
 .tf-fish--2 {
-    animation: fish_shrink 40s linear;
+    animation: fish_shrink calc(var(--animation_duration_factor) * 40s) linear;
     animation-iteration-count: infinite;
 }
 
@@ -2648,20 +2678,20 @@ a {
     position: absolute;
     height: 485px;
     width: 485px;
-    animation: fish_spin 20s ease-out;
+    animation: fish_spin calc(var(--animation_duration_factor) * 20s) ease-out;
     animation-iteration-count: infinite;
 }
 
 .tf-fish-back {
     position: absolute;
     z-index: -1;
-    animation: fish_float 10s ease-out;
+    animation: fish_float calc(var(--animation_duration_factor) * 10s) ease-out;
     animation-iteration-count: infinite;
 }
 
 .tf-fish-front {
     position: absolute;
-    animation: fish_float 10s ease-out;
+    animation: fish_float calc(var(--animation_duration_factor) * 10s) ease-out;
     animation-iteration-count: infinite;
 }
 
@@ -2670,7 +2700,7 @@ a {
     height: 110px;
     width: 40px;
     transform-origin: right;
-    animation: tail_fin_paddle 2s ease-out;
+    animation: tail_fin_paddle calc(var(--animation_duration_factor) * 2s) ease-out;
     animation-iteration-count: infinite;
 }
 
@@ -2710,7 +2740,7 @@ a {
     top: 90px;
     transition: all 300ms;
 
-    animation: fish_breathe 10s ease-out;
+    animation: fish_breathe calc(var(--animation_duration_factor) * 10s) ease-out;
     animation-iteration-count: infinite;
 }
 
@@ -2732,7 +2762,7 @@ a {
     top: 140px;
     transition: all 300ms;
 
-    animation: fish_breathe 10s ease-out;
+    animation: fish_breathe calc(var(--animation_duration_factor) * 10s) ease-out;
     animation-iteration-count: infinite;
 }
 
@@ -2942,7 +2972,7 @@ a {
     height: 110px;
     width: 40px;
     transform-origin: top right;
-    animation: side_fin_paddle 10s ease-out;
+    animation: side_fin_paddle calc(var(--animation_duration_factor) * 10s) ease-out;
     animation-iteration-count: infinite;
 }
 
@@ -3061,14 +3091,14 @@ a {
 
 .tf-bubble--1 {
     left: 500px;
-    animation: bubble_up 10s ease-out;
+    animation: bubble_up calc(var(--animation_duration_factor) * 10s) ease-out;
     animation-iteration-count: infinite;
 }
 
 .tf-bubble--2 {
     left: 520px;
-    animation: bubble_up 10s ease-out;
-    animation-delay: 2s;
+    animation: bubble_up calc(var(--animation_duration_factor) * 10s) ease-out;
+    animation-delay: calc(var(--animation_duration_factor) * 2s);
     animation-iteration-count: infinite;
 }
 
@@ -3076,27 +3106,27 @@ a {
     left: 510px;
     height: 20px;
     width: 20px;
-    animation: bubble_up 10s ease-out;
-    animation-delay: 3s;
+    animation: bubble_up calc(var(--animation_duration_factor) * 10s) ease-out;
+    animation-delay: calc(var(--animation_duration_factor) * 3s);
     animation-iteration-count: infinite;
 }
 
 .tf-sleep-z--1 {
-    animation: sleep_z_up 9s linear;
+    animation: sleep_z_up calc(var(--animation_duration_factor) * 9s) linear;
     animation-iteration-count: infinite;
     animation-delay: 0s;
 }
 
 .tf-sleep-z--2 {
-    animation: sleep_z_up 9s linear;
+    animation: sleep_z_up calc(var(--animation_duration_factor) * 9s) linear;
     animation-iteration-count: infinite;
-    animation-delay: 3s;
+    animation-delay: calc(var(--animation_duration_factor) * 3s);
 }
 
 .tf-sleep-z--3 {
-    animation: sleep_z_up 9s linear;
+    animation: sleep_z_up calc(var(--animation_duration_factor) * 9s) linear;
     animation-iteration-count: infinite;
-    animation-delay: 6s;
+    animation-delay: calc(var(--animation_duration_factor) * 6s);
 }
 
 .tf-sleep-z {
@@ -3133,7 +3163,7 @@ a {
 .tf-letters-container {
     position: absolute;
     bottom: 0;
-    height: 240px;
+    height: 330px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -3152,7 +3182,7 @@ a {
     position: relative;
     height: 90px;
     width: 50px;
-    animation: letters_float 10s linear;
+    animation: letters_float calc(var(--animation_duration_factor) * 10s) linear;
     animation-iteration-count: infinite;
 }
 
@@ -3161,39 +3191,39 @@ a {
 }
 
 .tf-letter--2 {
-    animation-delay: 1s;
+    animation-delay: calc(var(--animation_duration_factor) * 1s);
 }
 
 .tf-letter--3 {
-    animation-delay: 2s;
+    animation-delay: calc(var(--animation_duration_factor) * 2s);
 }
 
 .tf-letter--4 {
-    animation-delay: 3s;
+    animation-delay: calc(var(--animation_duration_factor) * 3s);
 }
 
 .tf-letter--5 {
-    animation-delay: 4s;
+    animation-delay: calc(var(--animation_duration_factor) * 4s);
 }
 
 .tf-letter--6 {
-    animation-delay: 5s;
+    animation-delay: calc(var(--animation_duration_factor) * 5s);
 }
 
 .tf-letter--7 {
-    animation-delay: 6s;
+    animation-delay: calc(var(--animation_duration_factor) * 6s);
 }
 
 .tf-letter--8 {
-    animation-delay: 7s;
+    animation-delay: calc(var(--animation_duration_factor) * 7s);
 }
 
 .tf-letter--9 {
-    animation-delay: 8s;
+    animation-delay: calc(var(--animation_duration_factor) * 8s);
 }
 
 .tf-letter--10 {
-    animation-delay: 9s;
+    animation-delay: calc(var(--animation_duration_factor) * 9s);
 }
 
 .tf-letter-t {
@@ -3520,6 +3550,38 @@ a {
     background-color: var(--letters-main-colour);
 }
 
+.tf-speed-controls-container {
+    position: absolute;
+    bottom: 0;
+    height: 130px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.tf-speed-controls {
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tf-speed-controls-heading {
+    position: relative;
+    top: 10px;
+    min-width: 600px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 36px;
+}
+
+/* Hide speed controls on iPhone / mobile webkit */
+@media screen and (max-device-width: 480px) {
+    .tf-speed-controls-container {
+        display: none;
+    }
+}
+
 .tf-fish-checkbox {
     opacity: 0;
     position: fixed;
@@ -3534,7 +3596,7 @@ a {
     cursor: pointer;
 }
 
-.tf-fish-checkbox:checked ~ div .tf-background {
+.tf-fish-checkbox:checked ~ div div {
     --sky-top-colour: #17A9D0;
     --sky-bottom-colour: #19CAF5;
     --orb-main-colour: #FFF452;
@@ -3569,15 +3631,15 @@ a {
 .tf-fish-checkbox:checked ~ div .tf-foreground .tf-eyelid {
     opacity: 1;
     transform: translateY(0);
-    animation: eye_open 1s ease-in-out,
-               eye_blink 10s ease-out infinite;
-    animation-delay: 300ms, 1.3s;
+    animation: eye_open calc(var(--animation_duration_factor) * 1s) ease-in-out,
+               eye_blink calc(var(--animation_duration_factor) * 10s) ease-out infinite;
+    animation-delay: calc(var(--animation_duration_factor) * 300ms), calc(var(--animation_duration_factor) * 1.3s);
     animation-fill-mode: forwards;
 }
 .tf-fish-checkbox:not(:checked) ~ div .tf-foreground .tf-eyelid {
     transform: translateY(-90px);
-    animation: eye_close 1s ease-in-out;
-    animation-delay: 300ms;
+    animation: eye_close calc(var(--animation_duration_factor) * 1s) ease-in-out;
+    animation-delay: calc(var(--animation_duration_factor) * 300ms);
     animation-fill-mode: forwards;
 }
 
@@ -3586,8 +3648,8 @@ a {
 }
 
 .tf-fish-checkbox:checked ~ div .tf-foreground .tf-glint-cross {
-    animation: glint 1s ease-out;
-    animation-delay: 1s;
+    animation: glint calc(var(--animation_duration_factor) * 1s) ease-out;
+    animation-delay: calc(var(--animation_duration_factor) * 1s);
 }
 
 .tf-fish-checkbox:checked ~ div .tf-foreground .tf-toggle-shaft {
