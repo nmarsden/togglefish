@@ -619,10 +619,9 @@ a {
 .tf-time-machine-heading {
     margin-bottom: 40px;
     font-size: 70px;
-    font-weight: 900;
     line-height: 70px;
     color: #FFF;
-    text-shadow: 0 20px 10px #333;
+    text-shadow: 1px 1px 5px black;
 }
 
 .tf-time-machine-gif {
