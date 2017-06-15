@@ -46,8 +46,10 @@ git rev-list --reverse master | while read rev; do
 
         # Take screenshot
         node chrome-headless-screenshots/index.js --viewportWidth=2000 --viewportHeight=1280 --format=jpeg --url="http://localhost:8001/archive/data/${padded_num}/index.html"
+        convert output.jpg -resize 400x256 output2.jpg
         convert output.jpg -resize 200x128 output.jpg
         mv output.jpg archive/data/${padded_num}/screenshot.jpg
+        mv output2.jpg archive/data/${padded_num}/screenshot_x2.jpg
 
         # Close chrome
         kill -9 ${chrome_pid}
@@ -58,3 +60,10 @@ done
 
 # Stop HTTP server
 kill -9 ${http_server_pid}
+
+# -- Create animated GIFs from all the archive screenshots
+echo Creating togglefish_evolution.gif
+convert -delay 10 -loop 0 archive/data/**/screenshot.jpg archive/togglefish_evolution.gif
+
+echo Creating togglefish_evolution_x2.gif
+convert -layers optimize -delay 10 -loop 0 archive/data/**/screenshot_x2.jpg archive/togglefish_evolution_x2.gif
