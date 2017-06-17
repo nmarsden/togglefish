@@ -260,29 +260,13 @@ a {
 
 .tf-info-description {
     max-width: 450px;
-    font-size: 28px;
+    font-size: 1.8em;
     color: #FFF;
     margin: 15px;
     text-align: center;
 }
 
 .tf-info-description--heading {
-    color: #133260;
-}
-
-.tf-info-description--exception {
-    position: absolute;
-    bottom: 0;
-
-    font-size: 14px;
-    color: #133260;
-}
-
-.tf-info-exception-marker {
-    position: relative;
-    top: -7px;
-
-    font-size: 18px;
     color: #133260;
 }
 
@@ -603,12 +587,10 @@ a {
     display: block;
     position: absolute;
     top: 32px;
-    left: 40px;
+    left: 42px;
     width: 3px;
     height: 14px;
     background: #FFF;
-    border-radius: 10px;
-
     transform-origin: top;
     transform: rotateZ(-45deg);
 }
@@ -632,152 +614,6 @@ a {
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, 0.2);
-}
-
-.tf-time-machine-clock-cog-container-1 {
-    position: absolute;
-    left: -30px;
-    top: -30px;
-}
-
-.tf-time-machine-clock-cog-container-2 {
-    position: absolute;
-    left: 90px;
-    transform: scale(0.7);
-}
-
-.tf-time-machine-clock-cog-container-2 > .tf-time-machine-clock-cog {
-    animation-direction: reverse;
-    background: radial-gradient(at center, transparent 0%, transparent 20%, #FF9C4C 20%, #FF9C4C 100%);
-}
-.tf-time-machine-clock-cog-container-2 > .tf-time-machine-clock-cog:after {
-    animation-direction: normal;
-}
-
-.tf-time-machine-clock-cog {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: radial-gradient(at center, transparent 0%, transparent 20%, #FFE68B 20%, #FFE68B 100%);
-    border-radius: 50%;
-    animation: clock_cog_move 2s infinite linear;
-}
-
-.tf-time-machine-clock-cog:after {
-    content: '';
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    box-shadow: inset 2px 2px 5px 1px #333;
-    animation: clock_cog_move 2s infinite linear;
-    animation-direction: reverse;
-}
-
-.tf-time-machine-clock-cog--shadow {
-    top: 10px;
-    background: radial-gradient(at center, transparent 0%, transparent 20%, #333333 20%, #333333 100%) !important;
-}
-
-.tf-time-machine-clock-cog-tooth {
-    position: absolute;
-    top: 65px;
-    left: 35px;
-    width: 30px;
-    height: 50px;
-    background: inherit;
-    border-radius: 20%;
-    transform-origin: 50% -15px;
-}
-
-.tf-time-machine-clock-cog-tooth--2 {
-    transform: rotateZ(45deg);
-}
-
-.tf-time-machine-clock-cog-tooth--3 {
-    transform: rotateZ(90deg);
-}
-
-.tf-time-machine-clock-cog-tooth--4 {
-    transform: rotateZ(135deg);
-}
-
-.tf-time-machine-clock-cog-tooth--5 {
-    transform: rotateZ(180deg);
-}
-
-.tf-time-machine-clock-cog-tooth--6 {
-    transform: rotateZ(225deg);
-}
-
-.tf-time-machine-clock-cog-tooth--7 {
-    transform: rotateZ(270deg);
-}
-
-.tf-time-machine-clock-cog-tooth--8 {
-    transform: rotateZ(315deg);
-}
-
-.tf-time-machine-clock-container {
-    position: relative;
-    min-width: 100px;
-    min-height: 100px;
-    margin-bottom: 10px;
-}
-
-.tf-time-machine-clock {
-    position: relative;
-    min-width: 100px;
-    min-height: 100px;
-    background: #333;
-    border-radius: 50%;
-    border: 10px solid #FFF;
-    box-shadow: 0 20px 10px 0 rgba(51, 51, 51, 0.8);
-}
-
-.tf-time-machine-clock-hand {
-    position: absolute;
-    top: 45px;
-    left: 45px;
-    width: 10px;
-    height: 45px;
-    border-radius: 10px;
-
-    transform-origin: 50% 5px;
-    transform: rotateZ(180deg);
-    animation: clock_hand_move 8s infinite linear;
-}
-
-.tf-time-machine-clock-hand--1 {
-    background: #FFF;
-    box-shadow: 0 0 10px 0 #FFF;
-}
-
-.tf-time-machine-clock-hand--2 {
-    background: #9b9b9b;
-    animation-delay: 0.3s;
-}
-
-.tf-time-machine-clock-hand--3 {
-    background: #878787;
-    animation-delay: 0.6s;
-}
-
-.tf-time-machine-clock-hand--4 {
-    background: #737373;
-    animation-delay: 0.9s;
-}
-
-.tf-time-machine-clock-hand--5 {
-    background: #5f5f5f;
-    animation-delay: 1.2s;
-}
-
-.tf-time-machine-clock-hand--6 {
-    background: #4b4b4b;
-    animation-delay: 1.5s;
 }
 
 .tf-time-machine-heading {
@@ -4200,14 +4036,4 @@ a {
     30% { opacity: 1; transform: scale(1); }
     80% { opacity: 1; }
     100% { opacity: 0; }
-}
-
-@keyframes clock_cog_move {
-    0%   { transform: rotateZ(0); }
-    100% { transform: rotateZ(45deg); }
-}
-
-@keyframes clock_hand_move {
-    0%   { transform: rotateZ(180deg); }
-    100% { transform: rotateZ(540deg); }
 }
